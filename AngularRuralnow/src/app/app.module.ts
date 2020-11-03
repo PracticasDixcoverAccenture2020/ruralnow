@@ -12,7 +12,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import { BuscadorComponent } from './buscador/buscador.component';
 import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
-import { SearchComponent } from './search/search.component';
+import { ListadoComponent } from './listado/listado.component';
 
 
 @NgModule({
@@ -22,7 +22,7 @@ import { SearchComponent } from './search/search.component';
     ToolbarComponent,
     BuscadorComponent,
     FooterComponent,
-    SearchComponent
+    ListadoComponent
   ],
   imports: [
     BrowserModule,
