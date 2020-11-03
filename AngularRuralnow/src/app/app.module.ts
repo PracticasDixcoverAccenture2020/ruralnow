@@ -11,6 +11,7 @@ import 'hammerjs';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { BuscadorComponent } from './buscador/buscador.component';
 import { FormsModule } from '@angular/forms';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     LandingPageComponent,
     ToolbarComponent,
-    BuscadorComponent
+    BuscadorComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
