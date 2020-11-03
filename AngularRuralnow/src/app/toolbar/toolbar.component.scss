@@ -8,4 +8,11 @@
 
 .mat-toolbar.mat-primary {
     background: #31897d;
-  }
+}
+
+.mat-toolbar img {
+    margin-left: -10px;
+    filter: brightness(0) invert(1);
+    height: 60px;
+    width: 60px;
+}
