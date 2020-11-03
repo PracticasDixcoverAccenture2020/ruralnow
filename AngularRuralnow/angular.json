@@ -29,8 +29,7 @@
             ],
             "styles": [
               "src/styles.scss",
-              "src/theme.scss" 
-              
+              "src/theme.scss"
             ],
             "scripts": []
           },
@@ -95,7 +94,7 @@
             ],
             "styles": [
               "src/styles.scss",
-              "src/theme.scss"              
+              "src/theme.scss"
             ],
             "scripts": []
           }
@@ -126,6 +125,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "open-events-front"
+    }
+  },
+  "defaultProject": "open-events-front",
+  "cli": {
+    "analytics": false
+  }
 }
