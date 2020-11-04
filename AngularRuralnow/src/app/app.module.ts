@@ -7,13 +7,13 @@ import { LandingPageComponent } from './components/landing-page/landing-page.com
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { BuscadorComponent } from './components/buscador/buscador.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { ListadoComponent } from './components/listado/listado.component';
+import { PageNotFoundComponentComponent } from './page-not-found-component/page-not-found-component.component';
+
+
 
 //Modules
 import { SharedModule } from "./modules/shared/shared.module";
 import { AppRoutingModule } from "./app-routing.module";
-
-import { PageNotFoundComponentComponent } from './page-not-found-component/page-not-found-component.component';
 
 
 @NgModule({
@@ -23,8 +23,8 @@ import { PageNotFoundComponentComponent } from './page-not-found-component/page-
     ToolbarComponent,
     BuscadorComponent,
     FooterComponent,
-    ListadoComponent,
-    PageNotFoundComponentComponent
+    PageNotFoundComponentComponent,
+    
   ],
   imports: [
     SharedModule,
