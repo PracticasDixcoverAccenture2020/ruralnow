@@ -6,8 +6,6 @@ import { MatListModule } from "@angular/material/list";
 import {MatInputModule} from '@angular/material/input';
 import { MatButtonModule, MatToolbarModule, MatIconModule, MatCardModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
-
-
 import "hammerjs";
 
 @NgModule({
