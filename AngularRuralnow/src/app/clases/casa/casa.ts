@@ -9,5 +9,6 @@ export class Casa {
     aseos: number;
     precio_noche: number;
     propietario: number;
+    imagen: string;
 }
 

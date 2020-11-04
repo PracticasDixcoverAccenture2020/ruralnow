@@ -1,5 +1,7 @@
-import { NgModule } from '@angular/core';
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
 
+//Components
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
@@ -9,6 +11,9 @@ import { ListadoComponent } from './components/listado/listado.component';
 
 //Modules
 import { SharedModule } from "./modules/shared/shared.module";
+import { AppRoutingModule } from "./app-routing.module";
+
+import { PageNotFoundComponentComponent } from './page-not-found-component/page-not-found-component.component';
 
 
 @NgModule({
@@ -18,11 +23,13 @@ import { SharedModule } from "./modules/shared/shared.module";
     ToolbarComponent,
     BuscadorComponent,
     FooterComponent,
-    ListadoComponent
+    ListadoComponent,
+    PageNotFoundComponentComponent
   ],
   imports: [
-    SharedModule
-  
+    SharedModule,
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
