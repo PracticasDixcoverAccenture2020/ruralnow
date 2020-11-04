@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Casa } from '../clases/casa/casa';
+import { Casa } from 'src/app/clases/casa/Casa';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CasaServiceService } from '../services/FindCasa-service.service';
+import { CasaServiceService } from 'src/app/services/FindCasa-service.service';
 
 
 @Component({

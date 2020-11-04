@@ -1,18 +1,15 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { LandingPageComponent } from './landing-page/landing-page.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatListModule } from '@angular/material/list';
-import {MatInputModule} from '@angular/material/input';
-import { MatButtonModule, MatToolbarModule, MatIconModule, MatCardModule } from '@angular/material';
-import 'hammerjs';
-import { ToolbarComponent } from './toolbar/toolbar.component';
-import { BuscadorComponent } from './buscador/buscador.component';
-import { FormsModule } from '@angular/forms';
-import { FooterComponent } from './footer/footer.component';
-import { ListadoComponent } from './listado/listado.component';
+import { LandingPageComponent } from './components/landing-page/landing-page.component';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { BuscadorComponent } from './components/buscador/buscador.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { ListadoComponent } from './components/listado/listado.component';
+
+//Modules
+import { SharedModule } from "./modules/shared/shared.module";
+
 
 @NgModule({
   declarations: [
@@ -24,15 +21,8 @@ import { ListadoComponent } from './listado/listado.component';
     ListadoComponent
   ],
   imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatListModule,
-    MatIconModule,
-    MatCardModule,
-    MatInputModule,
-    FormsModule
+    SharedModule
+  
   ],
   providers: [],
   bootstrap: [AppComponent]
