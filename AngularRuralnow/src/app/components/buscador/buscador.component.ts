@@ -10,13 +10,16 @@ import { CasaServiceService } from 'src/app/services/FindCasa-service.service';
   styleUrls: ['./buscador.component.scss']
 })
 export class BuscadorComponent implements OnInit {
+  value = 'localizacion';
   
-  constructor() {}
+  constructor() {
+    
+   }
 
 
   onSubmit() {
   }
-
+ 
   ngOnInit(): void {
   }
 
