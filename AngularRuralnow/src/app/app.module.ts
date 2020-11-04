@@ -12,7 +12,12 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import { BuscadorComponent } from './buscador/buscador.component';
 import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
+<<<<<<< Updated upstream
 import { ListadoComponent } from './listado/listado.component';
+=======
+import { SearchComponent } from './search/search.component';
+import { CasaListaComponent } from './casa-lista/casa-lista.component';
+>>>>>>> Stashed changes
 
 
 @NgModule({
@@ -22,7 +27,12 @@ import { ListadoComponent } from './listado/listado.component';
     ToolbarComponent,
     BuscadorComponent,
     FooterComponent,
+<<<<<<< Updated upstream
     ListadoComponent
+=======
+    SearchComponent,
+    CasaListaComponent
+>>>>>>> Stashed changes
   ],
   imports: [
     BrowserModule,
