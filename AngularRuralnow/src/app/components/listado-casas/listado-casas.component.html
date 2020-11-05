@@ -1,18 +1,16 @@
 <div class="card my-5">
-    <div class="card-body">
-      <table class="table table-bordered table-striped">
-        <thead class="thead-dark">
-          <tr>
-            <th scope="col">Municipio</th>
-            <th scope="col">Nombre</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let user of houses">
-            <td>{{ casa.municipio }}</td>
-            <td>{{ casa.nombre }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Nombre</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let casa of listaDeCasas">
+          <td>{{casa.nombre}}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
+</div>
