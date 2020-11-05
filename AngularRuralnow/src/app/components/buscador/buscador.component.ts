@@ -10,17 +10,25 @@ import { CasaServiceService } from 'src/app/services/FindCasa-service.service';
   styleUrls: ['./buscador.component.scss']
 })
 export class BuscadorComponent implements OnInit {
-  value = 'localizacion';
   
-  constructor() {
+  constructor(private router: Router, private route: ActivatedRoute, private casaService: CasaServiceService) {
     
    }
 
 
   onSubmit() {
+
+
   }
  
   ngOnInit(): void {
+  }
+
+  gotoHouseList() {
+
+    window.alert("Click ^^");
+    this.router.navigate(['/houses']);
+
   }
 
 }
