@@ -10,7 +10,7 @@ import {ListadoCasasComponent} from "src/app/components/listado-casas/listado-ca
 
 const routes: Routes = [
   { path: "home", component: LandingPageComponent },
-  { path: "casas", component: ListadoCasasComponent },
+  { path: "houses", component: ListadoCasasComponent },
 
   
   { path: "", redirectTo: "/home", pathMatch: "full" },

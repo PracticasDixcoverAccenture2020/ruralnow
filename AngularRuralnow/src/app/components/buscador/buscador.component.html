@@ -1,7 +1,7 @@
-<mat-form-field class="example-form-field">
-    <mat-label>Localización</mat-label>
-    <input matInput type="text" [(ngModel)]="value">
-    <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Buscar" (click)="value=''">
-      <mat-icon>search</mat-icon>
+  <mat-form-field>
+    <mat-placeholder>Localización</mat-placeholder>
+      <input matInput type="search">
+      <button mat-button matSuffix mat-stroked-button aria-label="search">
+        <mat-icon>search</mat-icon>
     </button>
   </mat-form-field>
