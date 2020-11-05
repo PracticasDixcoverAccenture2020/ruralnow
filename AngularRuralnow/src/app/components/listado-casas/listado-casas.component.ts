@@ -6,6 +6,8 @@ import { CasaServiceService } from 'src/app/services/FindCasa-service.service';
 
 import { HttpClient } from "@angular/common/http";
 
+import {MatCardModule} from '@angular/material/card';
+
 @Component({
   selector: 'oevents-listado-casas',
   templateUrl: './listado-casas.component.html',
@@ -28,7 +30,7 @@ export class ListadoCasasComponent implements OnInit {
       this.casas = data;
     });*/
 
-    this.httpClient.get("assets/json/casas.json").subscribe(data => {
+    this.httpClient.get("assets/json/data.json").subscribe(data => {
       console.log(data);
 
       for(let key of Object.keys(data)){

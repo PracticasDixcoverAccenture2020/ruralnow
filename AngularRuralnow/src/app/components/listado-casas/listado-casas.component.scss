@@ -1,0 +1,11 @@
+.card-body {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.example-card {
+    max-width: 40vw;
+    flex-basis: 1;
+}
+
