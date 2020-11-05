@@ -28,8 +28,8 @@ public class CasaController {
 		return casaService.findAll();
 	}
 	
-	@RequestMapping(value = "/byProvincia/{id}", method = RequestMethod.GET)
-	public List<Casa> byProvincia(@PathVariable("id") Integer id) {
-		return casaService.byProvincia(id);
+	@RequestMapping(value = "/byProvincia/{provincia}", method = RequestMethod.GET)
+	public List<Casa> byProvincia(@PathVariable("provincia") String provincia) {
+		return casaService.byProvincia(provincia);
 	}
 }

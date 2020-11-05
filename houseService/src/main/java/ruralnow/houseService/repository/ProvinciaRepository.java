@@ -7,5 +7,7 @@ import ruralnow.houseService.entity.Provincia;
 
 @Repository
 public interface ProvinciaRepository extends JpaRepository<Provincia, Integer> {
+	
+	public Provincia findByProvincia(String provincia);
 
 }

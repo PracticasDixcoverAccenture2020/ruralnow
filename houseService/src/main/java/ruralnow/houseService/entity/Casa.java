@@ -84,10 +84,9 @@ public class Casa {
 	private int propietario;
 	
 	/*
-	 * Imágenes
+	 * Imagen
 	 */
-	@OneToMany(mappedBy="casa")
-	List <Imagen> imagenes;
+	private String imagen;
 	
 	
 	

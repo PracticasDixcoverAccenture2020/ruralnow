@@ -26,8 +26,8 @@ public class CasaServiceImpl implements CasaService {
 	 * que hay en una determinada provincia
 	 */
 	@Override
-	public List<Casa> byProvincia(int id) {
-		return casaRepo.findByMunicipio_id(id);
+	public List<Casa> byProvincia(String provincia) {
+		return casaRepo.findByProvincia(provincia);
 	}
 
 }
