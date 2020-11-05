@@ -1,9 +1,11 @@
 package ruralnow.houseService.entity;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -28,7 +30,6 @@ import lombok.NoArgsConstructor;
 public class Casa {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
 	/*
@@ -71,7 +72,8 @@ public class Casa {
 	/*
 	 * Servicios que ofrece la casa
 	 */
-	Set<String> servicios;
+	@ElementCollection(targetClass=String.class)
+	private Set<String> servicios;
 	
 	/*
 	 * Precio por noche

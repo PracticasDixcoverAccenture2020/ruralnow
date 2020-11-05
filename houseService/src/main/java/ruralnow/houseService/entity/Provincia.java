@@ -21,7 +21,6 @@ import lombok.NoArgsConstructor;
 public class Provincia {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idprovincia;
 	
 	/*

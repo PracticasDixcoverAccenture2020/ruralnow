@@ -27,6 +27,7 @@ public class CasaServiceImpl implements CasaService {
 	 */
 	@Override
 	public List<Casa> byProvincia(String provincia) {
+		
 		return casaRepo.findByProvincia(provincia);
 	}
 

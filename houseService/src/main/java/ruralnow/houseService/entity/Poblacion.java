@@ -25,7 +25,6 @@ import lombok.NoArgsConstructor;
 public class Poblacion {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idpoblacion;
 	
 	/*
@@ -63,6 +62,6 @@ public class Poblacion {
 	 /*
 	  * Casas
 	  */
-	 @OneToMany(mappedBy="poblacion")
-	 private List <Casa> casas;
+	 //@OneToMany(mappedBy="poblacion")
+	 //private List <Casa> casa;
 }
