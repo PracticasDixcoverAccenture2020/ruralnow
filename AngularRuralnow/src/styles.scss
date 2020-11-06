@@ -1,1 +1,21 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+html, body {
+    width: 100vw;
+    margin: 0 !important;
+    padding: 0;
+}
+
+oevents-root {
+    background-image: url(assets/img/fondo.jfif);
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.body > oevents-landing-page, .body > oevents-listado-casas {
+    flex: 1;
+}

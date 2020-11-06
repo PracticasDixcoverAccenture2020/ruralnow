@@ -1,18 +1,32 @@
-.example-icon {
-    padding: 0 14px;
-}
-
-.example-spacer {
-    flex: 1 1 auto;
+.header {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    height: auto !important;
 }
 
 .mat-toolbar.mat-primary {
     background: #31897d;
 }
 
+.mat-toolbar a {
+    font-size: 2.5vw;
+}
+
 .mat-toolbar img {
-    margin-left: -10px;
     filter: brightness(0) invert(1);
-    height: 60px;
-    width: 60px;
+    width: 10vw;
+}
+
+.relleno {
+    flex-grow: 1;
+}
+
+.session {
+    align-self: center;
+    flex-grow: 0.2;
+}
+
+.mat-icon {
+    font-size: 60px !important;
 }

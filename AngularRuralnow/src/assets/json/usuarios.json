@@ -1,0 +1,29 @@
+[
+    {
+        "id": "2",
+        "nombre": "Javier",
+        "apellidos": "Molina Maqueda",
+        "fecha_nac": "1995-02-28",
+        "password": "javiermolina",
+        "email": "m.maqueda.javier@accenture.com",
+        "telefono": "000000000"
+    },
+    {
+        "id": "3",
+        "nombre": "Sara",
+        "apellidos": "Pedrosa Ruiz",
+        "fecha_nac": "0000-00-00",
+        "password": "sarapedrosa",
+        "email": "sara.pedros.ruiz@accenture.com",
+        "telefono": "000000000"
+    },
+    {
+        "id": "4",
+        "nombre": "José Marcos",
+        "apellidos": "Gómez Hidalgo",
+        "fecha_nac": "1998-09-18",
+        "password": "marcosgomez",
+        "email": "jose.m.gomez.hidalgo@accenture.com",
+        "telefono": "616131105"
+    }
+]

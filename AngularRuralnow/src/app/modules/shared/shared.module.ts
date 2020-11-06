@@ -1,3 +1,4 @@
+import { CommonModule } from "@angular/common"
 import { NgModule } from '@angular/core';
 
 //Angular material
@@ -11,6 +12,7 @@ import "hammerjs";
 @NgModule({
   declarations: [],
   imports: [
+    CommonModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
@@ -21,6 +23,7 @@ import "hammerjs";
     MatIconModule
   ],
   exports: [
+    CommonModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,

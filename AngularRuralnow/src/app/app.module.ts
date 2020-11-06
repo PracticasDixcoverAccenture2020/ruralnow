@@ -1,3 +1,4 @@
+import { CommonModule } from "@angular/common"
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 
@@ -8,7 +9,7 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { BuscadorComponent } from './components/buscador/buscador.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { PageNotFoundComponentComponent } from './page-not-found-component/page-not-found-component.component';
-
+import { ListadoCasasComponent } from './components/listado-casas/listado-casas.component';
 
 
 //Modules
@@ -25,9 +26,10 @@ import { HttpClientModule } from '@angular/common/http';
     BuscadorComponent,
     FooterComponent,
     PageNotFoundComponentComponent,
-    
+    ListadoCasasComponent
   ],
   imports: [
+    CommonModule,
     SharedModule,
     BrowserModule,
     AppRoutingModule,
