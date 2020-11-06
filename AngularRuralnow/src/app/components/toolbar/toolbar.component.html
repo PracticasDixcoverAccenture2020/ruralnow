@@ -1,9 +1,11 @@
 <mat-toolbar color="primary">
-    <mat-toolbar-row>
-      <img src="/assets/ruralnow-logo.png" alt="RuralNow logo">
-      <a mat-button routerLink="/home" routerLinkActive="activeLink">Inicio</a>
-      <span class="example-spacer"></span>
-      <button mat-icon-button color="primary">
+    <mat-toolbar-row class="header">
+      <a mat-button routerLink="/home" routerLinkActive="activeLink">
+        <img src="/assets/ruralnow-logo.png" alt="RuralNow logo">
+        Inicio
+      </a>
+      <span class="relleno"></span>
+      <button mat-icon-button color="primary" class="session">
         <mat-icon>account_circle</mat-icon>
       </button>
     </mat-toolbar-row>

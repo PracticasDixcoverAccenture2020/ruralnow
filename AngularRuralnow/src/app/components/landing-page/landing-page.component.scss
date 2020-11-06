@@ -1,11 +1,10 @@
 .container {
     display: flex;
-    flex-flow: column;
+    flex-direction: column;
     text-align: center;
+    flex-grow: 1;
   }
-  .title,
-  .subtitle,
-  .message {
+  .title, .subtitle, .message {
     padding: 1rem;
   }
   .title {
@@ -13,10 +12,6 @@
     font-family: 'Fjalla One', Helvetica, sans-serif, monospace;
   }
   .subtitle {
-
     color: #002D27;
     font-family:  Helvetica, sans-serif, monospace;
-
-  }
-  .message {
   }
