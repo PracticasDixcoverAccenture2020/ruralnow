@@ -16,6 +16,7 @@ import { ListadoCasasComponent } from './components/listado-casas/listado-casas.
 import { SharedModule } from "./modules/shared/shared.module";
 import { AppRoutingModule } from "./app-routing.module";
 import { HttpClientModule } from '@angular/common/http';
+import { SelectHuespedesComponent } from './select-huespedes/select-huespedes.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { HttpClientModule } from '@angular/common/http';
     BuscadorComponent,
     FooterComponent,
     PageNotFoundComponentComponent,
-    ListadoCasasComponent
+    ListadoCasasComponent,
+    SelectHuespedesComponent
   ],
   imports: [
     CommonModule,
