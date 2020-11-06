@@ -21,6 +21,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.Singular;
 
 @Entity
 @Data
@@ -30,7 +31,7 @@ import lombok.NoArgsConstructor;
 public class Casa {
 
 	@Id
-	private int id;
+	private int idcasa;
 	
 	/*
 	 * Nombre de la casa
@@ -41,7 +42,7 @@ public class Casa {
 	 * Municipio al que pertenece
 	 */
 	@ManyToOne
-	@JoinColumn(name="municipio")
+	@JoinColumn(name="idpoblacion")
 	private Poblacion municipio;
 	
 	/*
@@ -72,8 +73,12 @@ public class Casa {
 	/*
 	 * Servicios que ofrece la casa
 	 */
-	@ElementCollection(targetClass=String.class)
-	private Set<String> servicios;
+	@ManyToMany
+    @JoinTable(name = "casa_servicio",
+    		   joinColumns = @JoinColumn(name = "idcasa"),
+    		   inverseJoinColumns = @JoinColumn(name = "idservicio")
+    		  )
+    private List<Servicio> servicios;
 	
 	/*
 	 * Precio por noche
@@ -83,7 +88,9 @@ public class Casa {
 	/*
 	 * Propietario de la casa
 	 */
-	private int propietario;
+	@ManyToOne
+	@JoinColumn(name="idusuario")
+	private Usuario propietario;
 	
 	/*
 	 * Imagen

@@ -22,7 +22,7 @@ import lombok.NoArgsConstructor;
 public class Usuario {
 
 	@Id
-	private int id;
+	private int idusuario;
 	
 	/*
 	 * Nombre
