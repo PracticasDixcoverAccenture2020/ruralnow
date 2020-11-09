@@ -10,12 +10,12 @@
 }
 
 .mat-toolbar a {
-    font-size: 2.5vw;
+    font-size: 2vw;
 }
 
 .mat-toolbar img {
     filter: brightness(0) invert(1);
-    width: 10vw;
+    width: 5vw;
 }
 
 .relleno {
@@ -27,6 +27,6 @@
     flex-grow: 0.2;
 }
 
-.mat-icon {
-    font-size: 60px !important;
+.session span {
+    font-size: 3vw !important;
 }

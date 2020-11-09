@@ -1,20 +1,122 @@
+.cont {
+    display: flex;
+    flex-direction: column;
+    max-height: 65vh;
+    background-color: rgba($color: #002d27, $alpha: 0.7);
+    padding: 20px;
+    margin: 10px;
+    align-self: center;
+}
+
+.titulo-resultado h1 {
+    color: #78dcce;
+}
+
+.titulo-resultado p, .titulo-resultado p a {
+    color: white;
+    text-decoration: none;
+}
+
 .card-body {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    
+    overflow: hidden;
+    overflow-y: visible;
 }
 
 .example-card {
-    max-width: 25vw;
-    margin-top: 15px;
+    max-width: 40vw;
+    margin: 15px 10px 0 10px;
     border: 2px solid black;
+    display: flex;
 }
 
-.example-card > mat-card-actions {
+.example-card img {
+    max-width: 20vw;
+    margin: 0;
+    border: 1px solid black;
+}
+
+.contenido-card {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding-left: 20px;
+}
+
+.contenido-card > .mat-card-actions {
     text-align: center;
+    margin-bottom: 0 !important;
+    margin: 0;
 }
 
-mat-card-actions > button {
+mat-card-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+mat-card-content > p {
+    text-align: justify;
+    flex-grow: 1;
+}
+
+.mat-card-actions > button {
     width: 100%;
     background-color: peru;
+}
+
+ul.detalles {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+    padding: 0;
+}
+
+div.cont-detalles {
+    display: flex;
+}
+
+.precio {
+    align-self: center;
+    border: 2px solid yellow;
+    padding: 20px;
+    font-size: 1vw;
+    font-weight: bold;
+}
+
+.filtros {
+    background-color: #ffffff;
+    margin: 10px;
+    padding: 20px;
+    width: 30vw;
+    height: 65vh;
+    align-self: center;
+}
+
+@media (max-width: 1440px){
+    .card-body {
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+    .example-card {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 770PX){
+    .example-card {
+        flex-direction: column;
+    }
+
+    .example-card img {
+        max-width: 100%;
+    }
+
+    .contenido-card {
+        margin-top: 10px;
+        padding-left: 0;
+    }
 }
