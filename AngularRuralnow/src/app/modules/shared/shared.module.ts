@@ -9,6 +9,9 @@ import { MatButtonModule, MatToolbarModule, MatIconModule, MatCardModule } from 
 import { FormsModule } from '@angular/forms';
 import { MatSelectModule} from '@angular/material/select/';
 import {ReactiveFormsModule} from '@angular/forms';
+import {MatDatepickerModule, MatNativeDateModule,MatFormFieldModule } from '@angular/material';
+import { DateRangePickerModule } from '@syncfusion/ej2-angular-calendars';
+
 
 import "hammerjs";
 
@@ -25,7 +28,11 @@ import "hammerjs";
     FormsModule,
     MatIconModule,
     MatSelectModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    DateRangePickerModule
     
   ],
   exports: [
@@ -39,7 +46,11 @@ import "hammerjs";
     FormsModule,
     MatIconModule,
     MatSelectModule,
-    ReactiveFormsModule    
+    ReactiveFormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    DateRangePickerModule
     
   ],
   entryComponents: []

@@ -17,6 +17,8 @@ import { SharedModule } from "./modules/shared/shared.module";
 import { AppRoutingModule } from "./app-routing.module";
 import { HttpClientModule } from '@angular/common/http';
 import { SelectHuespedesComponent } from './select-huespedes/select-huespedes.component';
+import { SelectFechaEntradaComponent } from './select-fecha-entrada/select-fecha-entrada.component';
+import { SelectFechaSalidaComponent } from './select-fecha-salida/select-fecha-salida.component';
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import { SelectHuespedesComponent } from './select-huespedes/select-huespedes.co
     FooterComponent,
     PageNotFoundComponentComponent,
     ListadoCasasComponent,
-    SelectHuespedesComponent
+    SelectHuespedesComponent,
+    SelectFechaEntradaComponent,
+    SelectFechaSalidaComponent
   ],
   imports: [
     CommonModule,

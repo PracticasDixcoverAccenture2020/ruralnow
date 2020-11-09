@@ -15,3 +15,15 @@
     color: #002D27;
     font-family:  Helvetica, sans-serif, monospace;
   }
+
+  .select {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+    flex-wrap: wrap;
+    flex-flow: row wrap;
+    align-content: flex-end;
+
+
+  }
