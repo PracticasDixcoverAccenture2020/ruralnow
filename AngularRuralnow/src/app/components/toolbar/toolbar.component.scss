@@ -1,21 +1,27 @@
 .header {
     display: flex;
     align-items: flex-start;
+    align-self: center;
     flex-wrap: nowrap;
-    height: auto !important;
+
+    min-height: 10vh;
+    
+    padding: 10px 0
 }
 
 .mat-toolbar.mat-primary {
     background: #31897d;
+    min-height: 10vh;
 }
 
 .mat-toolbar a {
     font-size: 2vw;
+    align-self: center;
 }
 
 .mat-toolbar img {
     filter: brightness(0) invert(1);
-    width: 5vw;
+    width: 4vw;
 }
 
 .relleno {
@@ -29,4 +35,19 @@
 
 .session span {
     font-size: 3vw !important;
+}
+
+@media (max-width: 1440px){
+}
+
+@media (max-width: 770PX){
+    .mat-toolbar a {
+        font-size: 5vw;
+    }
+    .mat-toolbar img {
+        width: 8vw;
+    }
+    .session span {
+        font-size: 7vw !important;
+    }
 }
