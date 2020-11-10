@@ -35,3 +35,11 @@ html, body {
 .body > oevents-footer {
     min-height: 6vh;
 }
+
+@media (max-height: 860PX) {
+    .body > oevents-landing-page, .body > oevents-listado-casas {
+        flex: 1;
+        max-height: 81.4vh;
+        display: flex;
+    }
+}
