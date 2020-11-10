@@ -4,7 +4,7 @@ import { Poblacion } from '../poblacion/poblacion';
 export class Casa {
     id: number;
     nombre: string;
-    municipio: Poblacion;
+    idpoblacion: Poblacion;
     //municipio: number;
     descripcion: string;
     personas: number
@@ -12,7 +12,7 @@ export class Casa {
     camas: number;
     aseos: number;
     precio_noche: number;
-    propietario: Persona;
+    idusuario: Persona;
     //propietario: number;
     imagen: string;
 }
