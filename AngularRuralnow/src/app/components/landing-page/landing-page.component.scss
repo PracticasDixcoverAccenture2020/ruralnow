@@ -1,38 +1,66 @@
 .container {
   display: flex;
-  flex-direction: column;
-  text-align: center;
   flex: 1;
+  flex-direction: column;
+  height: 100%;
   justify-content: space-around;
-  //background-image: url(../../../assets/img/fondo.jfif);
+  margin-bottom: 10%;
+  text-align: center;
+  width: 100%;
 }
+
+.container-background {
+  background-image: linear-gradient(rgba(120,220,206,.200), rgba(120,220,206,.7)), url(../../../assets/img/fondo.jfif);
+  
+}
+
 .title, .subtitle, .message {
   padding: 0;
 }
+
 .title {
   color: #31897d;
   font-family: 'Fjalla One', Helvetica, sans-serif, monospace;
+  margin-top: 5%;
 }
+
 .subtitle {
   color: #002D27;
   font-family:  Helvetica, sans-serif, monospace;
+  margin-top: 2%;
+}
+
+.message {
+  margin-top: 2%;
 }
 
 .select {
+  display: flex;                 
+  flex-direction: row;
+  flex-flow: wrap;
+  height: auto;
+  justify-content: space-evenly;
+  margin-top: 3%;
+  width: 100%;
+}
+
+.contenedor-casa {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  margin-top: 3%;
+  height: auto;
   width: 100%;
-  flex-wrap: wrap;
-  flex-flow: row wrap;
-  align-content: flex-end;
+  
 }
 
-.container > h3 {
-  margin: 0;
+.description {
+  height: auto;
+  justify-content: space-between;
+  margin: 2%;
+  text-align: justify;
+  width: 40%;
 }
 
-.description{
-  font-family: Helvetica, sans-serif, monospace;
+p{
   color: #002D27;
 }
