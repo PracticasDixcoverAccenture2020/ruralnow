@@ -1,7 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Casa } from 'src/app/clases/casa/Casa';
-import { ActivatedRoute, Router } from '@angular/router';
-import { CasaServiceService } from 'src/app/services/FindCasa-service.service';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import {  Router } from '@angular/router';
 
 
 @Component({
@@ -10,15 +8,19 @@ import { CasaServiceService } from 'src/app/services/FindCasa-service.service';
   styleUrls: ['./buscador.component.scss']
 })
 export class BuscadorComponent implements OnInit {
-  
-  constructor(private router: Router, private route: ActivatedRoute, private casaService: CasaServiceService) {
+
+
+  @Output()
+  comunicadorLugar = new EventEmitter<String>();
+
+  lugarSeleccionado: String;
+
+  constructor(private router: Router) {
     
    }
 
 
   onSubmit() {
-
-
   }
  
   ngOnInit(): void {
@@ -29,6 +31,11 @@ export class BuscadorComponent implements OnInit {
     window.alert("Click ^^");
     this.router.navigate(['/houses']);
 
+  }
+
+  comunicarLugar(lugarSelect: String){
+    this.comunicadorLugar.emit(lugarSelect);   
+    console.log(lugarSelect);
   }
 
 }

@@ -7,6 +7,11 @@ import { MatListModule } from "@angular/material/list";
 import {MatInputModule} from '@angular/material/input';
 import { MatButtonModule, MatToolbarModule, MatIconModule, MatCardModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
+import { MatSelectModule} from '@angular/material/select/';
+import {ReactiveFormsModule} from '@angular/forms';
+import {MatDatepickerModule, MatNativeDateModule,MatFormFieldModule } from '@angular/material';
+
+
 import "hammerjs";
 
 @NgModule({
@@ -20,7 +25,13 @@ import "hammerjs";
     MatCardModule,
     MatInputModule,
     FormsModule,
-    MatIconModule
+    MatIconModule,
+    MatSelectModule,
+    ReactiveFormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule
+    
   ],
   exports: [
     CommonModule,
@@ -31,7 +42,12 @@ import "hammerjs";
     MatCardModule,
     MatInputModule,
     FormsModule,
-    MatIconModule
+    MatIconModule,
+    MatSelectModule,
+    ReactiveFormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule    
   ],
   entryComponents: []
 })
