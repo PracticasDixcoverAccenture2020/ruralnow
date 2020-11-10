@@ -37,7 +37,7 @@ public class CasaRepositoryTest {
 	
 	@Test
 	@DisplayName("Listar casas por provincia")
-	public void findByPoblacion() {
+	public void findByPoblacion_poblacion() {
 		List<Casa> casas = repoCasa.findByPoblacion("Antequera");
 		
 		assertEquals(casas.size(),2);

@@ -8,5 +8,6 @@ public interface CasaService {
 	
 	public List<Casa> findAll();
 	public List<Casa> findByProvincia(String nombre);
+	public List<Casa> findByPoblacion_poblacion(String poblacion);
 
 }

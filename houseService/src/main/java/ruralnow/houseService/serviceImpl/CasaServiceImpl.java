@@ -35,5 +35,15 @@ public class CasaServiceImpl implements CasaService {
 		
 		return casaRepo.findByProvincia(provincia);
 	}
+	
+	/*
+	 * Retorna una lista de todas las casas
+	 * que hay en una población
+	 */
+	@Override
+	public List<Casa> findByPoblacion_poblacion(String poblacion) {
+		
+		return casaRepo.findByPoblacion_poblacion(poblacion);
+	}
 
 }

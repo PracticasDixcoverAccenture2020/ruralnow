@@ -20,4 +20,6 @@ public interface CasaRepository extends JpaRepository<Casa, Integer> {
 	@Query(value="select * from casa c join poblacion p where c.idpoblacion=p.idpoblacion and poblacion like ?1", nativeQuery = true)
 	public List<Casa> findByPoblacion(String poblacion);
 	
+	public List<Casa> findByPoblacion_poblacion(String poblacion);
+	
 }
