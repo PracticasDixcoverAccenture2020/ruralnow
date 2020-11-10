@@ -11,10 +11,13 @@ import ruralnow.houseService.entity.Casa;
 @Repository
 public interface CasaRepository extends JpaRepository<Casa, Integer> {
 
-	@Query(value="select * from casa c"
-			   + "join poblacion p on (c.municipio=p.idpoblacion)"
-			   + "join provincia po on (po.idprovincia=p.idprovincia)"
-			   + "where po.provincia like ?1", nativeQuery = true)	
+	@Query(value="select * from casa c "
+			   + "join poblacion p "
+			   + "join provincia po "
+			   + "where c.idpoblacion=p.idpoblacion and p.idprovincia=po.idprovincia and po.provincia like ?1", nativeQuery = true)	
 	public List<Casa> findByProvincia(String provincia);
+	
+	@Query(value="select * from casa c join poblacion p where c.idpoblacion=p.idpoblacion and poblacion like ?1", nativeQuery = true)
+	public List<Casa> findByPoblacion(String poblacion);
 	
 }

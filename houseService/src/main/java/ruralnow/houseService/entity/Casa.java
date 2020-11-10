@@ -43,7 +43,7 @@ public class Casa {
 	 */
 	@ManyToOne
 	@JoinColumn(name="idpoblacion")
-	private Poblacion municipio;
+	private Poblacion poblacion;
 	
 	/*
 	 * Descripción

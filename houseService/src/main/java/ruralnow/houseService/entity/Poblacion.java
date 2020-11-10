@@ -62,6 +62,6 @@ public class Poblacion {
 	 /*
 	  * Casas
 	  */
-	 //@OneToMany(mappedBy="poblacion")
-	 //private List <Casa> casa;
+	 @OneToMany(mappedBy="poblacion")
+	 private List <Casa> casas;
 }
