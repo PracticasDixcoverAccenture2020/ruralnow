@@ -19,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SelectHuespedesComponent } from './select-huespedes/select-huespedes.component';
 import { SelectFechaEntradaComponent } from './select-fecha-entrada/select-fecha-entrada.component';
 import { SelectFechaSalidaComponent } from './select-fecha-salida/select-fecha-salida.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { SelectFechaSalidaComponent } from './select-fecha-salida/select-fecha-s
     ListadoCasasComponent,
     SelectHuespedesComponent,
     SelectFechaEntradaComponent,
-    SelectFechaSalidaComponent
+    SelectFechaSalidaComponent,
+    ContactUsComponent
   ],
   imports: [
     CommonModule,
