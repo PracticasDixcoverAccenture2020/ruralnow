@@ -1,18 +1,41 @@
-<div class="card-body">
-  <mat-card class="example-card" *ngFor="let casa of listaDeCasas">
-    <img mat-card-image src="../../../assets/img/casa.jpg" alt="Imagen generica">
+<div class="titulo-resultado">
+  <p><a href="#">INICIO</a> / Resultado búsqueda</p>
+  <h1>Resultados de búsqueda:</h1>
+</div>
 
-    <mat-card-header>
-      <mat-card-title>{{casa.nombre}}</mat-card-title>
-      <mat-card-subtitle>{{casa.municipio.poblacion}}, {{casa.municipio.idprovincia.provincia}}</mat-card-subtitle>
-    </mat-card-header>
+<div class="cont">
+  <div class="filtros">
+    <p>Filtros</p>
+  </div>
 
-    <mat-card-content>
-      <p>{{casa.descripcion}}</p>
-    </mat-card-content>
+  <div class="card-body">
+    <mat-card class="example-card" *ngFor="let casa of listaDeCasas">
+      <img mat-card-image src="../../../assets/img/casa.jpg" alt="Imagen generica">
 
-    <mat-card-actions>
-      <button mat-button>RESERVAR</button>
-    </mat-card-actions>
-  </mat-card>
+      <div class="contenido-card">
+        <mat-card-header>
+          <mat-card-title>{{casa.nombre}}</mat-card-title>
+          <mat-card-subtitle>{{casa.municipio.poblacion}}, {{casa.municipio.idprovincia.provincia}}</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+          <p>{{casa.descripcion}}</p>
+          <div class="cont-detalles">
+            <ul class="detalles">
+              <li><span class="material-icons">groups</span>{{casa.personas}}</li>
+              <li><span class="material-icons">drafts</span>{{casa.habitaciones}}</li>
+              <li><span class="material-icons">single_bed</span>{{casa.camas}}</li>
+              <li><span class="material-icons">bathtub</span>{{casa.aseos}}</li>
+            </ul>
+            <span class="precio">{{casa.precio_noche}} €/noche</span>
+          </div>
+        </mat-card-content>
+
+        <mat-card-actions>
+          <button mat-button>RESERVAR</button>
+        </mat-card-actions>
+      </div>
+
+    </mat-card>
+  </div>
 </div>

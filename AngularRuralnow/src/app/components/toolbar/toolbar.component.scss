@@ -1,24 +1,28 @@
 .header {
     display: flex;
     align-items: flex-start;
+    align-self: center;
     flex-wrap: nowrap;
-    height: auto;
+
+    min-height: 10vh;
+    
+    padding: 10px 0
 }
 
 .mat-toolbar.mat-primary {
     background: #31897d;
+    min-height: 10vh;
 }
 
 .mat-toolbar a {
-    font-size: 25;
+    font-size: 2vw;
+    align-self: center;
 }
 
 .mat-toolbar img {
     margin-top: 10px;
     filter: brightness(0) invert(1);
-    height: 40px;
-    align-self: center;
-
+    width: 4vw;
 }
 
 .relleno {
@@ -30,6 +34,21 @@
     flex-grow: 0.2;
 }
 
-.mat-icon {
-    font-size: 40px !important;
+.session span {
+    font-size: 3vw !important;
+}
+
+@media (max-width: 1440px){
+}
+
+@media (max-width: 770PX){
+    .mat-toolbar a {
+        font-size: 5vw;
+    }
+    .mat-toolbar img {
+        width: 8vw;
+    }
+    .session span {
+        font-size: 7vw !important;
+    }
 }
