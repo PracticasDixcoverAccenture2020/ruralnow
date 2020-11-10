@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 
 interface Huesped {
@@ -12,8 +12,14 @@ interface Huesped {
 })
 export class SelectHuespedesComponent implements OnInit {
 
+  @Output()
+  comunicadorHuespedes = new EventEmitter<number>();
+
   huespedControl = new FormControl('', Validators.required);
   selectFormControl = new FormControl('', Validators.required);
+
+  numeroSeleccionado: number;
+
   huespedes: Huesped[] = [
     {numero: 1},
     {numero: 2},
@@ -32,6 +38,11 @@ export class SelectHuespedesComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  comunicarHuespedes(numeroHuespedes: number){
+    this.comunicadorHuespedes.emit(numeroHuespedes);   
+    console.log(numeroHuespedes);
   }
 
 }

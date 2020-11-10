@@ -1,6 +1,6 @@
   <mat-form-field>
     <mat-placeholder>Localización</mat-placeholder>
-      <input matInput type="search"/>
+      <input matInput type="search" [(ngModel)]="lugarSeleccionado"/>
       <button mat-button matSuffix mat-stroked-button aria-label="search" (click)="gotoHouseList()">
         <mat-icon>search</mat-icon>
     </button>

@@ -12,4 +12,15 @@ export class LandingPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  procesaHuespedes(numeroHuespedes: number) {
+    console.log(numeroHuespedes);
+  }
+
+  procesaFechaEntrada(fechaEntrada: Date) {
+    console.log(fechaEntrada);
+  }
+
+  procesaFechaSalida(fechaSalida: Date) {
+    console.log(fechaSalida);
+  }
 }

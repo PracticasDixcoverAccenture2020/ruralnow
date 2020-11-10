@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'oevents-select-fecha-salida',
@@ -7,9 +7,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SelectFechaSalidaComponent implements OnInit {
 
-  constructor() { }
+  @Output()
+  comunicadorFechaSalida = new EventEmitter<Date>();
+
+  minDate: Date;
+  maxDate: Date;
+
+  opcionSeleccionada: Date;
+
+  constructor() { 
+    const currentYear = new Date().getFullYear();
+    const dayDate = new Date().getDate();
+    const month = new Date().getMonth();
+    this.minDate = new Date(currentYear, month, dayDate);
+    this.maxDate = new Date(currentYear + 1, 11, 31);
+
+  }
 
   ngOnInit(): void {
+  }
+
+  comunicarFechaSalida(fechaSalidaSelect: Date){
+    this.comunicadorFechaSalida.emit(fechaSalidaSelect);   
+    console.log(fechaSalidaSelect);
   }
 
 }

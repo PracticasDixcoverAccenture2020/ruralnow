@@ -2,7 +2,7 @@
     display: flex;
     align-items: flex-start;
     flex-wrap: nowrap;
-    height: auto !important;
+    height: auto;
 }
 
 .mat-toolbar.mat-primary {
@@ -10,12 +10,15 @@
 }
 
 .mat-toolbar a {
-    font-size: 2.5vw;
+    font-size: 25;
 }
 
 .mat-toolbar img {
+    margin-top: 10px;
     filter: brightness(0) invert(1);
-    width: 10vw;
+    height: 40px;
+    align-self: center;
+
 }
 
 .relleno {
@@ -28,5 +31,5 @@
 }
 
 .mat-icon {
-    font-size: 60px !important;
+    font-size: 40px !important;
 }
