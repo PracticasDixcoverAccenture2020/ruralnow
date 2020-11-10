@@ -1,33 +1,38 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    flex-grow: 1;
-    
-  }
-  .title, .subtitle, .message {
-    padding: 1rem;
-  }
-  .title {
-    color: #31897d;
-    font-family: 'Fjalla One', Helvetica, sans-serif, monospace;
-  }
-  .subtitle {
-    color: #002D27;
-    font-family:  Helvetica, sans-serif, monospace;
-  }
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  flex: 1;
+  justify-content: space-around;
+  //background-image: url(../../../assets/img/fondo.jfif);
+}
+.title, .subtitle, .message {
+  padding: 0;
+}
+.title {
+  color: #31897d;
+  font-family: 'Fjalla One', Helvetica, sans-serif, monospace;
+}
+.subtitle {
+  color: #002D27;
+  font-family:  Helvetica, sans-serif, monospace;
+}
 
-  .select {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    width: 100%;
-    flex-wrap: wrap;
-    flex-flow: row wrap;
-    align-content: flex-end;
-    margin: 20px;
+.select {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+  flex-wrap: wrap;
+  flex-flow: row wrap;
+  align-content: flex-end;
+}
 
+.container > h3 {
+  margin: 0;
+}
 
-  }
-
- 
+.description{
+  font-family: Helvetica, sans-serif, monospace;
+  color: #002D27;
+}

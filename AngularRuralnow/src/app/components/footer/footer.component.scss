@@ -3,16 +3,17 @@
     background-color: #002D27;
     justify-content: center;
     min-height: 6vh;
+    font-family:  Helvetica, sans-serif, monospace;
 }
 
 .container {
     text-align: center;
-    color: grey;
+    color: #DEFCF8;
 }
 
 .container a {
     text-decoration: none;
-    color: grey;
+    color: #DEFCF8;
 }
 
 .container a:hover {
@@ -44,12 +45,6 @@
 
 li {
     font-size: 1vw;
-}
-
-@media (max-width: 1440px){
-    li {
-        font-size: 1.5vw;
-    }
 }
 
 @media (max-width: 770PX){

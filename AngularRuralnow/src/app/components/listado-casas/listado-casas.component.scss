@@ -10,7 +10,8 @@
     border-bottom: 1px solid #002d27;
     padding-left: 20px;
     margin: 0;
-    font-size: 2.7vw;
+    font-size: 1.7vw;
+    font-family: 'Fjalla One', Helvetica, sans-serif, monospace;
 }
 
 .titulo-resultado p {
@@ -18,6 +19,7 @@
     margin: 0;
     margin-top: 5px;
     font-size: 1vw;
+    font-family:  Helvetica, sans-serif, monospace;
 }
 
 .titulo-resultado p, .titulo-resultado p a {
@@ -33,9 +35,6 @@
     overflow-y: visible;
 
     justify-content: space-around;
-
-    
-
 }
 
 .example-card {
@@ -43,8 +42,11 @@
     margin: 15px 10px 0 10px;
     border: 2px solid black;
     display: flex;
-
     background-color: white;
+}
+
+.card-body .example-card:first-child, .card-body .example-card:nth-child(2) {
+    margin-top: 0;
 }
 
 .example-card img {
@@ -57,7 +59,7 @@
     display: flex;
     flex-direction: column;
     flex: 1;
-    padding-left: 20px;
+    padding-left: 10px;
 }
 
 .contenido-card > .mat-card-actions {
@@ -91,6 +93,7 @@ mat-card-content > p {
 .mat-card-actions > button {
     width: 100%;
     background-color: #31897d;
+    color:#DEFCF8
 }
 
 ul.detalles {
@@ -110,7 +113,6 @@ div.cont-detalles {
 
 .precio {
     align-self: center;
-    padding: 20px;
     font-size: 1vw;
     font-weight: bold;
     width: 100%;
@@ -141,48 +143,26 @@ ul.detalles span {
     width: 40vw;
     align-self: stretch;
     border: 1px solid black;
+    font-family: 'Fjalla One', Helvetica, sans-serif, monospace;
 }
 
-@media (max-width: 1440px){
+@media (max-width: 910PX){
+    .example-card {
+        max-width: 100%;
+    }
     .card-body {
         flex-direction: column;
         flex-wrap: nowrap;
         justify-content: unset;
     }
-    .example-card {
-        max-width: 100%;
-    }
-    .example-card img {
-        max-width: 30vw;
-    }
-    div.cont-detalles {
-        flex-wrap: unset;
-    }
-    .precio {
-        width: unset;
-    }
-    .precio, .contenido-card mat-card-title, .mat-card-actions button {
-        font-size: 2vw;
-    }
-    .contenido-card mat-card-subtitle, .contenido-card p {
-        font-size: 1.8vw;
-    }
-    ul.detalles li {
-        font-size: 2vw;
-    }
-    ul.detalles span {
-        font-size: 2.5vw;
-    }
-    .titulo-resultado h1 {
-        font-size: 4vw;
-    }
-    .titulo-resultado p {
-        font-size: 2vw;
+    .card-body .example-card:nth-child(2) {
+        margin-top: 15px;
     }
 }
 
 @media (max-width: 770PX){
     .example-card {
+        
         flex-direction: column;
     }
 
