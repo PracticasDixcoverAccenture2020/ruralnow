@@ -22,21 +22,20 @@ import lombok.NoArgsConstructor;
 public class Reserva {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
 	/*
 	 * Id de la casa
 	 */
 	@ManyToOne
-	@JoinColumn(name="id_casa")
+	@JoinColumn(name="idcasa")
 	private Casa casa;
 	
 	/*
 	 * Id de Usuario
 	 */
 	@ManyToOne
-	@JoinColumn(name="id_usuario")
+	@JoinColumn(name="idusuario")
 	private Usuario usuario;
 	
 	/*

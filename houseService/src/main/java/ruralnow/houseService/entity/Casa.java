@@ -1,9 +1,11 @@
 package ruralnow.houseService.entity;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -19,6 +21,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.Singular;
 
 @Entity
 @Data
@@ -28,8 +31,7 @@ import lombok.NoArgsConstructor;
 public class Casa {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private int idcasa;
 	
 	/*
 	 * Nombre de la casa
@@ -40,8 +42,8 @@ public class Casa {
 	 * Municipio al que pertenece
 	 */
 	@ManyToOne
-	@JoinColumn(name="municipio")
-	private Poblacion municipio;
+	@JoinColumn(name="idpoblacion")
+	private Poblacion poblacion;
 	
 	/*
 	 * Descripción
@@ -71,7 +73,12 @@ public class Casa {
 	/*
 	 * Servicios que ofrece la casa
 	 */
-	Set<String> servicios;
+	@ManyToMany
+    @JoinTable(name = "casa_servicio",
+    		   joinColumns = @JoinColumn(name = "idcasa"),
+    		   inverseJoinColumns = @JoinColumn(name = "idservicio")
+    		  )
+    private List<Servicio> servicios;
 	
 	/*
 	 * Precio por noche
@@ -81,13 +88,14 @@ public class Casa {
 	/*
 	 * Propietario de la casa
 	 */
-	private int propietario;
+	@ManyToOne
+	@JoinColumn(name="idusuario")
+	private Usuario propietario;
 	
 	/*
-	 * Imágenes
+	 * Imagen
 	 */
-	@OneToMany(mappedBy="casa")
-	List <Imagen> imagenes;
+	private String imagen;
 	
 	
 	

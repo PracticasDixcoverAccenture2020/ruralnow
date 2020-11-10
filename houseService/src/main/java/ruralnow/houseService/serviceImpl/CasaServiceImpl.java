@@ -15,10 +15,15 @@ public class CasaServiceImpl implements CasaService {
 	@Autowired
 	private CasaRepository casaRepo;
 	
+	/*
+	 * Retorna una lista de todas las casas existentes
+	 */
 	@Override
 	public List<Casa> findAll() {
 		
-		return casaRepo.findAll();
+		List<Casa> casas = casaRepo.findAll();
+		
+		return casas; 
 	}
 	
 	/*
@@ -26,8 +31,19 @@ public class CasaServiceImpl implements CasaService {
 	 * que hay en una determinada provincia
 	 */
 	@Override
-	public List<Casa> byProvincia(int id) {
-		return casaRepo.findByMunicipio_id(id);
+	public List<Casa> findByProvincia(String provincia) {
+		
+		return casaRepo.findByProvincia(provincia);
+	}
+	
+	/*
+	 * Retorna una lista de todas las casas
+	 * que hay en una población
+	 */
+	@Override
+	public List<Casa> findByPoblacion_poblacion(String poblacion) {
+		
+		return casaRepo.findByPoblacion_poblacion(poblacion);
 	}
 
 }

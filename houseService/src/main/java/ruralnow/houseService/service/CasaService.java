@@ -7,6 +7,7 @@ import ruralnow.houseService.entity.Casa;
 public interface CasaService {
 	
 	public List<Casa> findAll();
-	public List<Casa> byProvincia(int id);
+	public List<Casa> findByProvincia(String nombre);
+	public List<Casa> findByPoblacion_poblacion(String poblacion);
 
 }

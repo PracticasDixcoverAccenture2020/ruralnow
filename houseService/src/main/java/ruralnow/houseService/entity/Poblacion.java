@@ -25,7 +25,6 @@ import lombok.NoArgsConstructor;
 public class Poblacion {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idpoblacion;
 	
 	/*
