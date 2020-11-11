@@ -16,7 +16,7 @@ import ruralnow.houseService.service.ProvinciaService;
 
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
-@RequestMapping(value = "Provincia")
+@RequestMapping(value = "/Provincia")
 public class ProvinciaController {
 
 	@Autowired
