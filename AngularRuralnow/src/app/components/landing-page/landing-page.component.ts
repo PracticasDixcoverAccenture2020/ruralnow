@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { InformacionLanding } from 'src/app/clases/infoLanding/informacion-landing';
+
 @Component({
   selector: 'oevents-landing-page',
   templateUrl: './landing-page.component.html',
   styleUrls: ['./landing-page.component.scss']
 })
-export class LandingPageComponent implements OnInit {
-
+export class LandingPageComponent implements OnInit { 
 
   //Variables a pasar
   localizacion: String;
@@ -15,8 +15,12 @@ export class LandingPageComponent implements OnInit {
   fechaSalida: Date;
   huespedes: number;
 
+  infoPasar: InformacionLanding;
 
-  constructor(private router: Router, private infoPasar: InformacionLanding) { }
+
+  
+
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -49,6 +53,6 @@ export class LandingPageComponent implements OnInit {
     this.infoPasar.setLocalizacion(this.localizacion);
     this.infoPasar.setFechaEntrada(this.fechaEntrada);
     this.infoPasar.setFechaSalida(this.fechaSalida);
-    this.infoPasar.setHuespedes(this.huespedes);
+    this.infoPasar.setHuespedes(this.huespedes);    
   }
 }

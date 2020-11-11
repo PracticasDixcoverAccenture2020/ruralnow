@@ -22,10 +22,10 @@ export class ListadoCasasComponent implements OnInit {
   fechaEntrada: Date;
   fechaSalida: Date;
   huespedes: number;
-
+  infoRecivida: InformacionLanding
   //constructor(private servicioCasa: CasaServiceService) { }
 
-  constructor(private httpClient: HttpClient, private infoRecivida: InformacionLanding) { }
+  constructor(private httpClient: HttpClient) { }
   
   ngOnInit(): void {
 
@@ -33,7 +33,7 @@ export class ListadoCasasComponent implements OnInit {
       this.casas = data;
     });*/
 
-
+    console.log(this.infoRecivida.getLocalizacion());
 
     this.httpClient.get("assets/json/data.json").subscribe(data => {
       console.log(data);
@@ -44,9 +44,6 @@ export class ListadoCasasComponent implements OnInit {
       }
     })
 
-   
-
-    console.log(this.infoRecivida.getLocalizacion());
   }
 }
 
