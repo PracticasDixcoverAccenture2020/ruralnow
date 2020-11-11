@@ -19,6 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { SelectHuespedesComponent } from './select-huespedes/select-huespedes.component';
 import { SelectFechaEntradaComponent } from './select-fecha-entrada/select-fecha-entrada.component';
 import { SelectFechaSalidaComponent } from './select-fecha-salida/select-fecha-salida.component';
+import { DatalistComponent } from './datalist/datalist.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 
 @NgModule({
@@ -32,14 +34,19 @@ import { SelectFechaSalidaComponent } from './select-fecha-salida/select-fecha-s
     ListadoCasasComponent,
     SelectHuespedesComponent,
     SelectFechaEntradaComponent,
-    SelectFechaSalidaComponent
+    SelectFechaSalidaComponent,
+    DatalistComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MatAutocompleteModule
+  ],
+  exports: [
+    MatAutocompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -6,19 +6,19 @@
     <h2>¡Bienvenido!</h2>
   </div>
   <div class="message">
-    <oevents-buscador></oevents-buscador>
+    <!--<oevents-buscador></oevents-buscador>-->
+    <oevents-datalist></oevents-datalist>
   </div>
+  
   <div class="select">
-    <oevents-select-fecha-entrada (comunicadorFechaEntrada)="procesaFechaEntrada($event)"
-    ></oevents-select-fecha-entrada>
-    <oevents-select-fecha-salida (comunicadorFechaSalida)="procesaFechaSalida($event)"
-    ></oevents-select-fecha-salida>
-    <oevents-select-huespedes (comunicadorHuespedes)="procesaHuespedes($event)"
-    ></oevents-select-huespedes>
+    <oevents-select-fecha-entrada (comunicadorFechaEntrada)="procesaFechaEntrada($event)">
+    </oevents-select-fecha-entrada>
+    <oevents-select-fecha-salida (comunicadorFechaSalida)="procesaFechaSalida($event)"></oevents-select-fecha-salida>
+    <oevents-select-huespedes (comunicadorHuespedes)="procesaHuespedes($event)"></oevents-select-huespedes>
   </div>
-    <h3>
-      <p class="description"> Ruralnow es una web orientada al alquiler de viviendas rurales de alto nivel.<br/>
-          Nuestra filosofía es: Retiros de lujo. 
-      </p>
-    </h3>
+  <h3>
+    <p class="description"> Ruralnow es una web orientada al alquiler de viviendas rurales de alto nivel.<br />
+      Nuestra filosofía es: Retiros de lujo.
+    </p>
+  </h3>
 </div>

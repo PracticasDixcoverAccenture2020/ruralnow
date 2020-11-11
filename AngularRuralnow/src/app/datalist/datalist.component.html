@@ -1,0 +1,23 @@
+<form class="example-form">
+    <mat-form-field>
+        <input type="text" placeholder="Provincia" aria-label="Provincia" matInput [formControl]="myControl"
+            [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let prov of filteredOptions | async" [value]="prov">
+                {{prov}}
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+    <mat-form-field>
+        <input type="text" placeholder="Población" aria-label="Provincia" matInput [formControl]="myControl"
+            [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let pob of filteredOptions | async" [value]="pob">
+                {{pob}}
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+    <button mat-button matSuffix mat-stroked-button aria-label="search" (click)="gotoHouseList()">
+        <mat-icon>search</mat-icon>
+    </button>
+</form>
