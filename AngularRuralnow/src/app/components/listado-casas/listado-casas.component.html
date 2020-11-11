@@ -15,7 +15,7 @@
       <div class="contenido-card">
         <mat-card-header>
           <mat-card-title>{{casa.nombre}}</mat-card-title>
-          <mat-card-subtitle>{{casa.municipio.poblacion}}, {{casa.municipio.idprovincia.provincia}}</mat-card-subtitle>
+          <mat-card-subtitle>{{casa.poblacion.poblacion}}, {{casa.poblacion.provincia.provincia}}</mat-card-subtitle>
         </mat-card-header>
 
         <mat-card-content>
@@ -32,7 +32,7 @@
         </mat-card-content>
 
         <mat-card-actions>
-          <button mat-button>RESERVAR</button>
+          <button mat-button data="casa_{{casa.idcasa}}">RESERVAR</button>
         </mat-card-actions>
       </div>
 
