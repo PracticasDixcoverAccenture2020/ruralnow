@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import ruralnow.houseService.dto.CasaDto;
+import ruralnow.houseService.dto.PoblacionDto;
 import ruralnow.houseService.entity.Casa;
 import ruralnow.houseService.service.CasaService;
 

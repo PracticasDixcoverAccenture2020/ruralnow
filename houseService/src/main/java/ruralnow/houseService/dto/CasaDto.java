@@ -7,6 +7,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import ruralnow.houseService.entity.Poblacion;
+import ruralnow.houseService.entity.Usuario;
 
 
 @Data
@@ -15,7 +17,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class CasaDto {
 
-	@Id
 	private int idcasa;
 	
 	/*
@@ -26,7 +27,7 @@ public class CasaDto {
 	/*
 	 * Municipio al que pertenece
 	 */
-	private int idpoblacion;
+	private PoblacionDto poblacion;
 	
 	/*
 	 * Descripción
@@ -61,7 +62,7 @@ public class CasaDto {
 	/*
 	 * Propietario de la casa
 	 */
-	private int idusuario;
+	private UsuarioDto usuario;
 	
 	/*
 	 * Imagen
