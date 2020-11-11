@@ -3,7 +3,7 @@
     <mat-select  [formControl]="huespedControl" required [(ngModel)]="numeroSeleccionado" (ngModelChange)="comunicarHuespedes(numeroSeleccionado)">
       <mat-option>--</mat-option >
       <mat-option *ngFor="let huesped of huespedes" [value]="huesped">
-        {{huesped.numero}}
+        {{huesped}}
       </mat-option>
     </mat-select>
     <mat-error *ngIf="huespedControl.hasError('required')">Información necesaria</mat-error>
