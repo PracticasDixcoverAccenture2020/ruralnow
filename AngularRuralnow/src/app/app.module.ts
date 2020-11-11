@@ -20,6 +20,8 @@ import { SelectHuespedesComponent } from './select-huespedes/select-huespedes.co
 import { SelectFechaEntradaComponent } from './select-fecha-entrada/select-fecha-entrada.component';
 import { SelectFechaSalidaComponent } from './select-fecha-salida/select-fecha-salida.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { DatalistComponent } from './datalist/datalist.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 
 @NgModule({
@@ -34,14 +36,19 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
     SelectHuespedesComponent,
     SelectFechaEntradaComponent,
     SelectFechaSalidaComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    DatalistComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MatAutocompleteModule
+  ],
+  exports: [
+    MatAutocompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]

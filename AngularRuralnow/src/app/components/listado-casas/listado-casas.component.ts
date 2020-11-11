@@ -35,7 +35,10 @@ export class ListadoCasasComponent implements OnInit {
 
     console.log(this.infoRecivida.getLocalizacion());
 
-    this.httpClient.get("assets/json/data.json").subscribe(data => {
+   
+
+    this.httpClient.get("http://localhost:8080/Casa/getAll").subscribe(data => {
+
       console.log(data);
 
       for(let key of Object.keys(data)){
