@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
 import { Casa } from 'src/app/clases/casa/Casa';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from "@angular/common/http";
-import { InformacionLanding } from 'src/app/clases/infoLanding/informacion-landing';
 
 @Component({
   selector: 'oevents-listado-casas',
@@ -22,20 +20,15 @@ export class ListadoCasasComponent implements OnInit {
   fechaEntrada: Date;
   fechaSalida: Date;
   huespedes: number;
-  infoRecivida: InformacionLanding
-  //constructor(private servicioCasa: CasaServiceService) { }
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private route: ActivatedRoute) { }
   
-  ngOnInit(): void {
+  ngOnInit(): void {   
 
-    /*this.servicioCasa.findAll().subscribe(data => {
-      this.casas = data;
-    });*/
-
-    console.log(this.infoRecivida.getLocalizacion());
-
-   
+    this.localizacion = this.route.snapshot.paramMap.get('localizacion');
+    this.huespedes = Number.parseInt(this.route.snapshot.paramMap.get('huespedes'));
+    this.fechaEntrada = new Date(this.route.snapshot.paramMap.get('fechaEntrada'));
+    this.fechaSalida =  new Date(this.route.snapshot.paramMap.get('fechaSalida'));
 
     this.httpClient.get("http://localhost:8080/Casa/getAll").subscribe(data => {
 

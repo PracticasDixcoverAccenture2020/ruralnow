@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { InformacionLanding } from 'src/app/clases/infoLanding/informacion-landing';
 
 @Component({
   selector: 'oevents-landing-page',
@@ -15,9 +14,6 @@ export class LandingPageComponent implements OnInit {
   fechaSalida: Date;
   huespedes: number;
 
-  infoPasar: InformacionLanding;
-
-
   
 
   constructor(private router: Router) { }
@@ -27,8 +23,8 @@ export class LandingPageComponent implements OnInit {
 
   //Procesadores
   procesaHuespedes(numeroHuespedes: number) {
-    console.log(numeroHuespedes);
     this.huespedes = numeroHuespedes;
+    console.log(this.huespedes);
   }
 
   procesaFechaEntrada(fechaEntrada: Date) {
@@ -49,10 +45,14 @@ export class LandingPageComponent implements OnInit {
 
   //Emisores
   enviarMensaje(){
-    this.router.navigate(['/houses']);
-    this.infoPasar.setLocalizacion(this.localizacion);
-    this.infoPasar.setFechaEntrada(this.fechaEntrada);
-    this.infoPasar.setFechaSalida(this.fechaSalida);
-    this.infoPasar.setHuespedes(this.huespedes);    
+    
+    alert(this.huespedes);
+    this.router.navigate(['/houses', {
+      localizacion: this.localizacion, 
+      huespedes: this.huespedes,
+      fechaEntrada: this.fechaEntrada, 
+      fechaSalida : this.fechaSalida
+    }]);
+  
   }
 }
