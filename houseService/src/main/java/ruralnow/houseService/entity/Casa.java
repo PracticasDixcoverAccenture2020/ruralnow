@@ -90,7 +90,7 @@ public class Casa {
 	 */
 	@ManyToOne
 	@JoinColumn(name="idusuario")
-	private Usuario propietario;
+	private Usuario usuario;
 	
 	/*
 	 * Imagen
