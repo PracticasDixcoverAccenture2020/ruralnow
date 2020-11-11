@@ -10,8 +10,9 @@
 }
 
 .container-background {
-  background-image: linear-gradient(rgba(120,220,206,.200), rgba(120,220,206,.7)), url(../../../assets/img/fondo.jfif);
-  
+  background-image: url(../../../assets/img/fondo-landing.png);
+  background-size: cover;
+  width: 100%;  
 }
 
 .title, .subtitle, .message {
@@ -19,13 +20,13 @@
 }
 
 .title {
-  color: #31897d;
+  color: #002D27;
   font-family: 'Fjalla One', Helvetica, sans-serif, monospace;
   margin-top: 5%;
 }
 
 .subtitle {
-  color: #002D27;
+  color: #31897d;
   font-family:  Helvetica, sans-serif, monospace;
   margin-top: 2%;
 }

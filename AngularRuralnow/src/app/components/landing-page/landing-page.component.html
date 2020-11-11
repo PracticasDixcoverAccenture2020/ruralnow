@@ -11,7 +11,11 @@
 		</div>
 		
 		<div class="message">
-			<oevents-buscador></oevents-buscador>
+			<oevents-buscador (comunicadorLugar)="procesaLugar($event)"
+			></oevents-buscador>
+			<button mat-button matSuffix mat-stroked-button aria-label="search" (click)="enviarMensaje()">
+				<mat-icon>search</mat-icon>
+			</button>
 		</div>
 		
 		<div class="select">

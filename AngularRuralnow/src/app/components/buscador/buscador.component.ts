@@ -1,5 +1,4 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import {  Router } from '@angular/router';
 
 
 @Component({
@@ -15,22 +14,13 @@ export class BuscadorComponent implements OnInit {
 
   lugarSeleccionado: String;
 
-  constructor(private router: Router) {
-    
-   }
+  constructor() {}
 
 
   onSubmit() {
   }
  
   ngOnInit(): void {
-  }
-
-  gotoHouseList() {
-
-    window.alert("Click ^^");
-    this.router.navigate(['/houses']);
-
   }
 
   comunicarLugar(lugarSelect: String){
