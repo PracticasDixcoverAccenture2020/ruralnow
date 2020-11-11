@@ -2,11 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { Casa } from 'src/app/clases/casa/Casa';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CasaServiceService } from 'src/app/services/FindCasa-service.service';
-
 import { HttpClient } from "@angular/common/http";
-
-import {MatCardModule} from '@angular/material/card';
+import { InformacionLanding } from 'src/app/clases/infoLanding/informacion-landing';
 
 @Component({
   selector: 'oevents-listado-casas',
@@ -20,6 +17,12 @@ export class ListadoCasasComponent implements OnInit {
 
   listaDeCasas: Casa[] = [];
 
+  //Variables recibidas
+  localizacion: String;
+  fechaEntrada: Date;
+  fechaSalida: Date;
+  huespedes: number;
+  infoRecivida: InformacionLanding
   //constructor(private servicioCasa: CasaServiceService) { }
 
   constructor(private httpClient: HttpClient) { }
@@ -30,7 +33,12 @@ export class ListadoCasasComponent implements OnInit {
       this.casas = data;
     });*/
 
+    console.log(this.infoRecivida.getLocalizacion());
+
+   
+
     this.httpClient.get("http://localhost:8080/Casa/getAll").subscribe(data => {
+
       console.log(data);
 
       for(let key of Object.keys(data)){
@@ -38,7 +46,7 @@ export class ListadoCasasComponent implements OnInit {
         this.listaDeCasas.push(casa);
       }
     })
-  }
 
+  }
 }
 

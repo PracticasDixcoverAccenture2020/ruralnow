@@ -19,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SelectHuespedesComponent } from './select-huespedes/select-huespedes.component';
 import { SelectFechaEntradaComponent } from './select-fecha-entrada/select-fecha-entrada.component';
 import { SelectFechaSalidaComponent } from './select-fecha-salida/select-fecha-salida.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 import { DatalistComponent } from './datalist/datalist.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
@@ -35,6 +36,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     SelectHuespedesComponent,
     SelectFechaEntradaComponent,
     SelectFechaSalidaComponent,
+    ContactUsComponent,
     DatalistComponent
   ],
   imports: [
