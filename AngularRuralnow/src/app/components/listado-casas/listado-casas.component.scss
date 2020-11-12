@@ -3,6 +3,7 @@
     align-self: stretch;
     overflow: hidden;
     padding: 10px;
+    height: 100%;
 }
 
 .titulo-resultado h1 {
@@ -28,17 +29,27 @@
 }
 
 .card-body {
+    flex: 1;
     display: flex;
     flex-wrap: wrap;
     margin-left: 10px; 
     overflow: hidden;
     overflow-y: visible;
+}
 
-    justify-content: space-around;
+.card-body:empty {
+    background-image: url(../../../assets/img/lupa.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 10%;
+}
+
+.example-card:nth-child(2), .example-card:first-child {
+    align-self: flex-start;
 }
 
 .example-card {
-    max-width: 38vw;
+    max-width: 48%;
     margin: 15px 10px 0 10px;
     border: 2px solid black;
     display: flex;
@@ -140,7 +151,8 @@ ul.detalles span {
 .filtros {
     background-color: #31897d;
     padding: 20px;
-    width: 40vw;
+    min-width: 10vw;
+    min-height: 100%;
     align-self: stretch;
     border: 1px solid black;
     font-family: 'Fjalla One', Helvetica, sans-serif, monospace;
