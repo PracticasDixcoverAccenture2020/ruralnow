@@ -22,7 +22,7 @@ html, body {
     min-height: 10vh;
 }
 
-.body > oevents-landing-page, .body > oevents-listado-casas {
+.body > oevents-listado-casas {
     flex: 1;
     max-height: 81vh;
     display: flex;
@@ -38,14 +38,14 @@ html, body {
 }
 
 @media (max-height: 860PX) {
-    .body > oevents-landing-page, .body > oevents-listado-casas {
+     .body > oevents-listado-casas {
         flex: 1;
         max-height: 77vh;
         display: flex;
     }
 }
 @media (max-width: 770PX) {
-    .body > oevents-landing-page, .body > oevents-listado-casas {
+     .body > oevents-listado-casas {
         flex: 1;
         max-height: 68vh;
         display: flex;
