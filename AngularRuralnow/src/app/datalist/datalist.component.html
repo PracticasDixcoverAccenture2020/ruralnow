@@ -1,18 +1,18 @@
 <form class="example-form">
     <mat-form-field>
         <input type="text" placeholder="Provincia" aria-label="Provincia" matInput [formControl]="myControl"
-            [matAutocomplete]="auto">
+            [matAutocomplete]="auto" (change)="onChange($event.target.value)">
         <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngFor="let prov of filteredOptions | async" [value]="prov">
+            <mat-option *ngFor="let prov of filteredProvs | async" [value]="prov">
                 {{prov}}
             </mat-option>
         </mat-autocomplete>
     </mat-form-field>
     <mat-form-field>
-        <input type="text" placeholder="Población" aria-label="Provincia" matInput [formControl]="myControl"
+        <input type="text" placeholder="Población" aria-label="Poblacion" matInput [formControl]="myControlPob"
             [matAutocomplete]="auto">
         <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngFor="let pob of filteredOptions | async" [value]="pob">
+            <mat-option *ngFor="let pob of filteredPobls | async" [value]="pob">
                 {{pob}}
             </mat-option>
         </mat-autocomplete>

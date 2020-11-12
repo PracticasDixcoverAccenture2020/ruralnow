@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, HostBinding, HostListener, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import {map, startWith} from 'rxjs/operators';
+import { map, startWith } from 'rxjs/operators';
 import { Poblacion } from '../clases/poblacion/poblacion';
 import { Provincia } from '../clases/provincia/provincia';
 
@@ -20,33 +20,66 @@ export class DatalistComponent implements OnInit {
   poblaciones: Poblacion[] = [];
 
   myControl = new FormControl();
-  options: string[] = ['One', 'Two', 'Three'];
-  filteredOptions: Observable<string[]>;
+  myControlPob = new FormControl();
+  optionsProv: string[] = [];
+  optionsPob: string[] = [];
+  filteredProvs: Observable<string[]>;
+  filteredPobls: Observable<string[]>;
 
   constructor(private httpClient: HttpClient, private router: Router) { }
 
+  private _filter(value: string, options: string[]): string[] {
+    const filterValue = value.toLowerCase();
+    return options.filter(option => option.toLowerCase().includes(filterValue));
+  }
+
   ngOnInit(): void {
 
-    this.filteredOptions = this.myControl.valueChanges.pipe(
+    this.filteredProvs = this.myControl.valueChanges.pipe(
       startWith(''),
-      map(value => this._filter(value))
+      map(value => this._filter(value, this.optionsProv))
     );
 
-    this.httpClient.get("http://localhost:8080/Casa/getAll").subscribe(data => {
+    this.filteredPobls = this.myControlPob.valueChanges.pipe(
+      startWith(''),
+      map(value => this._filter(value, this.optionsPob))
+    );
+
+    this.httpClient.get("http://localhost:8080/Provincia/getAll").subscribe(data => {
       console.log(data);
 
       for (let key of Object.keys(data)) {
         let prov: Provincia = data[key];
         this.provincias.push(prov);
+
+        this.optionsProv.push(prov.provincia);
       }
-    })
+    });
 
   }
 
-  private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
+  onChange(prov: any) {
+    console.log(prov);
 
-    return this.options.filter(option => option.toLowerCase().includes(filterValue));
+    
+
+    if (prov !== "") {
+
+      this.optionsPob = [];
+
+      this.httpClient.get("http://localhost:8080/Poblacion/byProvincia/" + prov).subscribe(data => {
+
+        for (let key of Object.keys(data)) {
+          let pob: Poblacion = data[key];
+          this.poblaciones.push(pob);
+
+          this.optionsPob.push(pob.poblacion);
+        }
+
+
+      });
+
+    }
   }
 
   gotoHouseList() {

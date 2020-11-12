@@ -5,62 +5,61 @@
 		<div class="title">
 			<h1>Ruralnow</h1>
 		</div>
-		
+
 		<div class="subtitle">
-			<h2>¡Bienvenido!</h2> 
+			<h2>¡Bienvenido!</h2>
 		</div>
-		
+
 		<div class="message">
-			<oevents-buscador (comunicadorLugar)="procesaLugar($event)"
-			></oevents-buscador>
+			<oevents-buscador (comunicadorLugar)="procesaLugar($event)"></oevents-buscador>
 			<button mat-button matSuffix mat-stroked-button aria-label="search" (click)="enviarMensaje()">
 				<mat-icon>search</mat-icon>
 			</button>
-      <!--<oevents-datalist></oevents-datalist> -->
+			<!--<oevents-datalist></oevents-datalist>-->
 		</div>
-		
+
 		<div class="select">
-			<oevents-select-fecha-entrada (comunicadorFechaEntrada)="procesaFechaEntrada($event)"
-		></oevents-select-fecha-entrada>
-			<oevents-select-fecha-salida (comunicadorFechaSalida)="procesaFechaSalida($event)"
-		></oevents-select-fecha-salida>
-			<oevents-select-huespedes (comunicadorHuespedes)="procesaHuespedes($event)"
-		></oevents-select-huespedes>
+			<oevents-select-fecha-entrada (comunicadorFechaEntrada)="procesaFechaEntrada($event)">
+			</oevents-select-fecha-entrada>
+			<oevents-select-fecha-salida (comunicadorFechaSalida)="procesaFechaSalida($event)">
+			</oevents-select-fecha-salida>
+			<oevents-select-huespedes (comunicadorHuespedes)="procesaHuespedes($event)"></oevents-select-huespedes>
 		</div>
-	  
+
 	</div>
 
-  	<div class="contenedor-casa">
+	<div class="contenedor-casa">
 
 		<div class="description">
 			<p>
-				Te ofrecemos los mejores <strong>alojamientos en Andalucía</strong>. 
-				Si estás deseando disfrutar de unas vacaciones de ensueño, nosotros te aportamos la mejor solución. 
+				Te ofrecemos los mejores <strong>alojamientos en Andalucía</strong>.
+				Si estás deseando disfrutar de unas vacaciones de ensueño, nosotros te aportamos la mejor solución.
 				Una cuidadosa selección de <strong>casas rurales con encanto</strong>,
-				modernas y lujosas villas, y otra serie de alojamientos que te brindarán 
-				<strong>la mejor experiencia en Andalucía</strong>, 
+				modernas y lujosas villas, y otra serie de alojamientos que te brindarán
+				<strong>la mejor experiencia en Andalucía</strong>,
 				tanto en el interior como <strong>cerca de la costa</strong>.
 			</p>
 		</div>
 
-		<div class="description">		
+		<div class="description">
 			<p>
-				Reserva tu alojamiento con Ruralnow.com y date la oportunidad de descansar en tus merecidas 
-				<strong>vacaciones en Andalucía</strong>. Encuentra la paz que estabas buscando en una de nuestras 
+				Reserva tu alojamiento con Ruralnow.com y date la oportunidad de descansar en tus merecidas
+				<strong>vacaciones en Andalucía</strong>. Encuentra la paz que estabas buscando en una de nuestras
 				<strong>casas rurales y villas de lujo</strong>. Disfrutarás de las mejores comodidades,
-				grandes y espaciosos salones, acogedoras habitaciones, fabulosos exteriores <strong>con piscina privada</strong>, 
+				grandes y espaciosos salones, acogedoras habitaciones, fabulosos exteriores <strong>con piscina
+					privada</strong>,
 				todo en un entorno único como es el interior de Andalucía y la costa mediterránea.
 			</p>
 		</div>
 
 		<div class="description">
 			<p>
-				Comparte con tu familia y amigos las mejores experiencias en el sur de España. 
+				Comparte con tu familia y amigos las mejores experiencias en el sur de España.
 				Además, el <strong>clima de Andalucía</strong> es uno de los mejores de Europa,
 				por lo que el sol y la luz serán tus compañeros de viaje más anhelados.
 			</p>
-		  </div>
-		  
+		</div>
+
 	</div>
-	
+
 </div>
