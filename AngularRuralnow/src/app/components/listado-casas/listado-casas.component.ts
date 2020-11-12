@@ -31,12 +31,14 @@ export class ListadoCasasComponent implements OnInit {
     this.fechaEntrada = new Date(this.route.snapshot.paramMap.get('fechaEntrada'));
     this.fechaSalida = new Date(this.route.snapshot.paramMap.get('fechaSalida'));
 
-    if (this.localizacion === "") {
+    if (this.localizacion === "undefined") {
 
       this.httpClient.get("http://localhost:8080/Casa/getAll").subscribe(data => {
         console.log(data);
         this.rellenarLista(data);
       })
+
+      this.localizacion = "TODO";
 
     } else {
       this.httpClient.get("http://localhost:8080/Casa/byProvincia/" + this.localizacion).subscribe(data => {
