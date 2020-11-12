@@ -2,6 +2,11 @@ body{
     //overflow-x: hidden;
     color:#002D27;
 }
+
+.w3hubs-adv-grids{
+    max-width: 100%;
+
+}
 .w3hubs-adv-right1{
     background: url(../../../assets/img/coche-bosque.jpg) no-repeat 0px 0px;
     background-size: cover;
@@ -14,7 +19,7 @@ body{
 }
 .w3hubs-adv-right3{
     background: url(../../../assets/img/aeropuerto.jpg) no-repeat 0px 0px;
-    background-size: cover;
+    background-size: contain;
 	min-height:500px;
 }
 img{
