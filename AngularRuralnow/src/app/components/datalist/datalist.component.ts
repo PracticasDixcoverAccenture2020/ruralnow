@@ -4,8 +4,8 @@ import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
-import { Poblacion } from '../clases/poblacion/poblacion';
-import { Provincia } from '../clases/provincia/provincia';
+import { Poblacion } from 'src/app/clases/poblacion/poblacion';
+import { Provincia } from 'src/app/clases/provincia/provincia';
 
 
 @Component({
