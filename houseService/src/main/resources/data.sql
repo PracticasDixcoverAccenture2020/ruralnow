@@ -799,15 +799,15 @@ INSERT INTO usuario (idusuario, nombre, apellidos, fecha_nac, password, email, t
 
 
 INSERT INTO casa (idcasa, nombre, idpoblacion, descripcion, personas, habitaciones, camas, aseos, precio_noche, idusuario, imagen) VALUES
-(1, 'Casa Rural Torcalillos', 4508, 'En la ciudad de Antequera, al norte de la provincia de Málaga, podemos encontrar este alojamiento que forma parte del conjunto de viviendas que dan lugar al complejo rural Ruta del Sol.', 2, 1, 1, 1, 100, 3, 'casa.jpg'),
-(2, 'Casa Rural El Encinar', 4508, 'Situado en la preciosa ciudad de Antequera, este alojamiento cuenta con un sola planta y diferentes estancias para alojar un total de 4 personas. Rodeada de unas vistas inmejorables.', 4, 2, 3, 2, 140, 3, 'casa.jpg'),
-(3, 'Finca El Cerrillo', 4531, 'En la localidad de Cártama, muy cerquita de la capital de provincia, Málaga, se encuentra esta tranquila casa rural, alejada de todo ruido, donde podrás descansar en un entorno que te brindará paz.', 14, 4, 10, 1, 180, 2, 'casa.jpg'),
-(4, 'Villa Adriana', 4500, 'Se trata de un alojamiento lleno de encanto, en el que podrás sentirte como en casa y donde vas a poder disfrutar de las mejores vistas de las zonas verdes que nos rodean.', 8, 4, 6, 2, 160, 2, 'casa.jpg'),
-(5, 'Casa Los Rosales', 4572, 'Pertenece a la finca de La Moraleda junto a otras 4 casas. Perfecta para grupos que quieren intimidad.', 5, 2, 4, 1, 100, 2, 'casa.jpg'),
-(6, 'Cortijo Fuente Marchal', 4567, 'Nuestro alojamiento es una cortijo de gran antigüedad que ha sido restaurado con la intención de acceder al turismo rural sin perder un ápice de su historia.', 34, 17, 25, 9, 1000, 4, 'casa.jpg'),
-(7, 'El Nogal', 4576, 'Majestuosa casa rural ubicada en Ronda. Una única planta con muchas zonas exteriores, perfecta para tener a mano toda la diversión.', 160, 4, 12, 8, 300, 2, 'casa.jpg'),
-(8, 'Casa Rural Crisal', 4513, 'Casa Rural Crisal se encuentra en la Serranía de Ronda, con capacidad para 12 personas y todos los servicios que pueda desear: piscina, barbacoa, zona infantil...', 12, 4, 10, 2, 220, 4, 'casa.jpg'),
-(9, 'Casa Rural La Carrihuela', 1787, 'Conjunto de casas que comparten un espectacular patio interior, perfecto para barbacoas y comidas en familia. La decoración de la casa os hará viajar a otro tiempo, sintiendo la Andalucía más rural.', 10, 3, 6, 3, 250, 4, 'casa.jpg');
+(1, 'Casa Rural Torcalillos', 4508, 'En la ciudad de Antequera, al norte de la provincia de Málaga, podemos encontrar este alojamiento que forma parte del conjunto de viviendas que dan lugar al complejo rural Ruta del Sol.', 2, 1, 1, 1, 100, 3, 'torcalillos.jpg'),
+(2, 'Casa Rural El Encinar', 4508, 'Situado en la preciosa ciudad de Antequera, este alojamiento cuenta con un sola planta y diferentes estancias para alojar un total de 4 personas. Rodeada de unas vistas inmejorables.', 4, 2, 3, 2, 140, 3, 'encinar.jpg'),
+(3, 'Finca El Cerrillo', 4531, 'En la localidad de Cártama, muy cerquita de la capital de provincia, Málaga, se encuentra esta tranquila casa rural, alejada de todo ruido, donde podrás descansar en un entorno que te brindará paz.', 14, 4, 10, 1, 180, 2, 'cerrillo.jpg'),
+(4, 'Villa Adriana', 4500, 'Se trata de un alojamiento lleno de encanto, en el que podrás sentirte como en casa y donde vas a poder disfrutar de las mejores vistas de las zonas verdes que nos rodean.', 8, 4, 6, 2, 160, 2, 'villaadriana.jfif'),
+(5, 'Casa Los Rosales', 4572, 'Pertenece a la finca de La Moraleda junto a otras 4 casas. Perfecta para grupos que quieren intimidad.', 5, 2, 4, 1, 100, 2, 'rosales.jpg'),
+(6, 'Cortijo Fuente Marchal', 4567, 'Nuestro alojamiento es una cortijo de gran antigüedad que ha sido restaurado con la intención de acceder al turismo rural sin perder un ápice de su historia.', 34, 17, 25, 9, 1000, 4, 'fuentemarchal.jpg'),
+(7, 'El Nogal', 4576, 'Majestuosa casa rural ubicada en Ronda. Una única planta con muchas zonas exteriores, perfecta para tener a mano toda la diversión.', 160, 4, 12, 8, 300, 2, 'nogal.jpg'),
+(8, 'Casa Rural Crisal', 4513, 'Casa Rural Crisal se encuentra en la Serranía de Ronda, con capacidad para 12 personas y todos los servicios que pueda desear: piscina, barbacoa, zona infantil...', 12, 4, 10, 2, 220, 4, 'crisal.jpg'),
+(9, 'Casa Rural La Carrihuela', 1787, 'Conjunto de casas que comparten un espectacular patio interior, perfecto para barbacoas y comidas en familia. La decoración de la casa os hará viajar a otro tiempo, sintiendo la Andalucía más rural.', 10, 3, 6, 3, 250, 4, 'carrihuela.jfif');
 
 
 INSERT INTO casa_servicio (idcasa,idservicio) VALUES (1,1),(1,3),(1,5),(2,2),(2,1),(2,6),(3,1),(3,3),(4,4),(4,5),(4,6),(5,1),(5,2),(6,6),(7,2);
