@@ -37,6 +37,15 @@ html, body {
     min-height: 6vh;
 }
 
+.body > oevents-contact-us{
+    
+    background-color: #002D27; 
+}
+
+.body > oevents-landing-page{
+    width: 100%;
+}
+
 @media (max-height: 860PX) {
      .body > oevents-listado-casas {
         flex: 1;
