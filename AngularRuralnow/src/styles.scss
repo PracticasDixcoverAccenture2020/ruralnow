@@ -38,12 +38,13 @@ html, body {
 }
 
 .body > oevents-contact-us{
-    
+    min-height: 81vh;
     background-color: #002D27; 
 }
 
 .body > oevents-landing-page{
     width: 100%;
+    min-height: 81vh;
 }
 
 @media (max-height: 860PX) {
