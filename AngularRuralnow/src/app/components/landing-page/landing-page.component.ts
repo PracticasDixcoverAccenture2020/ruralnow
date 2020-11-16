@@ -21,6 +21,10 @@ export class LandingPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+  
+
+
   //Procesadores
   procesaHuespedes(numeroHuespedes: number) {
     this.huespedes = numeroHuespedes;
@@ -37,22 +41,42 @@ export class LandingPageComponent implements OnInit {
     this.fechaSalida = fechaSalida;
   }
 
-   procesaLugar(lugarSelect: String) {
+  procesaLugar(lugarSelect: String) {
     console.log(lugarSelect);
     this.localizacion = lugarSelect;
   }
 
 
   //Emisores
-  enviarMensaje(){
-    
-    alert(this.huespedes);
-    this.router.navigate(['/houses', {
-      localizacion: this.localizacion, 
-      huespedes: this.huespedes,
-      fechaEntrada: this.fechaEntrada, 
-      fechaSalida : this.fechaSalida
-    }]);
-  
+
+   compareDateAndGo()
+  {
+
+    if (this.fechaEntrada.getDay() == this.fechaSalida.getDay()) {
+
+      this.router.navigate(['/houses', {
+        localizacion: this.localizacion, 
+        huespedes: this.huespedes,
+        fechaEntrada: this.fechaEntrada, 
+        fechaSalida : this.fechaSalida
+      }]);
+
+    }
+
+    // Check if the first is greater than second
+    if (this.fechaEntrada.getDay() > this.fechaSalida.getDay()){
+       alert("La fecha de entrada no puede ser posterior a la de salida");
+    }
+
+    // Check if the first is less than second
+    if (this.fechaEntrada.getDay() < this.fechaSalida.getDay()){
+
+       this.router.navigate(['/houses', {
+        localizacion: this.localizacion, 
+        huespedes: this.huespedes,
+        fechaEntrada: this.fechaEntrada, 
+        fechaSalida : this.fechaSalida
+      }]);
+    }
   }
 }
