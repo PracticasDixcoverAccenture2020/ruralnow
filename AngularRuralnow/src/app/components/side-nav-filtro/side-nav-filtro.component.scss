@@ -1,0 +1,22 @@
+
+
+.mat-parrafo{
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  flex-flow: wrap;
+  height: auto;
+  justify-content: space-evenly;
+}
+
+.div-fecha-entra-salida{
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.divisor{
+  background-color:  #31897d;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}

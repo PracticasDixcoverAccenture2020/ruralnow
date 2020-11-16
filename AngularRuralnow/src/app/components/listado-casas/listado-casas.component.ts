@@ -22,6 +22,7 @@ export class ListadoCasasComponent implements OnInit {
   fechaSalida: Date;
   huespedes: number;
 
+
   constructor(private httpClient: HttpClient, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -66,5 +67,8 @@ export class ListadoCasasComponent implements OnInit {
       this.listaDeCasas.push(casa);
     }
   }
+
+ 
+
 }
 
