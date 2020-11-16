@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
   templateUrl: './landing-page.component.html',
   styleUrls: ['./landing-page.component.scss']
 })
-export class LandingPageComponent implements OnInit { 
+export class LandingPageComponent implements OnInit {
 
   //Variables a pasar
   localizacion: String;
@@ -14,15 +14,13 @@ export class LandingPageComponent implements OnInit {
   fechaSalida: Date;
   huespedes: number;
 
-  
-
   constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
 
-  
+
 
 
   //Procesadores
@@ -49,36 +47,19 @@ export class LandingPageComponent implements OnInit {
 
   //Emisores
 
-   compareDateAndGo()
-  {
+  compareDateAndGo() {
+    if (this,this.huespedes === undefined)
+      this.huespedes = 1;
 
-
-    if (this.fechaEntrada == undefined || this.fechaSalida == undefined || this.huespedes == undefined){
+    if (this.fechaEntrada === undefined || this.fechaSalida === undefined || this.huespedes === null) {
       alert("Por favor, rellena todos los campos")
-    }
-
-    if (this.fechaEntrada.getDay() == this.fechaSalida.getDay()) {
-
+    } else {
       this.router.navigate(['/houses', {
-        localizacion: this.localizacion, 
+        localizacion: this.localizacion,
         huespedes: this.huespedes,
-        fechaEntrada: this.fechaEntrada, 
-        fechaSalida : this.fechaSalida
+        fechaEntrada: this.fechaEntrada,
+        fechaSalida: this.fechaSalida
       }]);
-
-    } else if (this.fechaEntrada.getDay() > this.fechaSalida.getDay()){
-
-       alert("La fecha de entrada no puede ser posterior a la de salida");
-
-    } else if (this.fechaEntrada.getDay() < this.fechaSalida.getDay()){
-
-       this.router.navigate(['/houses', {
-        localizacion: this.localizacion, 
-        huespedes: this.huespedes,
-        fechaEntrada: this.fechaEntrada, 
-        fechaSalida : this.fechaSalida
-      }]);
-
     }
   }
 

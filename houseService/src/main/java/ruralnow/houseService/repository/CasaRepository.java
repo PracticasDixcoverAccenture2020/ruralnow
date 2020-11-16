@@ -1,5 +1,6 @@
 package ruralnow.houseService.repository;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -21,5 +22,8 @@ public interface CasaRepository extends JpaRepository<Casa, Integer> {
 	public List<Casa> findByPoblacion(String poblacion);
 	
 	public List<Casa> findByPoblacion_poblacion(String poblacion);
+	
+	@Query(value="select * from casa c where c.idcasa not in (select r.idcasa from reserva r where r.fecha_inicio <= ?1 and r.fecha_fin >= ?1)", nativeQuery = true)
+	public List<Casa> findByReservaLibre(Date fecha);
 	
 }
