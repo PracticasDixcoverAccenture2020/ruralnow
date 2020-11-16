@@ -23,6 +23,7 @@ import { SharedModule } from "./modules/shared/shared.module";
 import { AppRoutingModule } from "./app-routing.module";
 import { HttpClientModule } from '@angular/common/http';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { SideNavFiltroComponent } from './components/side-nav-filtro/side-nav-filtro.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     SelectFechaSalidaComponent,
     ContactUsComponent,
     DatalistComponent,
-    NuestrosServiciosComponent
+    NuestrosServiciosComponent,
+    SideNavFiltroComponent
   ],
   imports: [
     CommonModule,
