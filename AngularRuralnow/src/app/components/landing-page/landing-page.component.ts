@@ -52,6 +52,11 @@ export class LandingPageComponent implements OnInit {
    compareDateAndGo()
   {
 
+
+    if (this.fechaEntrada == undefined || this.fechaSalida == undefined || this.huespedes == undefined){
+      alert("Por favor, rellena todos los campos")
+    }
+
     if (this.fechaEntrada.getDay() == this.fechaSalida.getDay()) {
 
       this.router.navigate(['/houses', {
@@ -61,15 +66,11 @@ export class LandingPageComponent implements OnInit {
         fechaSalida : this.fechaSalida
       }]);
 
-    }
+    } else if (this.fechaEntrada.getDay() > this.fechaSalida.getDay()){
 
-    // Check if the first is greater than second
-    if (this.fechaEntrada.getDay() > this.fechaSalida.getDay()){
        alert("La fecha de entrada no puede ser posterior a la de salida");
-    }
 
-    // Check if the first is less than second
-    if (this.fechaEntrada.getDay() < this.fechaSalida.getDay()){
+    } else if (this.fechaEntrada.getDay() < this.fechaSalida.getDay()){
 
        this.router.navigate(['/houses', {
         localizacion: this.localizacion, 
@@ -77,6 +78,8 @@ export class LandingPageComponent implements OnInit {
         fechaEntrada: this.fechaEntrada, 
         fechaSalida : this.fechaSalida
       }]);
+
     }
   }
+
 }

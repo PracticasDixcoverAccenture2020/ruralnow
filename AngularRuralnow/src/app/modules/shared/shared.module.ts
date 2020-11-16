@@ -9,7 +9,7 @@ import { MatButtonModule, MatToolbarModule, MatIconModule, MatCardModule } from 
 import { FormsModule } from '@angular/forms';
 import { MatSelectModule} from '@angular/material/select/';
 import {ReactiveFormsModule} from '@angular/forms';
-import {MatDatepickerModule, MatNativeDateModule,MatFormFieldModule } from '@angular/material';
+import {MatDatepickerModule, MatNativeDateModule,MatFormFieldModule, MatSidenavModule } from '@angular/material';
 
 
 import "hammerjs";
@@ -30,7 +30,8 @@ import "hammerjs";
     ReactiveFormsModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatFormFieldModule
+    MatFormFieldModule, 
+    MatSidenavModule
     
   ],
   exports: [
@@ -47,7 +48,8 @@ import "hammerjs";
     ReactiveFormsModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatFormFieldModule    
+    MatFormFieldModule,
+    MatSidenavModule   
   ],
   entryComponents: []
 })
