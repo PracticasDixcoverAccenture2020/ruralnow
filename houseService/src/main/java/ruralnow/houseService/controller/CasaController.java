@@ -21,15 +21,15 @@ import ruralnow.houseService.service.CasaService;
 
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
-@RequestMapping({"/Casa"})
+@RequestMapping({ "/Casa" })
 public class CasaController {
 
 	@Autowired
 	private CasaService casaService;
-	
+
 	/** DozerMapper. */
-    DozerBeanMapper mapper = new DozerBeanMapper();
-	
+	DozerBeanMapper mapper = new DozerBeanMapper();
+
 	/*
 	 * Devuelve todas las casas
 	 */
@@ -37,19 +37,39 @@ public class CasaController {
 	public List<CasaDto> getAll() {
 		List<Casa> casas = casaService.findAll();
 		List<CasaDto> casasDto = new ArrayList<CasaDto>();
-		
-		if (casas != null)
-    	{
-    		for (Casa casa : casas) {
-    			CasaDto casaDto = (CasaDto) mapper.map(casa, CasaDto.class);
-    			casasDto.add(casaDto);
-    		}
 
-    	}
-		
+		if (casas != null) {
+			for (Casa casa : casas) {
+				CasaDto casaDto = (CasaDto) mapper.map(casa, CasaDto.class);
+				casasDto.add(casaDto);
+			}
+
+		}
+
 		return casasDto;
 	}
-	
+
+	/*
+	 * Devuelve la casa con el id correspondiente
+	 */
+	@RequestMapping(value = "/byId/{id}", method = RequestMethod.GET)
+	public CasaDto byId(@PathVariable("id") Integer id) {
+		try {
+			Casa casa = casaService.findById(id);
+			CasaDto casaDto = new CasaDto();
+
+			if (casa.getIdcasa() != 0) {
+				casaDto = (CasaDto) mapper.map(casa, CasaDto.class);
+			}
+			
+			return casaDto;
+
+		} catch (Exception e) {
+			System.out.println(e);
+			return new CasaDto();
+		}
+	}
+
 	/*
 	 * Devuelve todas las casas que hay en una provincia
 	 */
@@ -58,43 +78,41 @@ public class CasaController {
 		//
 		List<Casa> casas = casaService.findByProvincia(provincia);
 		List<CasaDto> casasDto = new ArrayList<CasaDto>();
-		
-		if(casas!=null)
-		{
-			for(Casa casa: casas) {
+
+		if (casas != null) {
+			for (Casa casa : casas) {
 				CasaDto casaDto = (CasaDto) mapper.map(casa, CasaDto.class);
 				casasDto.add(casaDto);
 			}
 		}
-		
+
 		return casasDto;
 	}
-	
+
 	/*
 	 * Devuelve todas las casas que hay en una poblacion
 	 */
-	@RequestMapping(value="/byPoblacion/{poblacion}", method = RequestMethod.GET)
-	public List<CasaDto> byPoblacion(@PathVariable("poblacion") String poblacion){
+	@RequestMapping(value = "/byPoblacion/{poblacion}", method = RequestMethod.GET)
+	public List<CasaDto> byPoblacion(@PathVariable("poblacion") String poblacion) {
 		//
 		List<Casa> casas = casaService.findByPoblacion_poblacion(poblacion);
 		List<CasaDto> casasDto = new ArrayList<CasaDto>();
-		
-		if (casas!=null)
-		{
-			for(Casa casa: casas) {
+
+		if (casas != null) {
+			for (Casa casa : casas) {
 				CasaDto casaDto = (CasaDto) mapper.map(casa, CasaDto.class);
 				casasDto.add(casaDto);
 			}
 		}
-		
+
 		return casasDto;
 	}
-	
+
 	/*
 	 * Devuelve todas las casas que no están reservadas para una fecha
 	 */
-	@RequestMapping(value="/reserva/{fecha}", method = RequestMethod.GET)
-	public List<CasaDto> findByReservaLibre(@PathVariable("fecha") String fecha){
+	@RequestMapping(value = "/reserva/{fecha}", method = RequestMethod.GET)
+	public List<CasaDto> findByReservaLibre(@PathVariable("fecha") String fecha) {
 		//
 		Date fechaDate;
 		try {
@@ -105,15 +123,14 @@ public class CasaController {
 		}
 		List<Casa> casas = casaService.findByReservaLibre(fechaDate);
 		List<CasaDto> casasDto = new ArrayList<CasaDto>();
-		
-		if (casas!=null)
-		{
-			for(Casa casa: casas) {
+
+		if (casas != null) {
+			for (Casa casa : casas) {
 				CasaDto casaDto = (CasaDto) mapper.map(casa, CasaDto.class);
 				casasDto.add(casaDto);
 			}
 		}
-		
+
 		return casasDto;
 	}
 }

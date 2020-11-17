@@ -8,7 +8,7 @@ INSERT INTO provincia (idprovincia, provincia, provinciaseo, Abreviatura, comuni
 (45, 'Cádiz', 'cadiz', 'CDZ', 'AND'),
 (50, 'Jaén', 'jaen', 'JAE', 'AND');
 
-INSERT INTO Servicio (idservicio, nombre) VALUES (1, 'niños'),(2,'barbacoa'),(3,'piscina'),(4,'chimenea'),(5,'cocina completa'),(6,'aire acondicionado');
+INSERT INTO Servicio (idservicio, nombre) VALUES (1, 'niños'),(2,'barbacoa'),(3,'piscina'),(4,'chimenea'),(5,'cocina completa'),(6,'aire acondicionado'),(7,'mascotas');
 
 INSERT INTO poblacion (idpoblacion, idprovincia, poblacion, poblacionseo, postal, latitud, longitud) VALUES
 (294, 13, 'Abla', 'abla', 04510, '37.143631', '-2.775700'),
@@ -810,7 +810,7 @@ INSERT INTO casa (idcasa, nombre, idpoblacion, descripcion, personas, habitacion
 (9, 'Casa Rural La Carrihuela', 1787, 'Conjunto de casas que comparten un espectacular patio interior, perfecto para barbacoas y comidas en familia. La decoración de la casa os hará viajar a otro tiempo, sintiendo la Andalucía más rural.', 10, 3, 6, 3, 250, 4, 'carrihuela.jfif');
 
 
-INSERT INTO casa_servicio (idcasa,idservicio) VALUES (1,1),(1,3),(1,5),(2,2),(2,1),(2,6),(3,1),(3,3),(4,4),(4,5),(4,6),(5,1),(5,2),(6,6),(7,2);
+INSERT INTO casa_servicio (idcasa,idservicio) VALUES (1,2),(1,3),(1,5),(1,7),(2,2),(2,3),(2,4),(2,5),(2,7),(3,1),(3,2),(3,3),(3,5),(4,2),(4,3),(4,4),(4,6),(5,2),(5,5),(5,6),(5,7),(6,2),(6,3),(6,5),(6,7),(7,1),(7,2),(7,3),(7,6),(8,1),(8,2),(8,3),(8,4),(8,6),(9,1),(9,2),(9,4),(9,7);
 
 
 INSERT INTO reserva (id, idcasa, idusuario, fecha_inicio, fecha_fin, importe) VALUES

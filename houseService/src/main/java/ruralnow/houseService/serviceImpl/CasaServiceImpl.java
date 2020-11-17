@@ -28,6 +28,17 @@ public class CasaServiceImpl implements CasaService {
 	}
 	
 	/*
+	 * Devuelve la casa con el ID dado
+	 */
+	@Override
+	public Casa findById(Integer id) {
+		
+		Casa casa = casaRepo.getOne(id);
+		
+		return casa;
+	}
+	
+	/*
 	 * Retorna una lista de todas las casas
 	 * que hay en una determinada provincia
 	 */
