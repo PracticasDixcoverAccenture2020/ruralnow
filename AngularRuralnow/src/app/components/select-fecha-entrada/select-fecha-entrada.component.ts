@@ -1,5 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import {MatDatepickerModule, MatNativeDateModule,MatFormFieldModule} from '@angular/material';
+import { MinFechaSalidaService } from 'src/app/services/min-fecha-salida.service';
 
 @Component({
   selector: 'oevents-select-fecha-entrada',
@@ -15,7 +16,7 @@ export class SelectFechaEntradaComponent {
   maxDate: Date;
   opcionSeleccionada: Date;
 
-  constructor() { 
+  constructor(private minFechaSalidaService: MinFechaSalidaService) { 
     const currentYear = new Date().getFullYear();
     const dayDate = new Date().getDate();
     const month = new Date().getMonth();
@@ -30,6 +31,8 @@ export class SelectFechaEntradaComponent {
   comunicarFechaEntrada(fechaEntradaSelect: Date){
     this.comunicadorFechaEntrada.emit(fechaEntradaSelect);   
     console.log(fechaEntradaSelect);
+
+    this.minFechaSalidaService.setMinSalida(fechaEntradaSelect);
   }
 
 }
