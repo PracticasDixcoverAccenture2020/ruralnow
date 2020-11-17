@@ -1,5 +1,6 @@
 package ruralnow.houseService.serviceImpl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +45,16 @@ public class CasaServiceImpl implements CasaService {
 	public List<Casa> findByPoblacion_poblacion(String poblacion) {
 		
 		return casaRepo.findByPoblacion_poblacion(poblacion);
+	}
+	
+	/*
+	 * Retorna una lista de todas las casas
+	 * que no están reservadas en una fecha
+	 */
+	@Override
+	public List<Casa> findByReservaLibre(Date fecha) {
+		
+		return casaRepo.findByReservaLibre(fecha);
 	}
 
 }

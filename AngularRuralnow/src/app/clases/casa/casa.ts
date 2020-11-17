@@ -2,7 +2,7 @@ import { Persona } from '../persona/persona';
 import { Poblacion } from '../poblacion/poblacion';
 
 export class Casa {
-    id: number;
+    idcasa: number;
     nombre: string;
     idpoblacion: Poblacion;
     //municipio: number;

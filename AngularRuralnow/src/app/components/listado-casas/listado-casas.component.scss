@@ -44,7 +44,7 @@
     background-size: 10%;
 }
 
-.example-card:nth-child(2), .example-card:first-child {
+.example-card:only-child, .example-card:nth-child(1):nth-last-child(2), .example-card:nth-child(2):nth-last-child(1) {
     align-self: flex-start;
 }
 

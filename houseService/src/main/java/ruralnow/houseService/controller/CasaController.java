@@ -1,6 +1,9 @@
 package ruralnow.houseService.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.dozer.DozerBeanMapper;
@@ -74,6 +77,33 @@ public class CasaController {
 	public List<CasaDto> byPoblacion(@PathVariable("poblacion") String poblacion){
 		//
 		List<Casa> casas = casaService.findByPoblacion_poblacion(poblacion);
+		List<CasaDto> casasDto = new ArrayList<CasaDto>();
+		
+		if (casas!=null)
+		{
+			for(Casa casa: casas) {
+				CasaDto casaDto = (CasaDto) mapper.map(casa, CasaDto.class);
+				casasDto.add(casaDto);
+			}
+		}
+		
+		return casasDto;
+	}
+	
+	/*
+	 * Devuelve todas las casas que no están reservadas para una fecha
+	 */
+	@RequestMapping(value="/reserva/{fecha}", method = RequestMethod.GET)
+	public List<CasaDto> findByReservaLibre(@PathVariable("fecha") String fecha){
+		//
+		Date fechaDate;
+		try {
+			fechaDate = new SimpleDateFormat("yyyy-MM-dd").parse(fecha);
+		} catch (ParseException e) {
+			e.printStackTrace();
+			fechaDate = new Date();
+		}
+		List<Casa> casas = casaService.findByReservaLibre(fechaDate);
 		List<CasaDto> casasDto = new ArrayList<CasaDto>();
 		
 		if (casas!=null)

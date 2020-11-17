@@ -11,29 +11,12 @@ export class SelectHuespedesComponent implements OnInit {
   @Output()
   comunicadorHuespedes = new EventEmitter<number>();
 
-  huespedControl = new FormControl('', Validators.required);
-  selectFormControl = new FormControl('', Validators.required);
-
   numeroSeleccionado: number;
 
-  huespedes: number[] = [
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    7,
-    8,
-    9,
-    10,
-    11,
-    12,
-    13
-  ];
   constructor() { }
 
   ngOnInit(): void {
+    this.numeroSeleccionado = 1;
   }
 
   comunicarHuespedes(numeroHuespedes: number){
