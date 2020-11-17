@@ -54,6 +54,7 @@ export class SideNavFiltroComponent implements OnInit {
   aireAcondicionado : Boolean = false;
   acondicionadoNinnos: Boolean = false;
   admiteMascotas : Boolean = false;
+  localizacion : String;
 
   constructor() { }
 
@@ -136,6 +137,11 @@ export class SideNavFiltroComponent implements OnInit {
     console.log(huespedes);
     this.huespedes = huespedes;
     this.comunicarHuespedes(this.huespedes);
+  }
+
+  procesaLugar(lugarSelect: String) {
+    console.log(lugarSelect);
+    this.localizacion = lugarSelect;
   }
 
 

@@ -1,74 +1,66 @@
+<div class="container">
+  <mat-divider class="divisor"></mat-divider>
+  <mat-card class="nueva-busqueda">
+    <mat-card-content>
 
-<div class = "container">
-    <div class = "div-precio-noche">
+      <h5>Nueva Búsqueda</h5>
+      <div class="div-fecha-entra-salida">
+        <oevents-buscador (comunicadorLugar)="procesaLugar($event)"></oevents-buscador>
+        <oevents-select-fecha-entrada (comunicadorFechaEntrada)="procesaFechaEntrada($event)">
+        </oevents-select-fecha-entrada>
+        <oevents-select-fecha-salida (comunicadorFechaSalida)="procesaFechaSalida($event)">
+        </oevents-select-fecha-salida>
+      </div>
+      <div class="div-huespedes">
+        <oevents-select-huespedes (comunicadorHuespedes)="procesaHuespedes($event)"></oevents-select-huespedes>
+      </div>
+      <button mat-raised-button>Buscar</button>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-divider class="divisor"></mat-divider>
+
+  <mat-card class="servicios">
+    <mat-card-content>
+      <div class="div-precio-noche">
         <p>Rango de precio por noche</p>
-        <div class = "mat-parrafo">
-            <mat-slider thumbLabel [displayWith]="formatLabel"
-                tickInterval="1"
-                min="1"
-                max="1000"
-                required [(ngModel)]="precioSelec" (ngModelChange)="comunicarPrecionoche(precioSelec)">
-            </mat-slider> <div> {{precioSelec}} €</div>
+        <div class="mat-parrafo">
+          <mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="1" min="1" max="1000" required
+            [(ngModel)]="precioSelec" (ngModelChange)="comunicarPrecionoche(precioSelec)">
+          </mat-slider>
+          <div> {{precioSelec}} €</div>
         </div>
-    </div>
-    <mat-divider class= "divisor"></mat-divider>
-    <div class = "div-fecha-entra-salida">
-        <p>Fecha Entrada y salida</p>
-        <oevents-select-fecha-entrada (comunicadorFechaEntrada)="procesaFechaEntrada($event)"
-        ></oevents-select-fecha-entrada>
-        <oevents-select-fecha-salida (comunicadorFechaSalida)="procesaFechaSalida($event)"
-        ></oevents-select-fecha-salida>
-    </div>
+      </div>
 
-    <mat-divider class= "divisor"></mat-divider>
+      <p class="p-instalaciones">Instalaciones</p>
 
-    <div class = "div-huespedes">
-        <p>Huespedes</p>
-        <oevents-select-huespedes (comunicadorHuespedes)="procesaHuespedes($event)"
-        ></oevents-select-huespedes>
-    </div>
+      <section class="section-instalaciones">
+        <mat-checkbox class="check-instalaciones" [(ngModel)]="piscina" (ngModelChange)="comunicarPiscina(piscina)">
+          Piscina</mat-checkbox>
 
-    <mat-divider class= "divisor"></mat-divider>
+        <mat-checkbox class="check-instalaciones" [(ngModel)]="chimenea" (ngModelChange)="comunicarChimenea(chimenea)">
+          Chimenea</mat-checkbox>
 
-    <mat-card class= "servicios">
-        <mat-card-content>
+        <mat-checkbox class="check-instalaciones" [(ngModel)]="barbacoa" (ngModelChange)="comunicarBarbacoa(barbacoa)">
+          Barbacoa</mat-checkbox>
 
-            <p class= "p-instalaciones">Instalaciones</p>
+        <mat-checkbox class="check-instalaciones" [(ngModel)]="cocinaCompleta"
+          (ngModelChange)="comunicarCocinaCompleta(cocinaCompleta)">Cocina completa</mat-checkbox>
 
-          <section class="section-instalaciones">
-            <mat-checkbox class="check-instalaciones" [(ngModel)]="piscina"
-            (ngModelChange)="comunicarPiscina(piscina)"
-            >Piscina</mat-checkbox>
+        <mat-checkbox class="check-instalaciones" [(ngModel)]="aireAcondicionado"
+          (ngModelChange)="comunicarAireAcondicionado(aireAcondicionado)">Aire acondicionado</mat-checkbox>
+      </section>
 
-            <mat-checkbox class="check-instalaciones" [(ngModel)]="chimenea"
-            (ngModelChange)="comunicarChimenea(chimenea)"
-            >Chimenea</mat-checkbox>
+      <section class="section-ninnos">
+        <mat-checkbox class="check-ninnos" [(ngModel)]="acondicionadoNinnos"
+          (ngModelChange)="comunicarAcondicionadoNinnos(acondicionadoNinnos)">Acondicionado para niños</mat-checkbox>
+      </section>
 
-            <mat-checkbox class="check-instalaciones" [(ngModel)]="barbacoa"
-            (ngModelChange)="comunicarBarbacoa(barbacoa)"
-            >Barbacoa</mat-checkbox>
+      <section class="section-mascotas">
+        <mat-checkbox class="check-mascotas" [(ngModel)]="admiteMascotas"
+          (ngModelChange)="comunicarAdmiteMascotas(admiteMascotas)">Admite mascotas</mat-checkbox>
+      </section>
 
-            <mat-checkbox class="check-instalaciones" [(ngModel)]="cocinaCompleta"
-            (ngModelChange)="comunicarCocinaCompleta(cocinaCompleta)"
-            >Cocina completa</mat-checkbox>
-
-            <mat-checkbox class="check-instalaciones" [(ngModel)]="aireAcondicionado"
-            (ngModelChange)="comunicarAireAcondicionado(aireAcondicionado)"
-            >Aire acondicionado</mat-checkbox>
-          </section>
-
-          <section class="section-ninnos">
-            <mat-checkbox class="check-ninnos"  [(ngModel)]="acondicionadoNinnos"
-            (ngModelChange)="comunicarAcondicionadoNinnos(acondicionadoNinnos)"
-            >Acondicionado para niños</mat-checkbox>
-          </section>
-
-          <section class="section-mascotas">
-            <mat-checkbox class="check-mascotas" [(ngModel)]="admiteMascotas"
-            (ngModelChange)="comunicarAdmiteMascotas(admiteMascotas)"
-            >Admite mascotas</mat-checkbox>
-          </section>
-
-        </mat-card-content>
-      </mat-card>
+    </mat-card-content>
+  </mat-card>
 </div>

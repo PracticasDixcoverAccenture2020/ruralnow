@@ -1,22 +1,19 @@
 <div class="titulo-resultado">
   <p><a href="#">INICIO</a> / Resultado búsqueda</p>
-  <h1>Resultados de búsqueda: "{{localizacion}}" | Fecha entrada: {{fechaEntradaStr}} - Fecha salida: {{fechaSalidaStr}} - Huéspedes: {{huespedes}}</h1>
+  <h1>Resultados de búsqueda: "{{localizacion}}" | Fecha entrada: {{fechaEntradaStr}} - Fecha salida: {{fechaSalidaStr}}
+    - Huéspedes: {{huespedes}}</h1>
 </div>
 
 <div class="cont">
-    <div class="filtros">
-      <oevents-side-nav-filtro (comunicadorFechaSalida)="procesaFechaSalida($event)" 
-      (comunicadorFechaEntrada)="procesaFechaEntrada($event)"
-      (comunicadorHuespedes)="procesaHuespedes($event)"
-      (comunicadorPiscina)="procesaPiscina($event)"
-      (comunicadorBarbacoa)="procesaBarbacoa($event)"
-      (comunicadorChimenea)="procesaChimenea($event)"
-      (comunicadorCocinaCompleta)="procesaCocinaCompleta($event)"
+  <div class="filtros">
+    <oevents-side-nav-filtro (comunicadorFechaSalida)="procesaFechaSalida($event)"
+      (comunicadorFechaEntrada)="procesaFechaEntrada($event)" (comunicadorHuespedes)="procesaHuespedes($event)"
+      (comunicadorPiscina)="procesaPiscina($event)" (comunicadorBarbacoa)="procesaBarbacoa($event)"
+      (comunicadorChimenea)="procesaChimenea($event)" (comunicadorCocinaCompleta)="procesaCocinaCompleta($event)"
       (comunicadorAireAcondicionado)="procesaAireAcondicionado($event)"
       (comunicadorAcondicionadoNinnos)="procesaAcondicionadoNinnos($event)"
-      (comunicadorAdmiteMascotas)="procesaAdmiteMascotas($event)"
-      ></oevents-side-nav-filtro>
-   </div>
+      (comunicadorAdmiteMascotas)="procesaAdmiteMascotas($event)"></oevents-side-nav-filtro>
+  </div>
 
   <div class="card-body">
     <mat-card class="example-card" *ngFor="let casa of listaDeCasas">
