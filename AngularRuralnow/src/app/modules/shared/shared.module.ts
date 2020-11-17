@@ -10,6 +10,11 @@ import { FormsModule } from '@angular/forms';
 import { MatSelectModule} from '@angular/material/select/';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatDatepickerModule, MatNativeDateModule,MatFormFieldModule, MatSidenavModule } from '@angular/material';
+import { SidebarModule } from 'ng-sidebar';
+import {MatSliderModule} from '@angular/material/slider';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatRadioModule} from '@angular/material/radio';
+
 
 
 import "hammerjs";
@@ -31,7 +36,11 @@ import "hammerjs";
     MatDatepickerModule,
     MatNativeDateModule,
     MatFormFieldModule, 
-    MatSidenavModule
+    MatSidenavModule,
+    SidebarModule,
+    MatSliderModule,
+    MatCheckboxModule,
+    MatRadioModule
     
   ],
   exports: [
@@ -49,7 +58,12 @@ import "hammerjs";
     MatDatepickerModule,
     MatNativeDateModule,
     MatFormFieldModule,
-    MatSidenavModule   
+    MatSidenavModule,
+    SidebarModule,
+    MatSliderModule,
+    MatCheckboxModule,
+    MatRadioModule
+
   ],
   entryComponents: []
 })

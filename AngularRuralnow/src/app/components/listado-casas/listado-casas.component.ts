@@ -25,6 +25,15 @@ export class ListadoCasasComponent implements OnInit {
   fechaSalida: Date;
   fechaSalidaStr: string;
   huespedes: number;
+  precioNoche: number;
+  piscina : Boolean = false;
+  chimenea : Boolean = false;
+  barbacoa : Boolean = false;
+  cocinaCompleta : Boolean = false;
+  aireAcondicionado : Boolean = false;
+  acondicionadoNinnos: Boolean = false;
+  admiteMascotas : Boolean = false;
+
 
   constructor(private httpClient: HttpClient, private route: ActivatedRoute) { }
 
@@ -101,5 +110,63 @@ export class ListadoCasasComponent implements OnInit {
 
     return [year, month, day].join('-');
 }
+
+
+ //Procesadores
+ procesaHuespedes(numeroHuespedes: number) {
+  this.huespedes = numeroHuespedes;
+  console.log(this.huespedes);
+}
+
+procesaFechaEntrada(fechaEntrada: Date) {
+  console.log(fechaEntrada);
+  this.fechaEntrada = fechaEntrada;
+}
+
+procesaFechaSalida(fechaSalida: Date) {
+  console.log(fechaSalida);
+  this.fechaSalida = fechaSalida;
+}
+
+procesaPrecioNoche(precioNoche: number){
+  console.log(precioNoche);
+  this.precioNoche = precioNoche;
+}
+
+procesaPiscina(piscina: Boolean){
+  console.log(piscina);
+  this.piscina = piscina;
+}
+
+procesaChimenea(chimenea: Boolean){
+  console.log(chimenea);
+  this.chimenea = chimenea;
+}
+
+procesaBarbacoa(barbacoa: Boolean){
+  console.log(barbacoa);
+  this.barbacoa = barbacoa;
+}
+
+procesaCocinaCompleta(cocinaCompleta: Boolean){
+  console.log(cocinaCompleta);
+  this.cocinaCompleta = cocinaCompleta;
+}
+
+procesaAireAcondicionado(aireAcondicionado: Boolean){
+  console.log(aireAcondicionado);
+  this.aireAcondicionado = aireAcondicionado;
+}
+
+procesaAcondicionadoNinnos(acondicionadoNinnos: Boolean){
+  console.log(acondicionadoNinnos);
+  this.acondicionadoNinnos = acondicionadoNinnos;
+}
+
+procesaAdmiteMascotas(admiteMascotas: Boolean){
+  console.log(admiteMascotas);
+  this.admiteMascotas = admiteMascotas;
+}
+
 }
 

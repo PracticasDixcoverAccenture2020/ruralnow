@@ -149,13 +149,15 @@ ul.detalles span {
 }
 
 .filtros {
-    background-color: #31897d;
+    background-color: white;
     padding: 20px;
     min-width: 10vw;
     min-height: 100%;
     align-self: stretch;
     border: 1px solid black;
     font-family: 'Fjalla One', Helvetica, sans-serif, monospace;
+    overflow: hidden;
+    overflow-y: visible;
 }
 
 @media (max-width: 910PX){
