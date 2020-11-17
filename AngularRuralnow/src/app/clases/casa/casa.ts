@@ -15,7 +15,7 @@ export class Casa {
     idusuario: Persona;
     //propietario: number;
     imagen: string;
-    niños: Boolean;
+    ninnos: Boolean;
     mascotas: Boolean;
     barbacoa: Boolean;
     piscina: Boolean;
