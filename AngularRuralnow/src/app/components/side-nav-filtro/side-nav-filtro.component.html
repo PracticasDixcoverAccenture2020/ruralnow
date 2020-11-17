@@ -19,13 +19,56 @@
         <oevents-select-fecha-salida (comunicadorFechaSalida)="procesaFechaSalida($event)"
         ></oevents-select-fecha-salida>
     </div>
+
     <mat-divider class= "divisor"></mat-divider>
 
     <div class = "div-huespedes">
         <p>Huespedes</p>
-        <oevents-select-huespedes></oevents-select-huespedes>
+        <oevents-select-huespedes (comunicadorHuespedes)="procesaHuespedes($event)"
+        ></oevents-select-huespedes>
     </div>
 
     <mat-divider class= "divisor"></mat-divider>
 
+    <mat-card class= "servicios">
+        <mat-card-content>
+
+            <p class= "p-instalaciones">Instalaciones</p>
+
+          <section class="section-instalaciones">
+            <mat-checkbox class="check-instalaciones" [(ngModel)]="piscina"
+            (ngModelChange)="comunicarPiscina(piscina)"
+            >Piscina</mat-checkbox>
+
+            <mat-checkbox class="check-instalaciones" [(ngModel)]="chimenea"
+            (ngModelChange)="comunicarChimenea(chimenea)"
+            >Chimenea</mat-checkbox>
+
+            <mat-checkbox class="check-instalaciones" [(ngModel)]="barbacoa"
+            (ngModelChange)="comunicarBarbacoa(barbacoa)"
+            >Barbacoa</mat-checkbox>
+
+            <mat-checkbox class="check-instalaciones" [(ngModel)]="cocinaCompleta"
+            (ngModelChange)="comunicarCocinaCompleta(cocinaCompleta)"
+            >Cocina completa</mat-checkbox>
+
+            <mat-checkbox class="check-instalaciones" [(ngModel)]="aireAcondicionado"
+            (ngModelChange)="comunicarAireAcondicionado(aireAcondicionado)"
+            >Aire acondicionado</mat-checkbox>
+          </section>
+
+          <section class="section-ninnos">
+            <mat-checkbox class="check-ninnos"  [(ngModel)]="acondicionadoNinnos"
+            (ngModelChange)="comunicarAcondicionadoNinnos(acondicionadoNinnos)"
+            >Acondicionado para niños</mat-checkbox>
+          </section>
+
+          <section class="section-mascotas">
+            <mat-checkbox class="check-mascotas" [(ngModel)]="admiteMascotas"
+            (ngModelChange)="comunicarAdmiteMascotas(admiteMascotas)"
+            >Admite mascotas</mat-checkbox>
+          </section>
+
+        </mat-card-content>
+      </mat-card>
 </div>
