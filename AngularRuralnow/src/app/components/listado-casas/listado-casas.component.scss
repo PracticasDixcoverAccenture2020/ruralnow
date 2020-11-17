@@ -4,6 +4,7 @@
     overflow: hidden;
     padding: 10px;
     height: 100%;
+    overflow-y: visible
 }
 
 .titulo-resultado h1 {
@@ -97,6 +98,10 @@ mat-card-content > p {
     padding: 10px 0;
 }
 
+.example-form-field {
+    width: 200px;
+  }
+
 .mat-card-actions {
     padding: 0;
 }
@@ -154,11 +159,73 @@ ul.detalles span {
     min-width: 10vw;
     min-height: 100%;
     align-self: stretch;
-    border: 1px solid black;
     font-family: 'Fjalla One', Helvetica, sans-serif, monospace;
     overflow: hidden;
     overflow-y: visible;
 }
+
+
+
+.mat-parrafo{
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    flex-flow: wrap;
+    height: auto;
+    justify-content: space-evenly;
+  }
+  
+  .div-fecha-entra-salida{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+  }
+  
+  .divisor{
+    background-color:  #31897d;
+    margin-top: 4px;
+    margin-bottom: 4px;
+  }
+  
+  .servicios{
+    background-color: white;
+    border: 1px solid #31897d;
+    margin-top: 15px;
+  }
+  
+  .p-instalaciones{
+    font-weight: bold;
+  }
+  
+  .check-instalaciones{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 8px 8px;
+    margin-bottom: 8px;
+  }
+  
+  .check-mascotas{  
+    border-bottom: 1px solid #31897d;
+    font-weight: bold;
+  }
+  
+  .check-ninnos{
+  
+    border-bottom: 1px solid #31897d;
+    font-weight: bold;
+  }
+  
+  .nueva-busqueda{
+    border: 1px solid #31897d;
+    background-color: #DEFCF8;
+  }
+  
+  button{
+    background-color: #002D27;
+    color: #DEFCF8;
+  }
 
 @media (max-width: 910PX){
     .example-card {

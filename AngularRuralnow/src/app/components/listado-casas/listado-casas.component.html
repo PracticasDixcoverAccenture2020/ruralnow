@@ -5,44 +5,113 @@
 </div>
 
 <div class="cont">
-  <div class="filtros">
-    <oevents-side-nav-filtro (comunicadorFechaSalida)="procesaFechaSalida($event)"
-      (comunicadorFechaEntrada)="procesaFechaEntrada($event)" (comunicadorHuespedes)="procesaHuespedes($event)"
-      (comunicadorPiscina)="procesaPiscina($event)" (comunicadorBarbacoa)="procesaBarbacoa($event)"
-      (comunicadorChimenea)="procesaChimenea($event)" (comunicadorCocinaCompleta)="procesaCocinaCompleta($event)"
-      (comunicadorAireAcondicionado)="procesaAireAcondicionado($event)"
-      (comunicadorAcondicionadoNinnos)="procesaAcondicionadoNinnos($event)"
-      (comunicadorAdmiteMascotas)="procesaAdmiteMascotas($event)"></oevents-side-nav-filtro>
-  </div>
+  <table>
+    <tr>
+      <td class="filtros">
+        <mat-card class="nueva-busqueda">
+          <mat-card-content>
 
-  <div class="card-body">
-    <mat-card class="example-card" *ngFor="let casa of listaDeCasas">
-      <img mat-card-image src="../../../assets/img/casas/{{casa.imagen}}" alt="Imagen generica">
+            <h5>Nueva Búsqueda</h5>
+            <div class="div-fecha-entra-salida">
+              <mat-form-field>
+                <mat-placeholder>Localización</mat-placeholder>
+                <input matInput type="search" [(ngModel)]="localizacion" />
+              </mat-form-field>
+              <oevents-select-fecha-entrada (comunicadorFechaEntrada)="procesaFechaEntrada($event)">
+              </oevents-select-fecha-entrada>
+              <oevents-select-fecha-salida (comunicadorFechaSalida)="procesaFechaSalida($event)">
+              </oevents-select-fecha-salida>
+            </div>
+            <div class="div-huespedes">
+              <oevents-select-huespedes (comunicadorHuespedes)="procesaHuespedes($event)"></oevents-select-huespedes>
+            </div>
+            <button mat-raised-button (click)="buscar()">Buscar</button>
+          </mat-card-content>
+        </mat-card>
 
-      <div class="contenido-card">
-        <mat-card-header>
-          <mat-card-title>{{casa.nombre}}</mat-card-title>
-          <mat-card-subtitle>{{casa.poblacion.poblacion}}, {{casa.poblacion.provincia.provincia}}</mat-card-subtitle>
-        </mat-card-header>
+        <mat-card class="servicios">
+          <mat-card-content>
+            <div class="div-precio-noche">
+              <p>Rango de precio por noche</p>
+              <div class="mat-parrafo">
+                <mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="1" min="1" max="1000" required
+                  [(ngModel)]="precioSelec">
+                </mat-slider>
+                <div> {{precioSelec}} €</div>
+              </div>
+            </div>
 
-        <mat-card-content>
-          <p>{{casa.descripcion}}</p>
-          <div class="cont-detalles">
-            <ul class="detalles">
-              <li><span class="material-icons">groups</span>{{casa.personas}}</li>
-              <li><span class="material-icons">drafts</span>{{casa.habitaciones}}</li>
-              <li><span class="material-icons">single_bed</span>{{casa.camas}}</li>
-              <li><span class="material-icons">bathtub</span>{{casa.aseos}}</li>
-            </ul>
-            <span class="precio">{{casa.precio_noche}} €/noche</span>
+            <p class="p-instalaciones">Instalaciones</p>
+
+            <section class="section-instalaciones">
+              <mat-checkbox class="check-instalaciones" [(ngModel)]="piscina">
+                Piscina
+                <mat-icon aria-hidden="false">pool</mat-icon>
+              </mat-checkbox>
+              <mat-checkbox class="check-instalaciones" [(ngModel)]="chimenea">
+                Chimenea
+              </mat-checkbox>
+
+              <mat-checkbox class="check-instalaciones" [(ngModel)]="barbacoa">
+                Barbacoa
+              </mat-checkbox>
+
+              <mat-checkbox class="check-instalaciones" [(ngModel)]="cocinaCompleta">
+                Cocina completa
+              </mat-checkbox>
+
+              <mat-checkbox class="check-instalaciones" [(ngModel)]="aireAcondicionado">
+                Aire acondicionado
+              </mat-checkbox>
+            </section>
+
+            <section class="section-ninnos">
+              <mat-checkbox class="check-ninnos" [(ngModel)]="acondicionadoNinnos">
+                Acondicionado para niños
+              </mat-checkbox>
+            </section>
+
+            <section class="section-mascotas">
+              <mat-checkbox class="check-mascotas" [(ngModel)]="admiteMascotas">
+                Admite mascotas
+              </mat-checkbox>
+            </section>
+
+          </mat-card-content>
+        </mat-card>
+      </td>
+
+      <td class="card-body">
+        <mat-card class="example-card" *ngFor="let casa of listaDeCasas">
+          <img mat-card-image src="../../../assets/img/casas/{{casa.imagen}}" alt="Imagen generica">
+
+          <div class="contenido-card">
+            <mat-card-header>
+              <mat-card-title>{{casa.nombre}}</mat-card-title>
+              <mat-card-subtitle>{{casa.poblacion.poblacion}}, {{casa.poblacion.provincia.provincia}}
+              </mat-card-subtitle>
+            </mat-card-header>
+
+            <mat-card-content>
+              <p>{{casa.descripcion}}</p>
+              <div class="cont-detalles">
+                <ul class="detalles">
+                  <li><span class="material-icons">groups</span>{{casa.personas}}</li>
+                  <li><span class="material-icons">drafts</span>{{casa.habitaciones}}</li>
+                  <li><span class="material-icons">single_bed</span>{{casa.camas}}</li>
+                  <li><span class="material-icons">bathtub</span>{{casa.aseos}}</li>
+                </ul>
+                <span class="precio">{{casa.precio_noche}} €/noche</span>
+              </div>
+            </mat-card-content>
+
+            <mat-card-actions>
+              <button mat-button data="casa_{{casa.idcasa}}">RESERVAR</button>
+            </mat-card-actions>
           </div>
-        </mat-card-content>
 
-        <mat-card-actions>
-          <button mat-button data="casa_{{casa.idcasa}}">RESERVAR</button>
-        </mat-card-actions>
-      </div>
-
-    </mat-card>
-  </div>
+        </mat-card>
+      </td>
+    </tr>
+  </table>
 </div>
