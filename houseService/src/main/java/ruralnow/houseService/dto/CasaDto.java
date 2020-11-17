@@ -1,5 +1,7 @@
 package ruralnow.houseService.dto;
 
+import java.util.List;
+
 import javax.persistence.Id;
 
 
@@ -8,6 +10,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import ruralnow.houseService.entity.Poblacion;
+import ruralnow.houseService.entity.Servicio;
 import ruralnow.houseService.entity.Usuario;
 
 
@@ -69,7 +72,8 @@ public class CasaDto {
 	 */
 	private String imagen;
 	
-	
-	
-	
+	/*
+	 * Lista de servicios
+	 */
+	private List<ServicioDto> servicios;
 }
