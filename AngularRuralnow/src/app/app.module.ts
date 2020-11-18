@@ -6,7 +6,6 @@ import { NgModule } from "@angular/core";
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
-import { BuscadorComponent } from './components/buscador/buscador.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { PageNotFoundComponentComponent } from './components/page-not-found-component/page-not-found-component.component';
 import { ListadoCasasComponent } from './components/listado-casas/listado-casas.component';
@@ -23,7 +22,6 @@ import { SharedModule } from "./modules/shared/shared.module";
 import { AppRoutingModule } from "./app-routing.module";
 import { HttpClientModule } from '@angular/common/http';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { SideNavFiltroComponent } from './components/side-nav-filtro/side-nav-filtro.component';
 
 
 @NgModule({
@@ -31,7 +29,6 @@ import { SideNavFiltroComponent } from './components/side-nav-filtro/side-nav-fi
     AppComponent,
     LandingPageComponent,
     ToolbarComponent,
-    BuscadorComponent,
     FooterComponent,
     PageNotFoundComponentComponent,
     ListadoCasasComponent,
@@ -40,8 +37,7 @@ import { SideNavFiltroComponent } from './components/side-nav-filtro/side-nav-fi
     SelectFechaSalidaComponent,
     ContactUsComponent,
     DatalistComponent,
-    NuestrosServiciosComponent,
-    SideNavFiltroComponent
+    NuestrosServiciosComponent
   ],
   imports: [
     CommonModule,

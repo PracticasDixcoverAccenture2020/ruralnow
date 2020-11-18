@@ -1,5 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { MinFechaSalidaService } from 'src/app/services/min-fecha-salida.service';
+import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'oevents-select-fecha-salida',
@@ -18,7 +20,7 @@ export class SelectFechaSalidaComponent implements OnInit {
 
   opcionSeleccionada: Date;
 
-  constructor(private minFechaSalidaService: MinFechaSalidaService) {
+  constructor(private minFechaSalidaService: MinFechaSalidaService, private route: ActivatedRoute) {
     const currentYear = new Date().getFullYear();
     const dayDate = new Date().getDate();
     const month = new Date().getMonth();
@@ -28,6 +30,10 @@ export class SelectFechaSalidaComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    var argument = this.route.snapshot.paramMap.get('fechaSalida');
+    if (argument != undefined) {
+      this.opcionSeleccionada = new Date(argument);
+    }
   }
 
   comunicarFechaSalida(fechaSalidaSelect: Date) {

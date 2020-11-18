@@ -11,19 +11,23 @@
 		</div>
 
 		<div class="message">
-			<oevents-buscador (comunicadorLugar)="procesaLugar($event)"></oevents-buscador>
+			<mat-form-field>
+				<mat-placeholder>Localización</mat-placeholder>
+				<input matInput type="search" [(ngModel)]="localizacion" />
+			</mat-form-field>
 			<button mat-button matSuffix mat-stroked-button aria-label="search" (click)="compareDateAndGo()">
 				<mat-icon>search</mat-icon>
 			</button>
-			<!--<oevents-datalist></oevents-datalist>-->
 		</div>
 
 		<div class="select">
-			<oevents-select-fecha-entrada (comunicadorFechaEntrada)="procesaFechaEntrada($event)">
-			</oevents-select-fecha-entrada>
-			<oevents-select-fecha-salida (comunicadorFechaSalida)="procesaFechaSalida($event)">
-			</oevents-select-fecha-salida>
-			<oevents-select-huespedes (comunicadorHuespedes)="procesaHuespedes($event)"></oevents-select-huespedes>
+			<oevents-select-fecha-entrada (comunicadorFechaEntrada)="procesaFechaEntrada($event)"></oevents-select-fecha-entrada>
+			<oevents-select-fecha-salida (comunicadorFechaSalida)="procesaFechaSalida($event)"></oevents-select-fecha-salida>
+			<mat-form-field>
+				<mat-label>Huéspedes</mat-label>
+				<input matInput type="number" min="1" step="1" required [(ngModel)]="huespedes">
+			</mat-form-field>
+			
 		</div>
 
 	</div>

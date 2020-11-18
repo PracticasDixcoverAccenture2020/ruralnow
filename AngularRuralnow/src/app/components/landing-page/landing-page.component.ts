@@ -9,10 +9,10 @@ import { Router } from '@angular/router';
 export class LandingPageComponent implements OnInit {
 
   //Variables a pasar
-  localizacion: String;
   fechaEntrada: Date;
   fechaSalida: Date;
   huespedes: number;
+  localizacion: String;
 
   constructor(private router: Router) { }
 
@@ -21,11 +21,6 @@ export class LandingPageComponent implements OnInit {
 
 
   //Procesadores
-  procesaHuespedes(numeroHuespedes: number) {
-    this.huespedes = numeroHuespedes;
-    console.log(this.huespedes);
-  }
-
   procesaFechaEntrada(fechaEntrada: Date) {
     console.log(fechaEntrada);
     this.fechaEntrada = fechaEntrada;
@@ -35,12 +30,6 @@ export class LandingPageComponent implements OnInit {
     console.log(fechaSalida);
     this.fechaSalida = fechaSalida;
   }
-
-  procesaLugar(lugarSelect: String) {
-    console.log(lugarSelect);
-    this.localizacion = lugarSelect;
-  }
-
 
   //Emisores
 

@@ -18,24 +18,26 @@ export class ListadoCasasComponent implements OnInit {
   casasDisponibles: Casa[] = [];
   casasDisponiblesId: number[] = [];
 
-  //Variables recibidas
   localizacion: String;
+  huespedes: number;
   fechaEntrada: Date;
   fechaEntradaStr: string;
   fechaSalida: Date;
   fechaSalidaStr: string;
-  huespedes: number;
-  precioNoche: number;
-  piscina : Boolean = false;
-  chimenea : Boolean = false;
-  barbacoa : Boolean = false;
-  cocinaCompleta : Boolean = false;
-  aireAcondicionado : Boolean = false;
+
+  precioSelec: number = 0;
+  piscina: Boolean = false;
+  chimenea: Boolean = false;
+  barbacoa: Boolean = false;
+  cocinaCompleta: Boolean = false;
+  aireAcondicionado: Boolean = false;
   acondicionadoNinnos: Boolean = false;
-  admiteMascotas : Boolean = false;
-
-
-  constructor(private httpClient: HttpClient, private route: ActivatedRoute) { }
+  admiteMascotas: Boolean = false;
+  
+  constructor(
+    private httpClient: HttpClient,
+    private router: Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
 
@@ -44,6 +46,10 @@ export class ListadoCasasComponent implements OnInit {
     this.fechaEntrada = new Date(this.route.snapshot.paramMap.get('fechaEntrada'));
     this.fechaSalida = new Date(this.route.snapshot.paramMap.get('fechaSalida'));
 
+    this.updateData();
+  }
+
+  private updateData(): void {
     // Lista de casas disponibles a la fecha de entrada dada
     this.httpClient.get("http://localhost:8080/Casa/reserva/" + this.formatDate(this.fechaEntrada)).subscribe(data => {
       for (let key of Object.keys(data)) {
@@ -52,33 +58,29 @@ export class ListadoCasasComponent implements OnInit {
         this.casasDisponiblesId.push(casa.idcasa);
       }
     })
-
+    
     this.fechaEntradaStr = this.formatDate(this.fechaEntrada);
     this.fechaSalidaStr = this.formatDate(this.fechaSalida);
 
-
-    if (this.localizacion === "undefined") {
-
+    if (this.localizacion === "undefined" || this.localizacion === "Cualquiera") {
       this.httpClient.get("http://localhost:8080/Casa/getAll").subscribe(data => {
-        console.log(data);
+        //console.log(data);
         this.rellenarLista(data);
       })
 
-      this.localizacion = "TODO";
+      this.localizacion = "Cualquiera";
 
     } else {
       this.httpClient.get("http://localhost:8080/Casa/byProvincia/" + this.localizacion).subscribe(data => {
-        console.log(data);
+        //console.log(data);
 
         if (Object.keys(data).length > 0) {
           this.rellenarLista(data);
         } else {
 
           this.httpClient.get("http://localhost:8080/Casa/byPoblacion/" + this.localizacion).subscribe(data => {
-            console.log(data);
-            if (Object.keys(data).length > 0) {
-              this.rellenarLista(data);
-            }
+            //console.log(data);
+            this.rellenarLista(data);
           })
 
         }
@@ -87,86 +89,68 @@ export class ListadoCasasComponent implements OnInit {
   }
 
   private rellenarLista(data: Object): void {
-    for (let key of Object.keys(data)) {
-      let casa: Casa = data[key];
+    if (Object.keys(data).length > 0) {
+      console.log('filling list')
 
-      //Comprobar si están disponibles y el numero de huespedes
-      if(this.casasDisponiblesId.includes(casa.idcasa) && casa.personas === this.huespedes)
-        this.listaDeCasas.push(casa);
+      for (let key of Object.keys(data)) {
+        let casa: Casa = data[key];
+  
+        //Comprobar si están disponibles y el numero de huespedes
+        if (this.casasDisponiblesId.includes(casa.idcasa) && casa.personas === this.huespedes)
+          this.listaDeCasas.push(casa);
+      }
+    } else {
+      console.log('no data retrieved')
     }
+  }
+
+
+  formatLabel(value: number) {
+    this.precioSelec = value;
+    return value + "€";
   }
 
   // Formateo de fechas
   private formatDate(date) {
     var d = new Date(date),
-        month = '' + (d.getMonth() + 1),
-        day = '' + d.getDate(),
-        year = d.getFullYear();
+      month = '' + (d.getMonth() + 1),
+      day = '' + d.getDate(),
+      year = d.getFullYear();
 
-    if (month.length < 2) 
-        month = '0' + month;
-    if (day.length < 2) 
-        day = '0' + day;
+    if (month.length < 2)
+      month = '0' + month;
+    if (day.length < 2)
+      day = '0' + day;
 
     return [year, month, day].join('-');
-}
+  }
 
+  buscar() {
+    // Update route without navigate
+    this.router.navigate(['/houses', {
+      localizacion: this.localizacion,
+      huespedes: this.huespedes,
+      fechaEntrada: this.fechaEntrada,
+      fechaSalida: this.fechaSalida
+    }]);
+    
+    this.casas = []
+    this.listaDeCasas = []
+    this.casasDisponibles = []
+    this.casasDisponiblesId = []
 
- //Procesadores
- procesaHuespedes(numeroHuespedes: number) {
-  this.huespedes = numeroHuespedes;
-  console.log(this.huespedes);
-}
+    this.updateData();
+  }
 
-procesaFechaEntrada(fechaEntrada: Date) {
-  console.log(fechaEntrada);
-  this.fechaEntrada = fechaEntrada;
-}
+  //Procesadores
+  procesaFechaSalida(fechaSalida: Date) {
+    console.log(fechaSalida);
+    this.fechaSalida = fechaSalida;
+  }
 
-procesaFechaSalida(fechaSalida: Date) {
-  console.log(fechaSalida);
-  this.fechaSalida = fechaSalida;
-}
-
-procesaPrecioNoche(precioNoche: number){
-  console.log(precioNoche);
-  this.precioNoche = precioNoche;
-}
-
-procesaPiscina(piscina: Boolean){
-  console.log(piscina);
-  this.piscina = piscina;
-}
-
-procesaChimenea(chimenea: Boolean){
-  console.log(chimenea);
-  this.chimenea = chimenea;
-}
-
-procesaBarbacoa(barbacoa: Boolean){
-  console.log(barbacoa);
-  this.barbacoa = barbacoa;
-}
-
-procesaCocinaCompleta(cocinaCompleta: Boolean){
-  console.log(cocinaCompleta);
-  this.cocinaCompleta = cocinaCompleta;
-}
-
-procesaAireAcondicionado(aireAcondicionado: Boolean){
-  console.log(aireAcondicionado);
-  this.aireAcondicionado = aireAcondicionado;
-}
-
-procesaAcondicionadoNinnos(acondicionadoNinnos: Boolean){
-  console.log(acondicionadoNinnos);
-  this.acondicionadoNinnos = acondicionadoNinnos;
-}
-
-procesaAdmiteMascotas(admiteMascotas: Boolean){
-  console.log(admiteMascotas);
-  this.admiteMascotas = admiteMascotas;
-}
-
+  procesaFechaEntrada(fechaEntrada: Date) {
+    console.log(fechaEntrada);
+    this.fechaEntrada = fechaEntrada;
+  }
 }
 
