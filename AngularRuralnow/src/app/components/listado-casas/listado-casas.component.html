@@ -44,6 +44,7 @@
 
             <p class="p-instalaciones">Instalaciones</p>
 
+
             <section class="section-instalaciones">
               <mat-checkbox class="check-instalaciones" [(ngModel)]="piscina">
                 Piscina
@@ -51,30 +52,36 @@
               </mat-checkbox>
               <mat-checkbox class="check-instalaciones" [(ngModel)]="chimenea">
                 Chimenea
+                <mat-icon aria-hidden="false">fireplace</mat-icon>
               </mat-checkbox>
 
               <mat-checkbox class="check-instalaciones" [(ngModel)]="barbacoa">
                 Barbacoa
+                <mat-icon aria-hidden="false">tapas</mat-icon>
               </mat-checkbox>
 
               <mat-checkbox class="check-instalaciones" [(ngModel)]="cocinaCompleta">
                 Cocina completa
+                <mat-icon aria-hidden="false">kitchen</mat-icon>
               </mat-checkbox>
 
               <mat-checkbox class="check-instalaciones" [(ngModel)]="aireAcondicionado">
                 Aire acondicionado
+                <mat-icon aria-hidden="false">ac_unit</mat-icon>
               </mat-checkbox>
             </section>
 
             <section class="section-ninnos">
               <mat-checkbox class="check-ninnos" [(ngModel)]="acondicionadoNinnos">
                 Acondicionado para niños
+                <mat-icon aria-hidden="false">escalator_warning</mat-icon>
               </mat-checkbox>
             </section>
 
             <section class="section-mascotas">
               <mat-checkbox class="check-mascotas" [(ngModel)]="admiteMascotas">
                 Admite mascotas
+                <mat-icon aria-hidden="false">pool</mat-icon>
               </mat-checkbox>
             </section>
 
