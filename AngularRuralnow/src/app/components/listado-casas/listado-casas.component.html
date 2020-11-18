@@ -1,7 +1,5 @@
 <div class="titulo-resultado">
   <p><a href="#">INICIO</a> / Resultado búsqueda</p>
-  <h1>Resultados de búsqueda: "{{localizacion}}" | Fecha entrada: {{fechaEntradaStr}} - Fecha salida: {{fechaSalidaStr}}
-    - Huéspedes: {{huespedes}}</h1>
 </div>
 
 <div class="cont">
@@ -23,7 +21,10 @@
               </oevents-select-fecha-salida>
             </div>
             <div class="div-huespedes">
-              <oevents-select-huespedes (comunicadorHuespedes)="procesaHuespedes($event)"></oevents-select-huespedes>
+              <mat-form-field>
+                <mat-label>Huéspedes</mat-label>
+                <input matInput type="number" min="1" step="1" required [(ngModel)]="huespedes">
+              </mat-form-field>
             </div>
             <button mat-raised-button (click)="buscar()">Buscar</button>
           </mat-card-content>

@@ -21,11 +21,6 @@ export class LandingPageComponent implements OnInit {
 
 
   //Procesadores
-  procesaHuespedes(numeroHuespedes: number) {
-    this.huespedes = numeroHuespedes;
-    console.log(this.huespedes);
-  }
-
   procesaFechaEntrada(fechaEntrada: Date) {
     console.log(fechaEntrada);
     this.fechaEntrada = fechaEntrada;

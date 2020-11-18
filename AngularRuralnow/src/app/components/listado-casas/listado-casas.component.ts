@@ -152,10 +152,5 @@ export class ListadoCasasComponent implements OnInit {
     console.log(fechaEntrada);
     this.fechaEntrada = fechaEntrada;
   }
-
-  procesaHuespedes(huespedes: number) {
-    console.log(huespedes);
-    this.huespedes = huespedes;
-  }
 }
 
