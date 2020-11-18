@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Casa } from '../clases/casa/Casa';
+import { Casa } from '../../clases/casa/Casa';
 import { Observable } from 'rxjs/Observable';
 
 
