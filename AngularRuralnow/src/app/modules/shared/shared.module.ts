@@ -14,7 +14,7 @@ import { SidebarModule } from 'ng-sidebar';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatRadioModule} from '@angular/material/radio';
-
+import {MatGridListModule} from '@angular/material/grid-list';
 
 
 import "hammerjs";
@@ -36,6 +36,7 @@ import "hammerjs";
     MatDatepickerModule,
     MatNativeDateModule,
     MatFormFieldModule, 
+    MatGridListModule
     MatSidenavModule,
     SidebarModule,
     MatSliderModule,
@@ -58,6 +59,7 @@ import "hammerjs";
     MatDatepickerModule,
     MatNativeDateModule,
     MatFormFieldModule,
+    MatGridListModule
     MatSidenavModule,
     SidebarModule,
     MatSliderModule,

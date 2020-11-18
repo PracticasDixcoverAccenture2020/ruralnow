@@ -9,12 +9,12 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { PageNotFoundComponentComponent } from './components/page-not-found-component/page-not-found-component.component';
 import { ListadoCasasComponent } from './components/listado-casas/listado-casas.component';
-import { SelectHuespedesComponent } from './components/select-huespedes/select-huespedes.component';
 import { SelectFechaEntradaComponent } from './components/select-fecha-entrada/select-fecha-entrada.component';
 import { SelectFechaSalidaComponent } from './components/select-fecha-salida/select-fecha-salida.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { DatalistComponent } from './components/datalist/datalist.component';
 import { NuestrosServiciosComponent } from './components/nuestros-servicios/nuestros-servicios.component';
+import { DetallesCasasComponent } from './components/detalles-casas/detalles-casas.component';
 
 
 //Modules
@@ -32,12 +32,12 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     FooterComponent,
     PageNotFoundComponentComponent,
     ListadoCasasComponent,
-    SelectHuespedesComponent,
     SelectFechaEntradaComponent,
     SelectFechaSalidaComponent,
     ContactUsComponent,
     DatalistComponent,
-    NuestrosServiciosComponent
+    NuestrosServiciosComponent,
+    DetallesCasasComponent
   ],
   imports: [
     CommonModule,

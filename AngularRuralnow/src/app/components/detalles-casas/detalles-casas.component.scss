@@ -1,0 +1,39 @@
+.content{
+    display:flex;
+    background-color:rgb(120,139,145);
+}
+.img1{
+    width: 100%;
+    max-height: 30vw;
+}
+
+.card{
+    border:none;
+    box-shadow: none;
+    width:60%;
+    background-color:rgb(120,139,145);
+
+}
+
+mat-card-content > p{
+    color:rgb(227,255,249);
+}
+.img2{
+    background-image: url('https://cf.bstatic.com/images/hotel/max1024x768/109/109704407.jpg');
+    background-size:cover;
+}
+
+.fecha{
+    padding-left:10vw;
+    padding-top:2vw;
+    color:rgb(227,255,249);}
+
+.details{
+    display:flex;
+    justify-content:space-around;
+    list-style-type:none;
+}
+
+button{
+    float:right;
+}
