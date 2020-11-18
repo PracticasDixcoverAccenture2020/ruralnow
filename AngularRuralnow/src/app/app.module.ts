@@ -16,6 +16,7 @@ import { SelectFechaSalidaComponent } from './components/select-fecha-salida/sel
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { DatalistComponent } from './components/datalist/datalist.component';
 import { NuestrosServiciosComponent } from './components/nuestros-servicios/nuestros-servicios.component';
+import { DetallesCasasComponent } from './components/detalles-casas/detalles-casas.component';
 
 
 //Modules
@@ -41,7 +42,8 @@ import { SideNavFiltroComponent } from './components/side-nav-filtro/side-nav-fi
     ContactUsComponent,
     DatalistComponent,
     NuestrosServiciosComponent,
-    SideNavFiltroComponent
+    SideNavFiltroComponent,
+    DetallesCasasComponent
   ],
   imports: [
     CommonModule,

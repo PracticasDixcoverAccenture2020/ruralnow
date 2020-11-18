@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { MatSelectModule} from '@angular/material/select/';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatDatepickerModule, MatNativeDateModule,MatFormFieldModule, MatSidenavModule } from '@angular/material';
-
+import {MatGridListModule} from '@angular/material/grid-list';
 
 import "hammerjs";
 
@@ -31,8 +31,8 @@ import "hammerjs";
     MatDatepickerModule,
     MatNativeDateModule,
     MatFormFieldModule, 
-    MatSidenavModule
-    
+    MatSidenavModule,
+    MatGridListModule
   ],
   exports: [
     CommonModule,
@@ -49,7 +49,8 @@ import "hammerjs";
     MatDatepickerModule,
     MatNativeDateModule,
     MatFormFieldModule,
-    MatSidenavModule   
+    MatSidenavModule,
+    MatGridListModule
   ],
   entryComponents: []
 })

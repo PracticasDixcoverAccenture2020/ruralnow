@@ -8,7 +8,7 @@ import { PageNotFoundComponentComponent } from "src/app/components/page-not-foun
 import {ListadoCasasComponent} from "src/app/components/listado-casas/listado-casas.component";
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { NuestrosServiciosComponent } from './components/nuestros-servicios/nuestros-servicios.component';
-
+import { DetallesCasasComponent } from './components/detalles-casas/detalles-casas.component';
 
 
 
@@ -17,6 +17,7 @@ const routes: Routes = [
   { path: "houses", component: ListadoCasasComponent },
   { path: "contact", component: ContactUsComponent },
   { path: "servicios", component: NuestrosServiciosComponent },
+  { path: "details", component: DetallesCasasComponent},
 
   
   { path: "", redirectTo: "/home", pathMatch: "full" },
