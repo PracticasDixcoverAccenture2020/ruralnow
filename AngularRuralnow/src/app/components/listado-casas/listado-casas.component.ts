@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Casa } from 'src/app/clases/casa/Casa';
+import { Servicios } from 'src/app/clases/servicios/Servicios';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from "@angular/common/http";
 import { Obj } from '@popperjs/core';
@@ -17,6 +18,7 @@ export class ListadoCasasComponent implements OnInit {
   listaDeCasas: Casa[] = [];
   casasDisponibles: Casa[] = [];
   casasDisponiblesId: number[] = [];
+  listaServicios: Servicios[] = [];
 
   localizacion: String;
   huespedes: number;
@@ -140,6 +142,10 @@ export class ListadoCasasComponent implements OnInit {
     this.casasDisponiblesId = []
 
     this.updateData();
+  }
+
+  actualizarPrecio() {
+
   }
 
   //Procesadores
