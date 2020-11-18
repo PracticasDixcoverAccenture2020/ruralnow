@@ -28,6 +28,14 @@ public class CasaRepositoryTest {
 	}
 	
 	@Test
+	@DisplayName("Obtener casa por ID")
+	public void findById() {
+		Casa casa = repoCasa.getOne(7);
+		
+		assertEquals("El Nogal", casa.getNombre());
+	}
+	
+	@Test
 	@DisplayName("Listar casas por provincia")
 	public void findByProvincia() {
 		List<Casa> casas = repoCasa.findByProvincia("Málaga");
