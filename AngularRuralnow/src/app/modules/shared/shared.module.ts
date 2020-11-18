@@ -31,7 +31,6 @@ import "hammerjs";
     MatDatepickerModule,
     MatNativeDateModule,
     MatFormFieldModule, 
-    MatSidenavModule,
     MatGridListModule
   ],
   exports: [
@@ -49,7 +48,6 @@ import "hammerjs";
     MatDatepickerModule,
     MatNativeDateModule,
     MatFormFieldModule,
-    MatSidenavModule,
     MatGridListModule
   ],
   entryComponents: []
