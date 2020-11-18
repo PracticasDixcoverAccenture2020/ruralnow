@@ -28,11 +28,11 @@ export class LandingPageComponent implements OnInit {
   constructor(private router: Router,
      private httpClient: HttpClient) {
     
-      this.httpClient.get('http://raw.githubusercontent.com/IagoLast/pselect/master/data/municipios.json').subscribe(data => {
+      this.httpClient.get('http://localhost:8080/Poblacion/getAll/').subscribe(data => {
         for (let key of Object.keys(data)) {
           let municipio: Municipios = data[key];
           this.municipios.push(municipio);
-          console.log(municipio.nm);
+          console.log(municipio.poblacion);
         }
       })
    }
@@ -42,20 +42,20 @@ export class LandingPageComponent implements OnInit {
     this.municipiosFiltrados = this.myControl.valueChanges
     .pipe(
       startWith(''),
-      map(value => typeof value === 'string' ? value : value.nm),
-      map(nm => nm ? this._filter(nm) : this.municipios.slice())
+      map(value => typeof value === 'string' ? value : value.poblacion),
+      map(poblacion => poblacion ? this._filter(poblacion) : this.municipios.slice())
     );
   }  
 
 
   displayFn(municipio: Municipios): string {
-    return municipio && municipio.nm ? municipio.nm : '';
+    return municipio && municipio.poblacion ? municipio.poblacion : '';
   }
 
   private _filter(name: string): Municipios[] {
     const filterValue = name.toLowerCase();
 
-    return this.municipios.filter(option => option.nm.toLowerCase().indexOf(filterValue) === 0);
+    return this.municipios.filter(option => option.poblacion.toLowerCase().indexOf(filterValue) === 0);
   }
 
 

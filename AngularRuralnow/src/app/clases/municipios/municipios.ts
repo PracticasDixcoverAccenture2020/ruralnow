@@ -1,4 +1,12 @@
+import { Provincia } from '../provincia/provincia';
+
+
 export interface Municipios {
-    id: string;
-    nm: string;
+    idpoblacion: number;
+    provincia: Provincia;
+    poblacion: string;
+    poblacionseo: string;
+    postal: string;
+    latitud: number;
+    longitud: number;
 }

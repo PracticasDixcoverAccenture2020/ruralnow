@@ -7,4 +7,6 @@ import ruralnow.houseService.entity.Poblacion;
 public interface PoblacionService {
 
 	public List<Poblacion> findByProvincia(String provincia);
+
+	public List<Poblacion> findAll();
 }

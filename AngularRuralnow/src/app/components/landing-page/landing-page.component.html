@@ -17,7 +17,7 @@
 				  <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto" [(ngModel)]="localizacion">
 				  <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
 					<mat-option *ngFor="let option of municipiosFiltrados | async" [value]="option">
-					  {{option.nm}}
+					  {{option.poblacion}}
 					</mat-option>
 				  </mat-autocomplete>
 				</mat-form-field>

@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import ruralnow.houseService.dto.PoblacionDto;
+import ruralnow.houseService.dto.ProvinciaDto;
 import ruralnow.houseService.entity.Poblacion;
+import ruralnow.houseService.entity.Provincia;
 import ruralnow.houseService.service.PoblacionService;
 
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
@@ -40,5 +42,20 @@ public class PoblacionController {
     	}
     	
     	return poblacionesDto;
+    }
+    
+    @RequestMapping(value="/getAll", method = RequestMethod.GET)
+    public List<PoblacionDto> getAll(){
+    	List<Poblacion> pros = poblaService.findAll();
+    	List<PoblacionDto> prosDto = new ArrayList<PoblacionDto>();
+    	
+    	if (pros!=null) {
+    		for (Poblacion pro : pros) {
+    			PoblacionDto proDto = (PoblacionDto) mapper.map(pro, PoblacionDto.class);
+    			prosDto.add(proDto);
+    		}
+    	}
+    	
+    	return prosDto;
     }
 }
