@@ -21,7 +21,7 @@ export class LandingPageComponent implements OnInit {
   fechaEntrada: Date;
   fechaSalida: Date;
   huespedes: number;
-  localizacion: String;
+  localizacion: Municipios;
   municipios: Municipios [] = []; 
 
 
@@ -80,7 +80,7 @@ export class LandingPageComponent implements OnInit {
       alert("Por favor, rellena todos los campos")
     } else {
       this.router.navigate(['/houses', {
-        localizacion: this.localizacion,
+        localizacion: this.localizacion.poblacion,
         huespedes: this.huespedes,
         fechaEntrada: this.fechaEntrada,
         fechaSalida: this.fechaSalida
