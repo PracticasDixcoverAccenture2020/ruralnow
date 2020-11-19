@@ -20,5 +20,10 @@ public class ServicioDto {
 	 * Nombre del servicio
 	 */
 	private String nombre;
+	
+	/*
+	 * Icono del servicio
+	 */
+	private String icono;
 
 }
