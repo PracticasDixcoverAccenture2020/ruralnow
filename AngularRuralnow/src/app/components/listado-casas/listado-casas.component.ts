@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Casa } from 'src/app/clases/casa/Casa';
 import { Servicio } from 'src/app/clases/servicio/servicio';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from "@angular/common/http";
 import { Obj } from '@popperjs/core';
+
 
 @Component({
   selector: 'oevents-listado-casas',
@@ -37,6 +38,8 @@ export class ListadoCasasComponent implements OnInit {
   admiteMascotas: Boolean = false;
   element: HTMLInputElement;
 
+  selected = [];
+  @Output() selectedChange:EventEmitter<any> = new EventEmitter();
      
 
   constructor(
@@ -62,6 +65,19 @@ export class ListadoCasasComponent implements OnInit {
     this.updateData();
   }
 
+
+  toggle(id) {
+
+    var index = this.selected.indexOf(id);
+    if (index === -1) this.selected.push(id);
+    else this.selected.splice(index, 1);
+    alert(this.selected.length);
+    this.selectedChange.emit(this.selected);    
+  }
+
+  exists(id) {
+    return this.selected.indexOf(id) > -1;
+  }
 
   private updateData(): void {
     // Lista de casas disponibles a la fecha de entrada dada
@@ -180,7 +196,21 @@ export class ListadoCasasComponent implements OnInit {
 
     }
   }
+  
   public comprobarChecks(){
+    for(let i = 1; i <= this.selected.length; i++){
+      let nombreServicioActual = this.selected[i];
+      for(let j = 1; j <= this.casasDisponibles.length; j++){
+        let casaActual = this.casasDisponibles[j];
+        let serviciosCasa = casaActual.servicios;
+        for(let k = 1; k <= serviciosCasa.length; k++){
+          let servicioActual = serviciosCasa[k];
+          if(servicioActual.nombre == nombreServicioActual){
+            
+          }
+        }
+      }
+    }
     
   }
 
