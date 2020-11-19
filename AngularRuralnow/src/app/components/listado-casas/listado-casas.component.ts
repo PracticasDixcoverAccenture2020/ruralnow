@@ -36,10 +36,19 @@ export class ListadoCasasComponent implements OnInit {
   acondicionadoNinnos: Boolean = false;
   admiteMascotas: Boolean = false;
 
+  serviciosCheck: Array<Boolean>;
+     
+
   constructor(
     private httpClient: HttpClient,
     private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute) {
+
+      let serviciosCheck : Array<Boolean> = new Array<Boolean>(
+        this.piscina, this.chimenea, this.aireAcondicionado, this.barbacoa,
+        this.admiteMascotas, this.acondicionadoNinnos, this.cocinaCompleta
+        )
+     }
 
   ngOnInit(): void {
 
@@ -106,15 +115,16 @@ export class ListadoCasasComponent implements OnInit {
 
         if(this.precioSelec == 0){
           //Comprobar si están disponibles y el numero de huespedes
-          if (this.casasDisponiblesId.includes(casa.idcasa) && casa.personas === this.huespedes)
-          alert("Estoy rellenando la lista sin el precio de las casas");
-          this.listaDeCasas.push(casa);
+          if (this.casasDisponiblesId.includes(casa.idcasa) && casa.personas === this.huespedes){
+            this.listaDeCasas.push(casa);
+          }
+          
 
         }else{
-          alert("Estoy comprobando el precio de las casas");
-          if (this.casasDisponiblesId.includes(casa.idcasa) && casa.personas === this.huespedes && casa.precio_noche <= this.precioSelec)
-          alert("Estoy rellenando la lista según el precio de las casas");
-          this.listaDeCasas.push(casa);
+          if (this.casasDisponiblesId.includes(casa.idcasa) && casa.personas === this.huespedes && casa.precio_noche <= this.precioSelec){
+            this.listaDeCasas.push(casa);
+          }
+          
 
         }
       }
@@ -150,7 +160,7 @@ export class ListadoCasasComponent implements OnInit {
 
     if (this.precioSelec != 0) {
 
-      if (this.fechaEntrada === undefined || this.fechaSalida === undefined || this.huespedes === null) {
+      if (this.fechaEntrada === null || this.fechaSalida === null || this.huespedes === null) {
         alert("Por favor, rellena todos los campos")
 
       } else {
@@ -172,6 +182,10 @@ export class ListadoCasasComponent implements OnInit {
 
     }
   }
+  public comprobarChecks(){
+    
+  }
+
 
   buscar() {
     // Update route without navigate
@@ -211,34 +225,8 @@ export class ListadoCasasComponent implements OnInit {
       }
     })
 
-    for (let servicio of this.listaServicios) {
-
-      switch (servicio.nombre) {
-        case "niños":
-          this.acondicionadoNinnos = true;
-          break;
-        case "barbacoa":
-          this.barbacoa = true;
-          break;
-        case "piscina":
-          this.piscina = true;
-          break;
-        case "chimenea":
-          this.chimenea = true;
-          break;
-        case "cocina completa":
-          this.cocinaCompleta = true;
-          break;
-        case "aire acondicionado":
-          this.aireAcondicionado = true;
-          break;
-        case "mascotas":
-          this.admiteMascotas = true;
-          break;
-        default:
-          break;
-      }
-    }
+    
+  
   }
 }
 
