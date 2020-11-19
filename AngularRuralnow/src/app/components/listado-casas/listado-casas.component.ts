@@ -36,7 +36,6 @@ export class ListadoCasasComponent implements OnInit {
   acondicionadoNinnos: Boolean = false;
   admiteMascotas: Boolean = false;
 
-  serviciosCheck: Array<Boolean>;
      
 
   constructor(

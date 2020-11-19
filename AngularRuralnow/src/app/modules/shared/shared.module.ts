@@ -59,7 +59,7 @@ import "hammerjs";
     MatDatepickerModule,
     MatNativeDateModule,
     MatFormFieldModule,
-    MatGridListModule
+    MatGridListModule,
     MatSidenavModule,
     SidebarModule,
     MatSliderModule,
