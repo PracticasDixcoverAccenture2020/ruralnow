@@ -1,10 +1,10 @@
 import { Persona } from '../persona/persona';
-import { Poblacion } from '../poblacion/poblacion';
+import { Municipios } from '../municipios/municipios';
 
 export class Casa {
     idcasa: number;
     nombre: string;
-    idpoblacion: Poblacion;
+    idpoblacion: Municipios;
     //municipio: number;
     descripcion: string;
     personas: number

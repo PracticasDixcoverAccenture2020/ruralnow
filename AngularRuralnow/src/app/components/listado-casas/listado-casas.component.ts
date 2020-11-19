@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Casa } from 'src/app/clases/casa/Casa';
+import { Servicio } from 'src/app/clases/servicio/servicio';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from "@angular/common/http";
 import { Obj } from '@popperjs/core';
@@ -17,6 +18,7 @@ export class ListadoCasasComponent implements OnInit {
   listaDeCasas: Casa[] = [];
   casasDisponibles: Casa[] = [];
   casasDisponiblesId: number[] = [];
+  listaServicios: Servicio[] = [];
 
   localizacion: String;
   huespedes: number;
@@ -33,7 +35,7 @@ export class ListadoCasasComponent implements OnInit {
   aireAcondicionado: Boolean = false;
   acondicionadoNinnos: Boolean = false;
   admiteMascotas: Boolean = false;
-  
+
   constructor(
     private httpClient: HttpClient,
     private router: Router,
@@ -46,7 +48,50 @@ export class ListadoCasasComponent implements OnInit {
     this.fechaEntrada = new Date(this.route.snapshot.paramMap.get('fechaEntrada'));
     this.fechaSalida = new Date(this.route.snapshot.paramMap.get('fechaSalida'));
 
+    this.recogerListaServicios();
+
     this.updateData();
+  }
+
+
+  private recogerListaServicios(): void {
+
+    this.httpClient.get("http://localhost:8080/Servicio/getAll/").subscribe(data => {
+      for (let key of Object.keys(data)) {
+        let servicio: Servicio = data[key];
+        this.listaServicios.push(servicio);
+        console.log(servicio.nombre);
+      }
+    })
+
+    for (let servicio of this.listaServicios) {
+
+      switch (servicio.nombre) {
+        case "niños":
+          this.acondicionadoNinnos = true;
+          break;
+        case "barbacoa":
+          this.barbacoa = true;
+          break;
+        case "piscina":
+          this.piscina = true;
+          break;
+        case "chimenea":
+          this.chimenea = true;
+          break;
+        case "cocina completa":
+          this.cocinaCompleta = true;
+          break;
+        case "aire acondicionado":
+          this.aireAcondicionado = true;
+          break;
+        case "mascotas":
+          this.admiteMascotas = true;
+          break;
+        default:
+          break;
+      }
+    }
   }
 
   private updateData(): void {
@@ -58,7 +103,7 @@ export class ListadoCasasComponent implements OnInit {
         this.casasDisponiblesId.push(casa.idcasa);
       }
     })
-    
+
     this.fechaEntradaStr = this.formatDate(this.fechaEntrada);
     this.fechaSalidaStr = this.formatDate(this.fechaSalida);
 
@@ -94,7 +139,7 @@ export class ListadoCasasComponent implements OnInit {
 
       for (let key of Object.keys(data)) {
         let casa: Casa = data[key];
-  
+
         //Comprobar si están disponibles y el numero de huespedes
         if (this.casasDisponiblesId.includes(casa.idcasa) && casa.personas === this.huespedes)
           this.listaDeCasas.push(casa);
@@ -133,13 +178,17 @@ export class ListadoCasasComponent implements OnInit {
       fechaEntrada: this.fechaEntrada,
       fechaSalida: this.fechaSalida
     }]);
-    
+
     this.casas = []
     this.listaDeCasas = []
     this.casasDisponibles = []
     this.casasDisponiblesId = []
 
     this.updateData();
+  }
+
+  actualizarPrecio() {
+
   }
 
   //Procesadores
