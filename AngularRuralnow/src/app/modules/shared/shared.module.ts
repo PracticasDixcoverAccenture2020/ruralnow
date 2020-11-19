@@ -37,6 +37,7 @@ import "hammerjs";
     MatNativeDateModule,
     MatFormFieldModule, 
     MatGridListModule,
+    MatSidenavModule,
     SidebarModule,
     MatSliderModule,
     MatCheckboxModule,
@@ -58,7 +59,8 @@ import "hammerjs";
     MatDatepickerModule,
     MatNativeDateModule,
     MatFormFieldModule,
-    MatGridListModule,
+    MatGridListModule
+    MatSidenavModule,
     SidebarModule,
     MatSliderModule,
     MatCheckboxModule,
