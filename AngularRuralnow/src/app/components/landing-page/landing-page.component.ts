@@ -79,12 +79,27 @@ export class LandingPageComponent implements OnInit {
     if (this.fechaEntrada === undefined || this.fechaSalida === undefined || this.huespedes === null) {
       alert("Por favor, rellena todos los campos")
     } else {
-      this.router.navigate(['/houses', {
-        localizacion: this.localizacion.poblacion,
-        huespedes: this.huespedes,
-        fechaEntrada: this.fechaEntrada,
-        fechaSalida: this.fechaSalida
-      }]);
+
+      if(this.localizacion == undefined){
+
+        this.router.navigate(['/houses', {
+          localizacion: "Cualquiera",
+          huespedes: this.huespedes,
+          fechaEntrada: this.fechaEntrada,
+          fechaSalida: this.fechaSalida
+        }]);
+
+      }else{
+
+        this.router.navigate(['/houses', {
+          localizacion: this.localizacion.poblacion,
+          huespedes: this.huespedes,
+          fechaEntrada: this.fechaEntrada,
+          fechaSalida: this.fechaSalida
+        }]);
+
+      }
+    
     }
   }
 

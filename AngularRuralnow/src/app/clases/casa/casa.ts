@@ -15,12 +15,5 @@ export class Casa {
     idusuario: Persona;
     //propietario: number;
     imagen: string;
-    ninnos: Boolean;
-    mascotas: Boolean;
-    barbacoa: Boolean;
-    piscina: Boolean;
-    chimenea: Boolean;
-    cocinaCompleta: Boolean;
-    aireAcondicionado: Boolean;
 }
 

@@ -36,7 +36,7 @@
               <p>Rango de precio por noche</p>
               <div class="mat-parrafo">
                 <mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="1" min="1" max="1000" required
-                  [(ngModel)]="precioSelec">
+                  [(ngModel)]="precioSelec" (ngModelChange)="comprobarPrecioCasas()">
                 </mat-slider>
                 <div> {{precioSelec}} €</div>
               </div>
@@ -80,7 +80,7 @@
 
             <section class="section-mascotas">
               <mat-checkbox class="check-mascotas" [(ngModel)]="admiteMascotas">
-                <mat-icon aria-hidden="false">pool</mat-icon>
+                <mat-icon aria-hidden="false">pets</mat-icon>
                 Admite mascotas
               </mat-checkbox>
             </section>
