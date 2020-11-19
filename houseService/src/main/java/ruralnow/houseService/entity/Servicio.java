@@ -22,6 +22,8 @@ public class Servicio {
 	private int idservicio;
 	
 	private String nombre;
+
+	private String icono;
 	
 	@ManyToMany(mappedBy="servicios")
 	List<Casa> casas;
