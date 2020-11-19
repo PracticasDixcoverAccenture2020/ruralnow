@@ -37,12 +37,8 @@ export class SelectFechaSalidaComponent implements OnInit {
   }
 
   comunicarFechaSalida(fechaSalidaSelect: Date) {
-    if (fechaSalidaSelect.getMilliseconds() > this.minDate.getMilliseconds())
-      this.opcionSeleccionada = this.minDate;
-    else {
-      this.comunicadorFechaSalida.emit(fechaSalidaSelect);
-      console.log(fechaSalidaSelect);
-    }
+    this.comunicadorFechaSalida.emit(fechaSalidaSelect);
+    console.log(fechaSalidaSelect);
   }
 
 }

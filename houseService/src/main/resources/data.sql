@@ -8,7 +8,7 @@ INSERT INTO provincia (idprovincia, provincia, provinciaseo, Abreviatura, comuni
 (45, 'Cádiz', 'cadiz', 'CDZ', 'AND'),
 (50, 'Jaén', 'jaen', 'JAE', 'AND');
 
-INSERT INTO Servicio (idservicio, nombre) VALUES (1, 'niños'),(2,'barbacoa'),(3,'piscina'),(4,'chimenea'),(5,'cocina completa'),(6,'aire acondicionado'),(7,'mascotas');
+INSERT INTO Servicio (idservicio, nombre, icono) VALUES (1, 'niños', 'escalator_warning'),(2,'barbacoa', 'tapas'),(3,'piscina', 'pool'),(4,'chimenea', 'fireplace'),(5,'cocina completa', 'kitchen'),(6,'aire acondicionado', 'ac_unit'),(7,'mascotas', 'pets');
 
 INSERT INTO poblacion (idpoblacion, idprovincia, poblacion, poblacionseo, postal, latitud, longitud) VALUES
 (294, 13, 'Abla', 'abla', 04510, '37.143631', '-2.775700'),
