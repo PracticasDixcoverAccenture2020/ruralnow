@@ -227,6 +227,10 @@ ul.detalles span {
     color: #DEFCF8;
   }
 
+  .div-huespedes > * {
+    width: 100%;
+  }
+
 @media (max-width: 910PX){
     .example-card {
         max-width: 100%;

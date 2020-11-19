@@ -33,16 +33,15 @@
         <mat-card class="servicios">
           <mat-card-content>
             <div class="div-precio-noche">
-              <p>Rango de precio por noche</p>
+              <p>Precio hasta: {{precioSelec}} €</p>
               <div class="mat-parrafo">
-                <mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="1" min="1" max="1000" required
+                <mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="50" min="0" max="1500" step="50" required
                   [(ngModel)]="precioSelec" (ngModelChange)="comprobarPrecioCasas()">
                 </mat-slider>
-                <div> {{precioSelec}} €</div>
               </div>
             </div>
 
-            <p class="p-instalaciones">Instalaciones</p>  
+            <p class="p-instalaciones">Servicios:</p>  
 
               <form>
                 <div *ngFor="let servicio of listaServicios">
