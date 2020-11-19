@@ -27,7 +27,7 @@ export class ListadoCasasComponent implements OnInit {
   fechaSalida: Date;
   fechaSalidaStr: string;
 
-  precioSelec: number = 0;
+  precioSelec: Number = 0;
   piscina: Boolean = false;
   chimenea: Boolean = false;
   barbacoa: Boolean = false;
@@ -47,52 +47,14 @@ export class ListadoCasasComponent implements OnInit {
     this.huespedes = Number.parseInt(this.route.snapshot.paramMap.get('huespedes'));
     this.fechaEntrada = new Date(this.route.snapshot.paramMap.get('fechaEntrada'));
     this.fechaSalida = new Date(this.route.snapshot.paramMap.get('fechaSalida'));
+    this.precioSelec = new Number(this.route.snapshot.paramMap.get('precioSelec'));
+
 
     this.recogerListaServicios();
 
     this.updateData();
   }
 
-
-  private recogerListaServicios(): void {
-
-    this.httpClient.get("http://localhost:8080/Servicio/getAll/").subscribe(data => {
-      for (let key of Object.keys(data)) {
-        let servicio: Servicio = data[key];
-        this.listaServicios.push(servicio);
-        console.log(servicio.nombre);
-      }
-    })
-
-    for (let servicio of this.listaServicios) {
-
-      switch (servicio.nombre) {
-        case "niños":
-          this.acondicionadoNinnos = true;
-          break;
-        case "barbacoa":
-          this.barbacoa = true;
-          break;
-        case "piscina":
-          this.piscina = true;
-          break;
-        case "chimenea":
-          this.chimenea = true;
-          break;
-        case "cocina completa":
-          this.cocinaCompleta = true;
-          break;
-        case "aire acondicionado":
-          this.aireAcondicionado = true;
-          break;
-        case "mascotas":
-          this.admiteMascotas = true;
-          break;
-        default:
-          break;
-      }
-    }
-  }
 
   private updateData(): void {
     // Lista de casas disponibles a la fecha de entrada dada
@@ -133,6 +95,8 @@ export class ListadoCasasComponent implements OnInit {
     }
   }
 
+
+  //Rellena la lista de casas con las condiciones basicas
   private rellenarLista(data: Object): void {
     if (Object.keys(data).length > 0) {
       console.log('filling list')
@@ -140,14 +104,25 @@ export class ListadoCasasComponent implements OnInit {
       for (let key of Object.keys(data)) {
         let casa: Casa = data[key];
 
-        //Comprobar si están disponibles y el numero de huespedes
-        if (this.casasDisponiblesId.includes(casa.idcasa) && casa.personas === this.huespedes)
+        if(this.precioSelec == 0){
+          //Comprobar si están disponibles y el numero de huespedes
+          if (this.casasDisponiblesId.includes(casa.idcasa) && casa.personas === this.huespedes)
+          alert("Estoy rellenando la lista sin el precio de las casas");
           this.listaDeCasas.push(casa);
+
+        }else{
+          alert("Estoy comprobando el precio de las casas");
+          if (this.casasDisponiblesId.includes(casa.idcasa) && casa.personas === this.huespedes && casa.precio_noche <= this.precioSelec)
+          alert("Estoy rellenando la lista según el precio de las casas");
+          this.listaDeCasas.push(casa);
+
+        }
       }
     } else {
       console.log('no data retrieved')
     }
   }
+
 
 
   formatLabel(value: number) {
@@ -170,6 +145,34 @@ export class ListadoCasasComponent implements OnInit {
     return [year, month, day].join('-');
   }
 
+
+  public comprobarPrecioCasas() {
+
+    if (this.precioSelec != 0) {
+
+      if (this.fechaEntrada === undefined || this.fechaSalida === undefined || this.huespedes === null) {
+        alert("Por favor, rellena todos los campos")
+
+      } else {
+        this.router.navigate(['/houses', {
+          localizacion: this.localizacion,
+          huespedes: this.huespedes,
+          fechaEntrada: this.fechaEntrada,
+          fechaSalida: this.fechaSalida,
+          precioSelec: this.precioSelec
+        }]);
+
+        this.casas = []
+        this.listaDeCasas = []
+        this.casasDisponibles = []
+        this.casasDisponiblesId = []
+
+        this.updateData();
+      }
+
+    }
+  }
+
   buscar() {
     // Update route without navigate
     this.router.navigate(['/houses', {
@@ -187,10 +190,6 @@ export class ListadoCasasComponent implements OnInit {
     this.updateData();
   }
 
-  actualizarPrecio() {
-
-  }
-
   //Procesadores
   procesaFechaSalida(fechaSalida: Date) {
     console.log(fechaSalida);
@@ -201,5 +200,47 @@ export class ListadoCasasComponent implements OnInit {
     console.log(fechaEntrada);
     this.fechaEntrada = fechaEntrada;
   }
+
+  private recogerListaServicios(): void {
+
+    this.httpClient.get("http://localhost:8080/Servicio/getAll/").subscribe(data => {
+      for (let key of Object.keys(data)) {
+        let servicio: Servicio = data[key];
+        this.listaServicios.push(servicio);
+        console.log(servicio.nombre);
+      }
+    })
+
+    for (let servicio of this.listaServicios) {
+
+      switch (servicio.nombre) {
+        case "niños":
+          this.acondicionadoNinnos = true;
+          break;
+        case "barbacoa":
+          this.barbacoa = true;
+          break;
+        case "piscina":
+          this.piscina = true;
+          break;
+        case "chimenea":
+          this.chimenea = true;
+          break;
+        case "cocina completa":
+          this.cocinaCompleta = true;
+          break;
+        case "aire acondicionado":
+          this.aireAcondicionado = true;
+          break;
+        case "mascotas":
+          this.admiteMascotas = true;
+          break;
+        default:
+          break;
+      }
+    }
+  }
 }
+
+
 
