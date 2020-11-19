@@ -36,20 +36,23 @@
               <p>Rango de precio por noche</p>
               <div class="mat-parrafo">
                 <mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="1" min="1" max="1000" required
-                  [(ngModel)]="precioSelec" (ngModelChange)="comprobarPrecioCasas()">
+                  [(ngModel)]="precioSelec" (ngModelChange)="filtrar()">
                 </mat-slider>
                 <div> {{precioSelec}} €</div>
               </div>
             </div>
 
-            <p class="p-instalaciones">Instalaciones</p>  
+            <p class="p-instalaciones">Instalaciones</p>
 
-              <form>
-                <div *ngFor="let servicio of listaServicios">
-                  <input type="checkbox" [checked]="servicio.checked"> <mat-icon >{{servicio.icono}}</mat-icon>
-                   {{servicio.nombre}}
-                </div> 
-              </form>    
+            <form>
+              <div *ngFor="let servicio of listaServicios">
+                <input type="checkbox" (change)="serviciosCheck[servicio.idservicio]=$event.target.checked" (click)="toggle(servicio.idservicio)" value="{{servicio.idservicio}}">
+                <mat-icon>{{servicio.icono}}</mat-icon>
+                {{servicio.nombre}}
+              </div>
+            </form>
+
+            <button (click)="filtrar()">Filtrar</button>
 
           </mat-card-content>
         </mat-card>
