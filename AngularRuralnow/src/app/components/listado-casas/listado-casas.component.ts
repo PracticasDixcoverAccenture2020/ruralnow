@@ -43,10 +43,6 @@ export class ListadoCasasComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute) {
 
-      let serviciosCheck : Array<Boolean> = new Array<Boolean>(
-        this.piscina, this.chimenea, this.aireAcondicionado, this.barbacoa,
-        this.admiteMascotas, this.acondicionadoNinnos, this.cocinaCompleta
-        )
      }
 
   ngOnInit(): void {
