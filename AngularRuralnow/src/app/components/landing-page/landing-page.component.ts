@@ -73,7 +73,7 @@ export class LandingPageComponent implements OnInit {
   //Emisores
 
   compareDateAndGo() {
-    if (this,this.huespedes === undefined)
+    if (this.huespedes === undefined)
       this.huespedes = 1;
 
     if (this.fechaEntrada === undefined || this.fechaSalida === undefined || this.huespedes === null) {

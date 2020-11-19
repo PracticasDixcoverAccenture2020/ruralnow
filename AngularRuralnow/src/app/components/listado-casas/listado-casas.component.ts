@@ -39,17 +39,16 @@ export class ListadoCasasComponent implements OnInit {
   element: HTMLInputElement;
 
   selected = [];
-  @Output() selectedChange:EventEmitter<any> = new EventEmitter();
-     
+  @Output() selectedChange: EventEmitter<any> = new EventEmitter();
+
+  //probando cosas
+  serviciosCheck: Object = new Object();
+
 
   constructor(
     private httpClient: HttpClient,
     private router: Router,
-    private route: ActivatedRoute) {
-
-  
-
-     }
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
 
@@ -68,14 +67,17 @@ export class ListadoCasasComponent implements OnInit {
 
   toggle(id) {
 
-    var index = this.selected.indexOf(id);
+    /*var index = this.selected.indexOf(id);
     if (index === -1) this.selected.push(id);
     else this.selected.splice(index, 1);
     alert(this.selected.length);
-    this.selectedChange.emit(this.selected);    
+    this.selectedChange.emit(this.selected);*/
+
+    alert(id + " - " + this.serviciosCheck[id]);
   }
 
   exists(id) {
+    console.log(this.serviciosCheck);
     return this.selected.indexOf(id) > -1;
   }
 
@@ -118,28 +120,47 @@ export class ListadoCasasComponent implements OnInit {
     }
   }
 
+  //Comprobar servicios seleccionados
+  private comprobarServicios(casa: Casa): boolean {
+    let res: boolean = true;
+    let serviciosTrue: number[] = [];
+
+    let idServiciosCasa: number[] = [];
+
+    for (let s of casa.servicios)
+      idServiciosCasa.push(s.idservicio);
+
+    for (let k of Object.keys(this.serviciosCheck)) {
+      let key = Number.parseInt(k);
+      if (this.serviciosCheck[k])
+        serviciosTrue.push(key);
+    }
+
+    for (let i of serviciosTrue) {
+      if(!idServiciosCasa.includes(i))
+        res = false;
+    }
+
+    return res;
+  }
 
   //Rellena la lista de casas con las condiciones basicas
   private rellenarLista(data: Object): void {
     if (Object.keys(data).length > 0) {
-      console.log('filling list')
+      //console.log('filling list')
 
       for (let key of Object.keys(data)) {
         let casa: Casa = data[key];
 
-        if(this.precioSelec == 0){
+        if (this.precioSelec == 0) {
           //Comprobar si están disponibles y el numero de huespedes
-          if (this.casasDisponiblesId.includes(casa.idcasa) && casa.personas === this.huespedes){
+          if (this.casasDisponiblesId.includes(casa.idcasa) && casa.personas >= this.huespedes && this.comprobarServicios(casa)) {
             this.listaDeCasas.push(casa);
           }
-          
-
-        }else{
-          if (this.casasDisponiblesId.includes(casa.idcasa) && casa.personas === this.huespedes && casa.precio_noche <= this.precioSelec){
+        } else {
+          if (this.casasDisponiblesId.includes(casa.idcasa) && casa.personas === this.huespedes && casa.precio_noche <= this.precioSelec && this.comprobarServicios(casa)) {
             this.listaDeCasas.push(casa);
           }
-          
-
         }
       }
     } else {
@@ -170,34 +191,19 @@ export class ListadoCasasComponent implements OnInit {
   }
 
 
-  public comprobarPrecioCasas() {
+  public filtrar() {
 
-    if (this.precioSelec != 0) {
+    if (this.precioSelec >= 0) {
 
-      if (this.fechaEntrada === null || this.fechaSalida === null || this.huespedes === null) {
+      if (this.fechaEntrada === null || this.fechaSalida === null || this.huespedes === null)
         alert("Por favor, rellena todos los campos")
-
-      } else {
-        this.router.navigate(['/houses', {
-          localizacion: this.localizacion,
-          huespedes: this.huespedes,
-          fechaEntrada: this.fechaEntrada,
-          fechaSalida: this.fechaSalida,
-          precioSelec: this.precioSelec
-        }]);
-
-        this.casas = []
-        this.listaDeCasas = []
-        this.casasDisponibles = []
-        this.casasDisponiblesId = []
-
-        this.updateData();
-      }
+      else
+        this.buscar();
 
     }
   }
-  
-  public comprobarChecks(){
+
+  /*public comprobarChecks(){
     for(let i = 1; i <= this.selected.length; i++){
       let nombreServicioActual = this.selected[i];
       for(let j = 1; j <= this.casasDisponibles.length; j++){
@@ -212,7 +218,7 @@ export class ListadoCasasComponent implements OnInit {
       }
     }
     
-  }
+  }*/
 
 
   buscar() {
@@ -234,12 +240,12 @@ export class ListadoCasasComponent implements OnInit {
 
   //Procesadores
   procesaFechaSalida(fechaSalida: Date) {
-    console.log(fechaSalida);
+    //console.log(fechaSalida);
     this.fechaSalida = fechaSalida;
   }
 
   procesaFechaEntrada(fechaEntrada: Date) {
-    console.log(fechaEntrada);
+    //console.log(fechaEntrada);
     this.fechaEntrada = fechaEntrada;
   }
 
@@ -249,12 +255,12 @@ export class ListadoCasasComponent implements OnInit {
       for (let key of Object.keys(data)) {
         let servicio: Servicio = data[key];
         this.listaServicios.push(servicio);
-        console.log(servicio.nombre);
+        //console.log(servicio.nombre);
+
+        //para procesar los servicios seleccionados
+        this.serviciosCheck[servicio.idservicio] = false;
       }
     })
-
-    
-  
   }
 }
 
