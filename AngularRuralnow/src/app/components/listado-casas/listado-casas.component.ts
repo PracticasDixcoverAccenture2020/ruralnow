@@ -35,6 +35,7 @@ export class ListadoCasasComponent implements OnInit {
   aireAcondicionado: Boolean = false;
   acondicionadoNinnos: Boolean = false;
   admiteMascotas: Boolean = false;
+  element: HTMLInputElement;
 
      
 
@@ -42,6 +43,8 @@ export class ListadoCasasComponent implements OnInit {
     private httpClient: HttpClient,
     private router: Router,
     private route: ActivatedRoute) {
+
+  
 
      }
 
