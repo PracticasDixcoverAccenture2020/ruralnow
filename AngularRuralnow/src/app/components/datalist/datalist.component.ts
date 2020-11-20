@@ -4,7 +4,7 @@ import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
-import { Municipios } from 'src/app/clases/municipios/municipios';
+import { Poblacion } from 'src/app/clases/poblacion/poblacion';
 import { Provincia } from 'src/app/clases/provincia/provincia';
 
 @Component({
@@ -16,7 +16,7 @@ export class DatalistComponent implements OnInit {
 
   provincias: Provincia[] = [];
 
-  poblaciones: Municipios[] = [];
+  poblaciones: Poblacion[] = [];
 
   myControl = new FormControl();
   myControlPob = new FormControl();
@@ -69,7 +69,7 @@ export class DatalistComponent implements OnInit {
       this.httpClient.get("http://localhost:8080/Poblacion/byProvincia/" + prov).subscribe(data => {
 
         for (let key of Object.keys(data)) {
-          let pob: Municipios = data[key];
+          let pob: Poblacion = data[key];
           this.poblaciones.push(pob);
 
           this.optionsPob.push(pob.poblacion);
