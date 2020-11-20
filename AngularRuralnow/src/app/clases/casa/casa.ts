@@ -7,14 +7,14 @@ import { Servicio } from 'src/app/clases/servicio/servicio';
 export class Casa {
     idcasa: number;
     nombre: string;
-    idpoblacion: Poblacion;
+    poblacion: Poblacion;
     descripcion: string;
     personas: number
     habitaciones: number;
     camas: number;
     aseos: number;
     precio_noche: number;
-    idusuario: Persona;
+    usuario: Persona;
 
     imagen: string;
     servicios: Servicio [];

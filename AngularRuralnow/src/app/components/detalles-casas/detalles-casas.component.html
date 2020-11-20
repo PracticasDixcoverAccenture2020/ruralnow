@@ -17,7 +17,7 @@
                 <p>{{casa.descripcion}}</p>
                 
                 <ul class="servicios">
-                    <li *ngFor="let servicio of casa.servicios">{{servicio.icono}}{{servicio.nombre}}</li>
+                    <li class="carac" *ngFor="let servicio of casa.servicios"><mat-icon>{{servicio.icono}}</mat-icon>{{servicio.nombre}}</li>
                 </ul>
             </mat-card-content>
         </mat-card>

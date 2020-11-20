@@ -31,13 +31,6 @@ export class DetallesCasasComponent implements OnInit {
 
     //Método para obtener casa a partir de id
     this.getCasa();
-
-    //Recogida parametros de fecha
-    this.fechaEntrada = new Date(this.route.snapshot.paramMap.get('fechaEntrada'));
-    this.fechaSalida = new Date(this.route.snapshot.paramMap.get('fechaSalida'));
-
-    //calcular precio
-    this.calcularPrecio();
   }
 
   /**
@@ -48,6 +41,14 @@ export class DetallesCasasComponent implements OnInit {
     this.httpClient.get<Casa>("http://localhost:8080/Casa/byId/" + this.idCasa).subscribe(data => {
       this.casa = data;
       console.log(this.casa);
+      
+
+    //Recogida parametros de fecha
+    this.fechaEntrada = new Date(this.route.snapshot.paramMap.get('fechaEntrada'));
+    this.fechaSalida = new Date(this.route.snapshot.paramMap.get('fechaSalida'));
+
+    //calcular precio
+    this.calcularPrecio();
     })
   }
 
