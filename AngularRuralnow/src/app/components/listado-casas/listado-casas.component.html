@@ -36,7 +36,7 @@
               <p>Rango de precio por noche</p>
               <div class="mat-parrafo">
                 <mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="1" min="1" max="1000" required
-                  [(ngModel)]="precioSelec">
+                  [(ngModel)]="precioSelec" (ngModelChange)="filtrar()">
                 </mat-slider>
                 <div> {{precioSelec}} €</div>
               </div>
@@ -44,39 +44,15 @@
 
             <p class="p-instalaciones">Instalaciones</p>
 
-            <section class="section-instalaciones">
-              <mat-checkbox class="check-instalaciones" [(ngModel)]="piscina">
-                Piscina
-                <mat-icon aria-hidden="false">pool</mat-icon>
-              </mat-checkbox>
-              <mat-checkbox class="check-instalaciones" [(ngModel)]="chimenea">
-                Chimenea
-              </mat-checkbox>
+            <form>
+              <div *ngFor="let servicio of listaServicios">
+                <input type="checkbox" (change)="serviciosCheck[servicio.idservicio]=$event.target.checked" (click)="toggle(servicio.idservicio)" value="{{servicio.idservicio}}">
+                <mat-icon>{{servicio.icono}}</mat-icon>
+                {{servicio.nombre}}
+              </div>
+            </form>
 
-              <mat-checkbox class="check-instalaciones" [(ngModel)]="barbacoa">
-                Barbacoa
-              </mat-checkbox>
-
-              <mat-checkbox class="check-instalaciones" [(ngModel)]="cocinaCompleta">
-                Cocina completa
-              </mat-checkbox>
-
-              <mat-checkbox class="check-instalaciones" [(ngModel)]="aireAcondicionado">
-                Aire acondicionado
-              </mat-checkbox>
-            </section>
-
-            <section class="section-ninnos">
-              <mat-checkbox class="check-ninnos" [(ngModel)]="acondicionadoNinnos">
-                Acondicionado para niños
-              </mat-checkbox>
-            </section>
-
-            <section class="section-mascotas">
-              <mat-checkbox class="check-mascotas" [(ngModel)]="admiteMascotas">
-                Admite mascotas
-              </mat-checkbox>
-            </section>
+            <button (click)="filtrar()">Filtrar</button>
 
           </mat-card-content>
         </mat-card>

@@ -11,13 +11,20 @@
 		</div>
 
 		<div class="message">
-			<mat-form-field>
-				<mat-placeholder>Localización</mat-placeholder>
-				<input matInput type="search" [(ngModel)]="localizacion" />
-			</mat-form-field>
-			<button mat-button matSuffix mat-stroked-button aria-label="search" (click)="compareDateAndGo()">
-				<mat-icon>search</mat-icon>
-			</button>
+			<form class="example-form">
+				<mat-form-field class="example-full-width">
+				  <mat-label>Localización</mat-label>
+				  <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto" [(ngModel)]="localizacion">
+				  <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+					<mat-option *ngFor="let option of municipiosFiltrados | async" [value]="option">
+					  {{option.poblacion}}
+					</mat-option>
+				  </mat-autocomplete>
+				</mat-form-field>
+				<button mat-button matSuffix mat-stroked-button aria-label="search" (click)="compareDateAndGo()">
+					<mat-icon>search</mat-icon>
+				</button>
+			</form>
 		</div>
 
 		<div class="select">

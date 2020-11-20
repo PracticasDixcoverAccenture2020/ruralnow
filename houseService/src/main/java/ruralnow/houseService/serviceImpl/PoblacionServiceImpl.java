@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ruralnow.houseService.entity.Poblacion;
+import ruralnow.houseService.entity.Provincia;
 import ruralnow.houseService.repository.PoblacionRepository;
 import ruralnow.houseService.service.PoblacionService;
 
@@ -19,6 +20,12 @@ public class PoblacionServiceImpl implements PoblacionService {
 	public List<Poblacion> findByProvincia(String provincia) {
 		//
 		return poblaRepo.findByProvincia_provincia(provincia);
+	}
+	
+	@Override
+	public List<Poblacion> findAll() {
+		//
+		return poblaRepo.findAll();
 	}
 	
 	

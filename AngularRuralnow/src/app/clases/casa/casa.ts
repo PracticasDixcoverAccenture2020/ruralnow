@@ -1,12 +1,13 @@
 import { Persona } from '../persona/persona';
-import { Poblacion } from '../poblacion/poblacion';
-import { Servicio } from '../servicio/servicio';
+
+import { Municipios } from '../municipios/municipios';
+
+import { Servicio } from 'src/app/clases/servicio/servicio';
 
 export class Casa {
     idcasa: number;
     nombre: string;
-    poblacion: Poblacion;
-    //municipio: number;
+    idpoblacion: Municipios;
     descripcion: string;
     personas: number
     habitaciones: number;
@@ -14,15 +15,8 @@ export class Casa {
     aseos: number;
     precio_noche: number;
     idusuario: Persona;
-    servicios: Servicio[];
-    //propietario: number;
+
     imagen: string;
-    ninnos: Boolean;
-    mascotas: Boolean;
-    barbacoa: Boolean;
-    piscina: Boolean;
-    chimenea: Boolean;
-    cocinaCompleta: Boolean;
-    aireAcondicionado: Boolean;
+    servicios: Servicio [];
 }
 

@@ -11,4 +11,5 @@ import ruralnow.houseService.entity.Poblacion;
 public interface PoblacionRepository extends JpaRepository<Poblacion, Integer> {
 
 	public List<Poblacion> findByProvincia_provincia(String provincia);
+	
 }
