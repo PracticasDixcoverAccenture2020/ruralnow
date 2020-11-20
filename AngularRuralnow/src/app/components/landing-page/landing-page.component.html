@@ -12,12 +12,12 @@
 
 		<div class="message">
 			<form class="example-form">
-				<mat-form-field class="example-full-width">
+				<mat-form-field class="example-full-width localizador">
 				  <mat-label>Localización</mat-label>
 				  <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto" [(ngModel)]="localizacion">
 				  <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
 					<mat-option *ngFor="let option of municipiosFiltrados | async" [value]="option">
-					  {{option.poblacion}}
+					  {{option.poblacion}}, {{option.provincia.provincia}} <mat-icon>place</mat-icon>
 					</mat-option>
 				  </mat-autocomplete>
 				</mat-form-field>
