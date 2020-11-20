@@ -15,11 +15,12 @@ html, body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    max-height: 100vw;
+    max-height: 100vh;
 }
 
 .body > oevents-toolbar {
     min-height: 10vh;
+    margin-bottom: 6px;
 }
 
 .body > oevents-listado-casas {
@@ -30,22 +31,20 @@ html, body {
 
 .body > oevents-listado-casas {
     flex-direction: column;
-    height: 1px;
-    
+    //height: 1px;
 }
 
 .body > oevents-footer {
-    min-height: 6vh;
 }
 
 .body > oevents-contact-us{
-    min-height: 81vh;
-    background-color: #002D27; 
+    background-color: #002D27;
+    flex: 1;
 }
 
 .body > oevents-landing-page{
     width: 100%;
-    min-height: 81vh;
+    flex: 1;
 }
 
 .body > oevents-side-nav-filtro{
@@ -56,14 +55,12 @@ html, body {
 @media (max-height: 860PX) {
      .body > oevents-listado-casas {
         flex: 1;
-        max-height: 77vh;
         display: flex;
     }
 }
 @media (max-width: 770PX) {
      .body > oevents-listado-casas {
         flex: 1;
-        max-height: 68vh;
         display: flex;
     }
 }
