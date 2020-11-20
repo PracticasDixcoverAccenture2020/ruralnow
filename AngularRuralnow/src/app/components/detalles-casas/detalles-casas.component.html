@@ -1,41 +1,41 @@
 <div class="cont-details">
-
-    <img class="img1" src="https://cf.bstatic.com/images/hotel/max1024x768/109/109704407.jpg" alt="">
+    <img class="img1" src="../../../assets/img/casas/{{casa.imagen}}" alt="">
     <div class="content">
         <mat-card class="card">
             <mat-card-header>
-                <div mat-card-avatar class="img2"></div>
-                <mat-card-title>Titulo</mat-card-title>
-                <mat-card-subtitle>Subtitulo</mat-card-subtitle>
+                <div mat-card-avatar [style.background-image]="'url(../../../assets/img/casas/'+casa.imagen+')'" class="img2"></div>
+                <mat-card-title>{{casa.nombre}}</mat-card-title>
+                <mat-card-subtitle class="subtitulo"><span class="material-icons">room</span>{{casa.poblacion.poblacion}}, {{casa.poblacion.provincia.provincia}}</mat-card-subtitle>
             </mat-card-header>
             <mat-card-content>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis harum error quasi ex asperiores? Exercitationem odit tempora iure doloremque placeat, eaque impedit, tenetur, quibusdam mollitia doloribus enim. Nisi, officia tenetur!</p>
                 <ul class="details">
-                    <li><span class="material-icons">groups</span></li>
-                    <li><span class="material-icons">drafts</span></li>
-                    <li><span class="material-icons">single_bed</span></li>
-                    <li><span class="material-icons">bathtub</span></li>
+                    <li class="carac"><span class="material-icons">groups</span> Huéspedes, máximo {{casa.personas}}</li>
+                    <li class="carac"><span class="material-icons">drafts</span> Habitaciones {{casa.habitaciones}}<p></li>
+                    <li class="carac"><span class="material-icons">single_bed</span> Camas {{casa.camas}}</li>
+                    <li class="carac"><span class="material-icons">bathtub</span> Cuartos de baño {{casa.aseos}}</li>
                 </ul>
-                <p>Servicios</p>
-                <span class="material-icons">pets</span>
-                <span class="material-icons">room</span>
-                <span class="material-icons">child_care</span>
-                <span class="material-icons">kitchen</span>
-                <span class="material-icons">house</span>
-                piscina, barcaboa, aire acondicionado
+                <p>{{casa.descripcion}}</p>
+                
+                <ul class="servicios">
+                    <li class="carac" *ngFor="let servicio of casa.servicios"><mat-icon>{{servicio.icono}}</mat-icon>{{servicio.nombre}}</li>
+                </ul>
             </mat-card-content>
         </mat-card>
         <div class="fecha">
-            <div class="entrada">
-                Entrada
-            </div>
-            <div class="salida">
-                Salida
-            </div>
-            <div class="precio">
-                Precio
-            </div>
-            <button mat-raised-button color="primary">Reservar</button>
+            <mat-card class="datos">
+                <mat-card-content>  
+                    <div class="entradaSalida">
+                        <oevents-select-fecha-entrada (comunicadorFechaEntrada)="procesaFechaEntrada($event)">
+                        </oevents-select-fecha-entrada>
+                        <oevents-select-fecha-salida (comunicadorFechaSalida)="procesaFechaSalida($event)">
+                        </oevents-select-fecha-salida> 
+                    </div>  
+                    <h6>{{noches}} Noches</h6>
+                    <h3>{{precio}} €</h3>
+                    <button mat-raised-button>Reservar</button>
+                </mat-card-content>
+            </mat-card>
         </div>
+        
     </div>
 </div>

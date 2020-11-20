@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {Municipios} from 'src/app/clases/municipios/municipios';
+import {Poblacion} from 'src/app/clases/poblacion/poblacion';
 import { HttpClient } from "@angular/common/http";
 import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
@@ -15,14 +15,14 @@ import {map, startWith} from 'rxjs/operators';
 export class LandingPageComponent implements OnInit {
 
   myControl = new FormControl()
-  municipiosFiltrados: Observable<Municipios[]>;
+  municipiosFiltrados: Observable<Poblacion[]>;
 
   //Variables a pasar
   fechaEntrada: Date;
   fechaSalida: Date;
   huespedes: number;
-  localizacion: Municipios;
-  municipios: Municipios [] = []; 
+  localizacion: Poblacion;
+  municipios: Poblacion [] = []; 
 
 
   constructor(private router: Router,
@@ -30,7 +30,7 @@ export class LandingPageComponent implements OnInit {
     
       this.httpClient.get('http://localhost:8080/Poblacion/getAll/').subscribe(data => {
         for (let key of Object.keys(data)) {
-          let municipio: Municipios = data[key];
+          let municipio: Poblacion = data[key];
           this.municipios.push(municipio);
           console.log(municipio.poblacion);
         }
@@ -48,11 +48,11 @@ export class LandingPageComponent implements OnInit {
   }  
 
 
-  displayFn(municipio: Municipios): string {
+  displayFn(municipio: Poblacion): string {
     return municipio && municipio.poblacion ? municipio.poblacion : '';
   }
 
-  private _filter(name: string): Municipios[] {
+  private _filter(name: string): Poblacion[] {
     const filterValue = name.toLowerCase();
 
     return this.municipios.filter(option => option.poblacion.toLowerCase().indexOf(filterValue) === 0);
@@ -73,7 +73,7 @@ export class LandingPageComponent implements OnInit {
   //Emisores
 
   compareDateAndGo() {
-    if (this,this.huespedes === undefined)
+    if (this.huespedes === undefined)
       this.huespedes = 1;
 
     if (this.fechaEntrada === undefined || this.fechaSalida === undefined || this.huespedes === null) {

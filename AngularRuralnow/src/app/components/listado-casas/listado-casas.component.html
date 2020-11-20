@@ -36,7 +36,7 @@
           <p>Precio hasta: {{precioSelec}} €</p>
           <div class="mat-parrafo">
             <mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="50" min="0" max="1500" step="50" required
-              [(ngModel)]="precioSelec" (ngModelChange)="comprobarPrecioCasas()">
+              [(ngModel)]="precioSelec" (ngModelChange)="filtrar()">
             </mat-slider>
           </div>
         </div>
@@ -45,11 +45,13 @@
 
         <form class="form-servicios">
           <div *ngFor="let servicio of listaServicios">
-            <input type="checkbox" [checked]="servicio.checked">
+            <input type="checkbox" (change)="serviciosCheck[servicio.idservicio]=$event.target.checked" (click)="toggle(servicio.idservicio)" value="{{servicio.idservicio}}">
             <mat-icon>{{servicio.icono}}</mat-icon>
             <span class="texto-serv">{{servicio.nombre}}</span>
           </div>
         </form>
+
+        <button (click)="filtrar()">Filtrar</button>
 
       </mat-card-content>
     </mat-card>
@@ -66,7 +68,6 @@
           </mat-card-subtitle>
         </mat-card-header>
 
-
         <mat-card-content>
           <div class="desc">{{casa.descripcion}}</div>
           <div class="cont-detalles">
@@ -81,7 +82,7 @@
         </mat-card-content>
 
         <mat-card-actions>
-          <button mat-button data="casa_{{casa.idcasa}}">RESERVAR</button>
+          <button mat-button (click)="routeDetails(casa.idcasa)">RESERVAR</button>
         </mat-card-actions>
       </div>
 
