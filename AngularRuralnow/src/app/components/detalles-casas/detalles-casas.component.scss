@@ -1,6 +1,6 @@
 .content{
     display:flex;
-    background-color:rgb(120,139,145);
+    background-color:whitesmoke;
 }
 
 .img1{
@@ -20,7 +20,7 @@
     border:none;
     box-shadow: none;
     width:60%;
-    background-color:rgb(120,139,145);
+    background-color:whitesmoke;
 
 }
 
@@ -50,12 +50,17 @@
     justify-content:center;
     padding-top:2vw;
     //color:rgb(227,255,249);
+    background-color: #DEFCF8;
 }
 
 .datos{
     height:90%;
+    background-color: #4ed1c0;
+    padding-bottom: 30px;
 }
 
 button{
     float:right;
+    background-color: #002D27;
+    color: #DEFCF8;
 }
