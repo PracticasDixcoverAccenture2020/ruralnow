@@ -169,7 +169,6 @@ export class ListadoCasasComponent implements OnInit {
   }
 
 
-
   formatLabel(value: number) {
     this.precioSelec = value;
     return value + "€";
@@ -190,6 +189,16 @@ export class ListadoCasasComponent implements OnInit {
     return [year, month, day].join('-');
   }
 
+
+    //Enruta a detalles de casa
+    routeDetails(idCasa:number){
+      console.log(idCasa);
+      this.router.navigate(['/details',{
+        fechaEntrada: this.fechaEntrada,
+        fechaSalida: this.fechaSalida,
+        idCasa: idCasa
+      }]);
+    }
 
   public filtrar() {
 
@@ -219,6 +228,7 @@ export class ListadoCasasComponent implements OnInit {
     }
     
   }*/
+
 
 
   buscar() {

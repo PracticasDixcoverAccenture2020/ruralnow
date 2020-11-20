@@ -1,4 +1,5 @@
 import { Persona } from '../persona/persona';
+
 import { Municipios } from '../municipios/municipios';
 
 import { Servicio } from 'src/app/clases/servicio/servicio';
@@ -14,6 +15,7 @@ export class Casa {
     aseos: number;
     precio_noche: number;
     idusuario: Persona;
+
     imagen: string;
     servicios: Servicio [];
 }

@@ -2,11 +2,20 @@
     display:flex;
     background-color:rgb(120,139,145);
 }
+
 .img1{
     width: 100%;
-    max-height: 30vw;
+    max-height: 40vw;
 }
 
+.carac{
+    display:flex;
+    align-items: center;
+}
+.subtitulo{
+    display:flex;
+    align-items: center;
+}
 .card{
     border:none;
     box-shadow: none;
@@ -15,23 +24,36 @@
 
 }
 
-mat-card-content > p{
+/*mat-card-content > p{
     color:rgb(227,255,249);
-}
+}*/
 .img2{
-    background-image: url('https://cf.bstatic.com/images/hotel/max1024x768/109/109704407.jpg');
+    //background-image: url('https://cf.bstatic.com/images/hotel/max1024x768/109/109704407.jpg');
     background-size:cover;
 }
-
-.fecha{
-    padding-left:10vw;
-    padding-top:2vw;
-    color:rgb(227,255,249);}
 
 .details{
     display:flex;
     justify-content:space-around;
     list-style-type:none;
+}
+
+.servicios{
+    margin:0 auto;
+    display:flex;
+    justify-content:space-around;
+    list-style-type:none;
+}
+
+.fecha{
+    display:flex;
+    justify-content:center;
+    padding-top:2vw;
+    //color:rgb(227,255,249);
+}
+
+.datos{
+    height:90%;
 }
 
 button{
