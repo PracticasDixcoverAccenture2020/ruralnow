@@ -1,7 +1,7 @@
 import { Provincia } from '../provincia/provincia';
 
 
-export interface Municipios {
+export class Poblacion {
     idpoblacion: number;
     provincia: Provincia;
     poblacion: string;
