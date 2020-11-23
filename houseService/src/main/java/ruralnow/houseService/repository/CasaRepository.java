@@ -26,4 +26,6 @@ public interface CasaRepository extends JpaRepository<Casa, Integer> {
 	@Query(value="select * from casa c where c.idcasa not in (select r.idcasa from reserva r where r.fecha_inicio <= ?1 and r.fecha_fin >= ?1)", nativeQuery = true)
 	public List<Casa> findByReservaLibre(Date fecha);
 	
+	@Query(value="select * from casa c where c.idcasa in (select r.idcasa from reserva r where r.fecha_inicio <= ?1 and r.fecha_fin >= ?1)", nativeQuery = true)
+	public List<Casa> findByReservaOcupada(Date fecha);
 }
