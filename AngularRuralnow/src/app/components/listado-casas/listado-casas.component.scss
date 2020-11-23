@@ -6,7 +6,7 @@
   width: 100%;
 }
 
-.titulo-resultado h1 {
+.titulo-resultado h2 {
   color: #002d27;
   border-bottom: 1px solid #002d27;
   padding-left: 20px;
@@ -216,24 +216,9 @@ ul.detalles span {
   font-weight: bold;
 }
 
-.check-instalaciones {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 0 8px 8px;
-  margin-bottom: 8px;
-}
-
-.check-mascotas {
-  border-bottom: 1px solid #31897d;
-  font-weight: bold;
-}
-
-.check-ninnos {
-
-  border-bottom: 1px solid #31897d;
-  font-weight: bold;
+.form-servicios mat-icon {
+  margin: 0 5px;
+  color: #002d27;
 }
 
 .nueva-busqueda {
@@ -283,6 +268,11 @@ button {
         flex-direction: column;
     }
 
+    .card-body:empty {
+      width: 100%;
+      min-height: 200px;
+    }
+
     .filtros {
         max-width: 100%;
         padding-bottom: 0;
@@ -324,8 +314,16 @@ button {
 }
 
 @media (max-width: 770PX) {
-  .example-card {
+  .card-body {
+    width: 100%;
+  }
 
+  .card-body:empty {
+    width: 100%;
+    min-height: 200px;
+  }
+
+  .example-card {
     flex-direction: column;
   }
 
@@ -356,8 +354,8 @@ button {
     font-size: 3.5vw;
   }
 
-  .titulo-resultado h1 {
-    font-size: 6vw;
+  .titulo-resultado h2 {
+    font-size: 4vw;
   }
 
   .titulo-resultado p {

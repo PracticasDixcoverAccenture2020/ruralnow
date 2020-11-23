@@ -21,7 +21,7 @@ export class ListadoCasasComponent implements OnInit {
   casasDisponiblesId: number[] = [];
   listaServicios: Servicio[] = [];
 
-  localizacion: String;
+  localizacion: string;
   huespedes: number;
   fechaEntrada: Date;
   fechaEntradaStr: string;
@@ -37,6 +37,8 @@ export class ListadoCasasComponent implements OnInit {
   acondicionadoNinnos: Boolean = false;
   admiteMascotas: Boolean = false;
   element: HTMLInputElement;
+
+  busquedaStr: string;
 
   selected = [];
   @Output() selectedChange: EventEmitter<any> = new EventEmitter();
@@ -66,14 +68,7 @@ export class ListadoCasasComponent implements OnInit {
 
 
   toggle(id) {
-
-    /*var index = this.selected.indexOf(id);
-    if (index === -1) this.selected.push(id);
-    else this.selected.splice(index, 1);
-    alert(this.selected.length);
-    this.selectedChange.emit(this.selected);*/
-
-    alert(id + " - " + this.serviciosCheck[id]);
+    this.buscar();
   }
 
   exists(id) {
@@ -82,6 +77,8 @@ export class ListadoCasasComponent implements OnInit {
   }
 
   private updateData(): void {
+    this.busquedaStr = this.localizacion;
+
     // Lista de casas disponibles a la fecha de entrada dada
     this.httpClient.get("http://localhost:8080/Casa/reserva/" + this.formatDate(this.fechaEntrada)).subscribe(data => {
       for (let key of Object.keys(data)) {
@@ -94,7 +91,7 @@ export class ListadoCasasComponent implements OnInit {
     this.fechaEntradaStr = this.formatDate(this.fechaEntrada);
     this.fechaSalidaStr = this.formatDate(this.fechaSalida);
 
-    if (this.localizacion === "undefined" || this.localizacion === "Cualquiera") {
+    if (this.localizacion === "undefined" || this.localizacion === "Cualquiera" || this.localizacion === "") {
       this.httpClient.get("http://localhost:8080/Casa/getAll").subscribe(data => {
         //console.log(data);
         this.rellenarLista(data);
@@ -158,7 +155,7 @@ export class ListadoCasasComponent implements OnInit {
             this.listaDeCasas.push(casa);
           }
         } else {
-          if (this.casasDisponiblesId.includes(casa.idcasa) && casa.personas === this.huespedes && casa.precio_noche <= this.precioSelec && this.comprobarServicios(casa)) {
+          if (this.casasDisponiblesId.includes(casa.idcasa) && casa.personas >= this.huespedes && casa.precio_noche <= this.precioSelec && this.comprobarServicios(casa)) {
             this.listaDeCasas.push(casa);
           }
         }
@@ -200,7 +197,7 @@ export class ListadoCasasComponent implements OnInit {
       }]);
     }
 
-  public filtrar() {
+  /*public filtrar() {
 
     if (this.precioSelec >= 0) {
 
@@ -210,26 +207,7 @@ export class ListadoCasasComponent implements OnInit {
         this.buscar();
 
     }
-  }
-
-  /*public comprobarChecks(){
-    for(let i = 1; i <= this.selected.length; i++){
-      let nombreServicioActual = this.selected[i];
-      for(let j = 1; j <= this.casasDisponibles.length; j++){
-        let casaActual = this.casasDisponibles[j];
-        let serviciosCasa = casaActual.servicios;
-        for(let k = 1; k <= serviciosCasa.length; k++){
-          let servicioActual = serviciosCasa[k];
-          if(servicioActual.nombre == nombreServicioActual){
-            
-          }
-        }
-      }
-    }
-    
   }*/
-
-
 
   buscar() {
     // Update route without navigate
