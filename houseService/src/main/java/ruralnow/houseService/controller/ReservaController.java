@@ -66,15 +66,17 @@ public class ReservaController {
 		}
 	}
 	
+	
+	
 	/**
 	 * 
 	 * @return
 	 */
 	@RequestMapping(value = "/casa/{idCasa}", method = RequestMethod.GET)
-	public List<Date> getFechasOcupadas(@PathVariable("idCasa") Integer id){
+	public List<Date> getFechasOcupadas(@PathVariable Integer idCasa){
 		
 		try {
-			List<Date>  diasOcupados = reservaService.diasReservados(id);	
+			List<Date> diasOcupados = reservaService.diasReservados(idCasa);		
 
 			return diasOcupados;
 

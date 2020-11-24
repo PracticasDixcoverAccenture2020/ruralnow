@@ -22,7 +22,7 @@ public class ReservaServiceImpl implements ReservaService{
 
 	@Autowired
 	private ReservaRepository reservaRepo;	
-	
+
 
 	@Override
 	public List<Reserva> findAll() {	
@@ -42,22 +42,22 @@ public class ReservaServiceImpl implements ReservaService{
 
 	@Override
 	public List<Reserva> findByCasa(Integer id) {
-		
-		return reservaRepo.findByCasa(id);
+
+		return reservaRepo.findByIdCasa(id);
 	}
-	
+
 
 	@Override
 	public List<Date> diasReservados(Integer id) {
-		
+
 		List <Reserva> reservasCasa = findByCasa(id);
-		
+
 		List<Date> dates = new ArrayList<Date>();
 		Calendar calendar = new GregorianCalendar();
-		
-		for(int i = 1; i < reservasCasa.size(); i++) {
+
+
+		for (Reserva reserva : reservasCasa) {
 			
-			Reserva reserva = reservasCasa.get(i);
 			calendar.setTime(reserva.getFecha_inicio());
 
 			while (calendar.getTime().before(reserva.getFecha_fin()))
@@ -67,15 +67,15 @@ public class ReservaServiceImpl implements ReservaService{
 				calendar.add(Calendar.DATE, 1);
 			}
 		}
-		
+
 		return dates;
-		
+
 	}
 
 	@Override
 	public Reserva crearReserva(Reserva reserva) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return reservaRepo.save(reserva);
 	}
 
 }
