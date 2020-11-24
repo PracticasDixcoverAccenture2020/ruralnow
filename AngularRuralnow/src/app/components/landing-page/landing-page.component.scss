@@ -7,11 +7,14 @@
   //margin-bottom: 10%;
   text-align: center;
   width: 100%;
+  padding: 0;
 }
 
 .container-background {
   background-image: url(../../../assets/img/fondo-landing.png);
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
   width: 100%;  
 }
 
@@ -41,7 +44,8 @@
   flex-flow: wrap;
   height: auto;
   justify-content: space-evenly;
-  margin-top: 3%;
+  margin-top: 30px;
+  margin-bottom: 30px;
   width: 100%;
 }
 
@@ -83,7 +87,6 @@ p {
     flex-flow: wrap;
     height: auto;
     justify-content: space-evenly;
-    margin-top: 3%;
     width: 100%;
   }
 
@@ -93,5 +96,11 @@ p {
     margin: 2%;
     text-align: justify;
     width: 40%;
+  }
+}
+
+@media (max-width: 770PX) {
+  .container {
+    min-width: 100%;
   }
 }

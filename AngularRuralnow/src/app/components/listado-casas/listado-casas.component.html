@@ -1,5 +1,7 @@
 <div class="titulo-resultado">
   <p><a href="#">INICIO</a> / Resultado búsqueda</p>
+  <h2 *ngIf="busquedaStr === 'Cualquiera' || busquedaStr === ''; else elseBlock">Casas rurales en cualquier localización</h2>
+  <ng-template #elseBlock><h2>Casas rurales en: {{busquedaStr}}</h2></ng-template>
 </div>
 
 <div class="cont">
@@ -36,7 +38,7 @@
           <p>Precio hasta: {{precioSelec}} €</p>
           <div class="mat-parrafo">
             <mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="50" min="0" max="1500" step="50" required
-              [(ngModel)]="precioSelec" (ngModelChange)="filtrar()">
+              [(ngModel)]="precioSelec" (ngModelChange)="buscar()">
             </mat-slider>
           </div>
         </div>
@@ -50,9 +52,6 @@
             <span class="texto-serv">{{servicio.nombre}}</span>
           </div>
         </form>
-
-        <button (click)="filtrar()">Filtrar</button>
-
       </mat-card-content>
     </mat-card>
   </div>
