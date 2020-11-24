@@ -129,9 +129,7 @@ public class ReservaController {
 		try {			
 
 	
-		  emailService.sendMail(email, 
-				  				"Nueva reserva Confirmada", 
-				  				"Hola k pacha tronko jejejejej");
+		  emailService.sendMailWithInlineResources(email, "Reserva Confirmada", email);
 		  
 
 		} catch (Exception e) { System.out.println(e); }
