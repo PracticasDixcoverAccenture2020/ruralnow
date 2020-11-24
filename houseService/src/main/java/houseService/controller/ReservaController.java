@@ -106,7 +106,7 @@ public class ReservaController {
 	 * @param reserva
 	 * @param email
 	 */
-	@RequestMapping(value = "/crearReserva/{reserva}/{email}", method = RequestMethod.GET)
+	/**@RequestMapping(value = "/crearReserva/{reserva}/{email}", method = RequestMethod.GET)
 	public void crearReserva(@PathVariable Reserva reserva, String email){	
 		
 		try {			
@@ -121,7 +121,20 @@ public class ReservaController {
 		  
 
 		} catch (Exception e) { System.out.println(e); }
+	}**/
+	
+	@RequestMapping(value = "/crearReserva/{email}", method = RequestMethod.GET)
+	public void crearReserva(@PathVariable String email){	
+		
+		try {			
+
+	
+		  emailService.sendMail(email, 
+				  				"Nueva reserva Confirmada", 
+				  				"Hola k pacha tronko jejejejej");
+		  
+
+		} catch (Exception e) { System.out.println(e); }
 	}
-	
-	
+
 }
