@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
-import ruralnow.houseService.entity.Servicio;
-import ruralnow.houseService.repository.ServicioRepository;
+import houseService.entity.Servicio;
+import houseService.repository.ServicioRepository;
 
 @DataJpaTest
 @DisplayName(value="Test unitarios repositorio Servicio")
