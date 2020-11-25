@@ -14,11 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import houseService.dto.CasaDto;
 import houseService.dto.ReservaDto;
-import houseService.entity.Casa;
 import houseService.entity.Reserva;
 import houseService.service.CasaService;
 import houseService.service.EmailService;
