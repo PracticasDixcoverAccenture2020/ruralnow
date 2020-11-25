@@ -9,6 +9,7 @@ import {ListadoCasasComponent} from "src/app/components/listado-casas/listado-ca
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { NuestrosServiciosComponent } from './components/nuestros-servicios/nuestros-servicios.component';
 import { DetallesCasasComponent } from './components/detalles-casas/detalles-casas.component';
+import { FormReservaComponent } from './components/form-reserva/form-reserva.component';
 
 
 
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: "contact", component: ContactUsComponent },
   { path: "servicios", component: NuestrosServiciosComponent },
   { path: "details", component: DetallesCasasComponent},
+  { path: "reservation", component: FormReservaComponent},
 
   
   { path: "", redirectTo: "/home", pathMatch: "full" },

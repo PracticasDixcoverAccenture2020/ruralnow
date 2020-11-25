@@ -1,0 +1,30 @@
+<div class="contenedor">
+    <div class="">
+
+    </div>
+
+    <form (submit)="confirmarReserva()">
+        <mat-form-field>
+            <mat-label>Nombre</mat-label>
+            <input matInput [(ngModel)]="cliente.nombre" type="text" placeholder="Nombre" name="nombre" required>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Apellidos</mat-label>
+            <input matInput [(ngModel)]="cliente.apellidos" type="text" placeholder="Apellidos" name="apellidos" required>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>E-mail</mat-label>
+            <input matInput [(ngModel)]="cliente.email" type="email" placeholder="E-mail" name="email" required>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Teléfono</mat-label>
+            <input matInput [(ngModel)]="cliente.telefono" type="text" placeholder="Teléfono" name="telefono" required>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit">Confirmar Reserva</button>
+        <button mat-raised-button color="secondary" type="reset">Limpiar campos</button>
+    </form>
+</div>
