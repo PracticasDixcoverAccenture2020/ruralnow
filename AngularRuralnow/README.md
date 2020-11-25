@@ -1,30 +1,54 @@
-# OpenEventsFront
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { InformacionLanding } from 'src/app/clases/infoLanding/informacion-landing';
+@Component({
+  selector: 'oevents-landing-page',
+  templateUrl: './landing-page.component.html',
+  styleUrls: ['./landing-page.component.scss']
+})
+export class LandingPageComponent implements OnInit {
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.7.
 
-## Development server
+  //Variables a pasar
+  localizacion: String;
+  fechaEntrada: Date;
+  fechaSalida: Date;
+  huespedes: number;
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+  constructor(private router: Router, private infoPasar: InformacionLanding) { }
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+  ngOnInit(): void {
+  }
 
-## Build
+  //Procesadores
+  procesaHuespedes(numeroHuespedes: number) {
+    console.log(numeroHuespedes);
+    this.huespedes = numeroHuespedes;
+  }
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+  procesaFechaEntrada(fechaEntrada: Date) {
+    console.log(fechaEntrada);
+    this.fechaEntrada = fechaEntrada;
+  }
 
-## Running unit tests
+  procesaFechaSalida(fechaSalida: Date) {
+    console.log(fechaSalida);
+    this.fechaSalida = fechaSalida;
+  }
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+   procesaLugar(lugarSelect: String) {
+    console.log(lugarSelect);
+    this.localizacion = lugarSelect;
+  }
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-
-yo quitaría las www
-www
+  //Emisores
+  enviarMensaje(){
+    this.router.navigate(['/houses']);
+    this.infoPasar.setLocalizacion(this.localizacion);
+    this.infoPasar.setFechaEntrada(this.fechaEntrada);
+    this.infoPasar.setFechaSalida(this.fechaSalida);
+    this.infoPasar.setHuespedes(this.huespedes);
+  }
+}
