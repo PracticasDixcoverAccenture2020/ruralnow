@@ -8,8 +8,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
-import ruralnow.houseService.entity.Poblacion;
-import ruralnow.houseService.repository.PoblacionRepository;
+import houseService.entity.Poblacion;
+import houseService.repository.PoblacionRepository;
 
 @DataJpaTest
 @DisplayName(value = "Test unitarios de entidad poblacion")

@@ -1,4 +1,7 @@
 <div class="cont-details">
+    <div class="breadcrums">
+        <p><a href="#">INICIO</a> / <button class="busqueda" (click)="back()">Resultado búsqueda</button> / Detalles casa</p>
+    </div>
     <img class="img1" src="../../../assets/img/casas/{{casa.imagen}}" alt="">
     <div class="content">
         <mat-card class="card">
@@ -25,14 +28,14 @@
             <mat-card class="datos">
                 <mat-card-content>  
                     <div class="entradaSalida">
-                        <oevents-select-fecha-entrada (comunicadorFechaEntrada)="procesaFechaEntrada($event)">
+                        <oevents-select-fecha-entrada [fechaOcupada]="fechasOcupadas" (comunicadorFechaEntrada)="procesaFechaEntrada($event)">
                         </oevents-select-fecha-entrada>
                         <oevents-select-fecha-salida (comunicadorFechaSalida)="procesaFechaSalida($event)">
                         </oevents-select-fecha-salida> 
                     </div>  
                     <h6>{{noches}} Noches</h6>
                     <h3>{{precio}} €</h3>
-                    <button mat-raised-button>Reservar</button>
+                    <button (click)="routeReserva()" class="reserva" mat-raised-button>Reservar</button>
                 </mat-card-content>
             </mat-card>
         </div>

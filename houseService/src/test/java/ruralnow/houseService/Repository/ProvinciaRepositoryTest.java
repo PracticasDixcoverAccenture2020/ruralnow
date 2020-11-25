@@ -8,8 +8,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
-import ruralnow.houseService.entity.Provincia;
-import ruralnow.houseService.repository.ProvinciaRepository;
+import houseService.entity.Provincia;
+import houseService.repository.ProvinciaRepository;
 
 @DataJpaTest
 @DisplayName(value = "Test unitarios entidad provincia")

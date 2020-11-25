@@ -3,6 +3,27 @@
     background-color:whitesmoke;
 }
 
+.breadcrums p {
+    color: #31897d;
+    padding-left: 20px;
+    margin: 0;
+    margin-top: 5px;
+    font-size: 1vw;
+    font-family:  Helvetica, sans-serif, monospace;
+}
+
+.breadcrums p a {
+    color: #31897d;
+    text-decoration: none;
+}
+
+.busqueda {
+    color: #31897d;
+    outline:none;
+    border:none;
+    background-color:transparent;
+}
+
 .img1{
     width: 100%;
     max-height: 40vw;
@@ -59,7 +80,7 @@
     padding-bottom: 30px;
 }
 
-button{
+.reserva{
     float:right;
     background-color: #002D27;
     color: #DEFCF8;

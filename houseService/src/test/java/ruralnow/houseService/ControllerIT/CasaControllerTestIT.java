@@ -15,8 +15,9 @@ import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import ruralnow.houseService.dto.CasaDto;
-import ruralnow.houseService.entity.Casa;
+import houseService.dto.CasaDto;
+
+
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
