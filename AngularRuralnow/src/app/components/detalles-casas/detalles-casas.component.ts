@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Casa } from 'src/app/clases/casa/Casa';
 import { HttpClient } from "@angular/common/http";
 import * as moment from 'moment';
-
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'oevents-detalles-casas',
@@ -19,11 +19,14 @@ export class DetallesCasasComponent implements OnInit {
   noches: number;
   precio: number;
   idCasa: number;
+  //FechasOcupadas
+  fechasOcupadas: string[]=[];
 
   constructor(
     private httpClient: HttpClient,
     private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private _location: Location) { }
 
   ngOnInit(): void {
     //Recogida de parametros
@@ -31,6 +34,27 @@ export class DetallesCasasComponent implements OnInit {
 
     //Método para obtener casa a partir de id
     this.getCasa();
+
+    //Obtener fechas reservadas de la casa
+    //this.getFechasOcupadas();
+  }
+
+  /**
+   * Volver a la pagina anterior
+   */
+  back(){
+    this._location.back();
+  }
+  /**
+   * Llamada al servidor:
+   * Obtener fechas ocupadas de la casa
+   */
+  private getFechasOcupadas(){
+    this.httpClient.get("http://localhost:8080/Casa/byId/" + this.idCasa).subscribe(data => {
+      for (let key of Object.keys(data)){
+        this.fechasOcupadas.push(data[key].fecha)
+      }
+    })
   }
 
   /**
@@ -66,6 +90,7 @@ export class DetallesCasasComponent implements OnInit {
     }
   }
   
+
   /**
    * Procesador fecha salida
    * @param fechaSalida 
@@ -86,5 +111,14 @@ export class DetallesCasasComponent implements OnInit {
     this.calcularPrecio();
   }
 
+  //Enruta a detalles de casa
+  routeReserva(){
+    this.router.navigate(['/reservation',{
+      idCasa: this.casa.idcasa,
+      fechaEntrada: this.fechaEntrada,
+      fechaSalida: this.fechaSalida,
+      precio: this.precio 
+    }]);
+  }
 
 }

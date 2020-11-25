@@ -32,7 +32,6 @@ export class LandingPageComponent implements OnInit {
         for (let key of Object.keys(data)) {
           let municipio: Poblacion = data[key];
           this.municipios.push(municipio);
-          console.log(municipio.poblacion);
         }
       })
    }
