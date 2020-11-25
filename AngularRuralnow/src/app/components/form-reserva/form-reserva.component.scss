@@ -1,0 +1,79 @@
+.bread-crumb {
+  padding-left: 20px;
+  margin: 0;
+  margin-top: 5px;
+  font-size: 1vw;
+  font-family: Helvetica, sans-serif, monospace;
+  color: #31897d;
+}
+
+.bread-crumb a {
+    text-decoration: none;
+    color: #31897d;
+}
+
+.instrucciones {
+    font-size: 1.5vw;
+  font-family: 'Fjalla One', Helvetica, sans-serif, monospace;
+}
+
+.terminos-label {
+    font-size: 1.2vw;
+}
+
+.card-casa {
+  border: 2px solid black;
+  align-self: flex-start;
+}
+
+.card-casa img {
+  border: 1px solid black;
+  margin: 0;
+  width: 100%;
+}
+
+.mat-card-title {
+    font-size: 1.5vw;
+}
+.mat-card-subtitle {
+    font-size: 1.2vw;
+}
+
+ul.detalles {
+  margin-top: 5px;
+  margin-bottom: 0;
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style-type: none;
+  padding: 0;
+  color: #002d27;
+}
+
+.contenido-card>.mat-card-actions {
+  text-align: center;
+  margin-bottom: 0 !important;
+  margin: 0;
+}
+
+.precio {
+  font-size: 1.8vw;
+  font-weight: bold;
+  width: 100%;
+  font-family: 'Fjalla One', Helvetica, sans-serif, monospace;
+}
+
+@media (max-width: 768PX) {
+    .bread-crumb {font-size: 3vw;}
+
+    .instrucciones, .mat-card-title {font-size: 3.5vw;}
+
+    .terminos-label, .mat-card-subtitle {font-size: 2.5vw;}
+
+    .precio {font-size: 3vw;}
+}
+
+@media (max-width: 576PX) {
+    
+}

@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Persona } from 'src/app/clases/persona/persona';
+import { Location } from '@angular/common';
+import { Casa } from 'src/app/clases/casa/Casa';
 
 @Component({
   selector: 'oevents-form-reserva',
@@ -12,8 +14,11 @@ export class FormReservaComponent implements OnInit {
 
   //variables
   idCasa: number;
+  casa: Casa = new Casa();
   fechaEntrada: Date;
+  fechaEntradaStr: string;
   fechaSalida: Date;
+  fechaSalidaStr: string;
   precioTotal: number;
 
   //datos reserva
@@ -29,18 +34,57 @@ export class FormReservaComponent implements OnInit {
   constructor(
     private httpClient: HttpClient,
     private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private _location: Location) { }
 
   ngOnInit(): void {
     this.idCasa = Number.parseInt(this.route.snapshot.paramMap.get('idCasa'));
     this.fechaEntrada = new Date(this.route.snapshot.paramMap.get('fechaEntrada'));
     this.fechaSalida = new Date(this.route.snapshot.paramMap.get('fechaSalida'));
     this.precioTotal = Number.parseInt(this.route.snapshot.paramMap.get('precio'));
+
+    this.fechaEntradaStr = this.formatDate(this.fechaEntrada);
+    this.fechaSalidaStr = this.formatDate(this.fechaSalida);
+
+    this.httpClient.get<Casa>("http://localhost:8080/Casa/byId/" + this.idCasa).subscribe(data => {
+      this.casa = data;
+    })
   }
 
   confirmarReserva() {
-    alert("confirmado");
+    alert("confirmado: " + this.fechaEntrada + " - " + this.fechaSalida + " / Total: " + this.precioTotal);
     console.log(this.cliente);
   }
 
+  routeListado(event: any) {
+    event.preventDefault();
+
+    this.router.navigate(['/houses', {
+      localizacion: "Cualquiera",
+      huespedes: 1,
+      fechaEntrada: this.fechaEntrada,
+      fechaSalida: this.fechaSalida
+    }]);
+  }
+
+  goBack(event: any) {
+    event.preventDefault();
+
+    this._location.back();
+  }
+
+  // Formateo de fechas
+  private formatDate(date) {
+    var d = new Date(date),
+      month = '' + (d.getMonth() + 1),
+      day = '' + d.getDate(),
+      year = d.getFullYear();
+
+    if (month.length < 2)
+      month = '0' + month;
+    if (day.length < 2)
+      day = '0' + day;
+
+    return [year, month, day].join('-');
+  }
 }

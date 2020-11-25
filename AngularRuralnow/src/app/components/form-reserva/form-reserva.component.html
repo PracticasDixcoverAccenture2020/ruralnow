@@ -1,30 +1,104 @@
 <div class="contenedor">
-    <div class="">
-
+    <div class="bread-crumb">
+        <p><a href="#">INICIO</a> / <a href="" (click)="routeListado($event)">Resultado búsqueda</a> / <a href=""
+                (click)="goBack($event)">Detalles casa</a> / Confirmar reserva</p>
     </div>
 
-    <form (submit)="confirmarReserva()">
-        <mat-form-field>
-            <mat-label>Nombre</mat-label>
-            <input matInput [(ngModel)]="cliente.nombre" type="text" placeholder="Nombre" name="nombre" required>
-        </mat-form-field>
+    <div class="contenido d-flex flex-row flex-wrap justify-content-around mb-4">
+        <form id="formReserva" (submit)="confirmarReserva()" class="col-md-6 pt-2 mb-4 mb-sm-0">
 
-        <mat-form-field>
-            <mat-label>Apellidos</mat-label>
-            <input matInput [(ngModel)]="cliente.apellidos" type="text" placeholder="Apellidos" name="apellidos" required>
-        </mat-form-field>
+            <div class="instrucciones text-center">
+                <p class="h5">Rellena el formulario con tus datos para confirmar la reserva del alojamiento. Una vez finalizado el
+                    trámite recibirás un e-mail con los detalles y la confirmación de la reserva.</p>
+            </div>
 
-        <mat-form-field>
-            <mat-label>E-mail</mat-label>
-            <input matInput [(ngModel)]="cliente.email" type="email" placeholder="E-mail" name="email" required>
-        </mat-form-field>
+            <mat-form-field class="col-sm-6 col-md-12 col-lg-6">
+                <mat-label>Nombre</mat-label>
+                <input matInput [(ngModel)]="cliente.nombre" type="text" placeholder="Nombre" name="nombre" required>
+            </mat-form-field>
 
-        <mat-form-field>
-            <mat-label>Teléfono</mat-label>
-            <input matInput [(ngModel)]="cliente.telefono" type="text" placeholder="Teléfono" name="telefono" required>
-        </mat-form-field>
+            <mat-form-field class="col-sm-6 col-md-12 col-lg-6">
+                <mat-label>Apellidos</mat-label>
+                <input matInput [(ngModel)]="cliente.apellidos" type="text" placeholder="Apellidos" name="apellidos"
+                    required>
+            </mat-form-field>
 
-        <button mat-raised-button color="primary" type="submit">Confirmar Reserva</button>
-        <button mat-raised-button color="secondary" type="reset">Limpiar campos</button>
-    </form>
+            <mat-form-field class="col-sm-6 col-md-12 col-lg-6">
+                <mat-label>Teléfono</mat-label>
+                <input matInput [(ngModel)]="cliente.telefono" type="text" placeholder="Teléfono" name="telefono"
+                    required>
+            </mat-form-field>
+
+            <mat-form-field class="col-sm-6 col-md-12 col-lg-6">
+                <mat-label>Fecha nacimiento</mat-label>
+                <input matInput [matDatepicker]="picker" name="fecha_nac" required>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field class="col-12">
+                <mat-label>E-mail</mat-label>
+                <input matInput [(ngModel)]="cliente.email" type="email" placeholder="E-mail" name="email" required>
+            </mat-form-field>
+
+            <div class="col-12">
+                <input type="checkbox" name="terminos" required class="mr-2">
+                <mat-label class="terminos-label">He leído y acepto los términos y condiciones de uso.</mat-label>
+            </div>
+
+            <div class="fechas d-flex justify-content-between mt-4">
+                <mat-form-field class="col-5">
+                    <mat-label>Fecha entrada</mat-label>
+                    <input matInput name="fecha_entrada" value="{{fechaEntradaStr}}" readonly>
+                </mat-form-field>
+                <span class="h1 col-2 text-center"><mat-icon>arrow_forward</mat-icon></span>
+                <mat-form-field class="col-5">
+                    <mat-label>Fecha salida</mat-label>
+                    <input matInput name="fecha_salida" value="{{fechaSalidaStr}}" readonly>
+                </mat-form-field>
+            </div>
+
+            <div class="precio text-center">
+                <h2>Importe total de la reserva: {{precioTotal}}€</h2>
+            </div>
+
+            <div class="form-row justify-content-around mt-4">
+                <button mat-raised-button type="reset" class="order-1 col-4 offset-1 col-sm-12 offset-sm-0 col-md-4 offset-md-1 mb-2" (click)="goBack($event)">Cancelar</button>
+
+                <button mat-raised-button color="primary" type="submit" class="order-1 order-sm-0 order-md-1 col-4 offset-1 col-sm-12 offset-sm-0 col-md-4 offset-md-1 mb-2">Confirmar
+                    Reserva</button>
+            </div>
+        </form>
+
+        <div class="col-md-5">
+            <mat-card class="card-casa d-flex d-md-block">
+                <img mat-card-image src="../../../assets/img/casas/{{casa.imagen}}" alt="Imagen generica" class="p-0 col-5 col-md-12">
+
+                <div class="contenido-card col-7 col-md-12">
+                    <mat-card-header>
+                        <mat-card-title>{{casa.nombre}}</mat-card-title>
+                        <mat-card-subtitle>{{casa.poblacion.poblacion}}, {{casa.poblacion.provincia.provincia}}
+                        </mat-card-subtitle>
+                    </mat-card-header>
+
+                    <mat-card-content>
+                        <div class="cont-detalles">
+                            <ul class="detalles">
+                                <li><span class="material-icons">groups</span>{{casa.personas}}</li>
+                                <li><span class="material-icons">drafts</span>{{casa.habitaciones}}</li>
+                                <li><span class="material-icons">single_bed</span>{{casa.camas}}</li>
+                                <li><span class="material-icons">bathtub</span>{{casa.aseos}}</li>
+                            </ul>
+                        </div>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <span class="precio">{{casa.precio_noche}} €/noche</span>
+                    </mat-card-actions>
+                </div>
+
+            </mat-card>
+        </div>
+    </div>
+
+
 </div>
