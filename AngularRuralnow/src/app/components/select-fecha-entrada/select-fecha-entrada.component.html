@@ -1,5 +1,5 @@
 <mat-form-field>
-  <input #minmaxInput matInput [min]="minDate" [max]="maxDate" [matDatepicker]="minmaxvalidation"
+  <input #minmaxInput matInput [min]="minDate" [max]="maxDate" [matDatepickerFilter]="myFilter" [matDatepicker]="minmaxvalidation"
     placeholder="Fecha Entrada" [(ngModel)]="opcionSeleccionada"
     (ngModelChange)="comunicarFechaEntrada(opcionSeleccionada)" required>
   <mat-datepicker-toggle matSuffix [for]="minmaxvalidation">
