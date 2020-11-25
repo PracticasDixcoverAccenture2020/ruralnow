@@ -103,10 +103,11 @@ public class ReservaController {
 
 	/**
 	 * Guarda una reserva nueva y envia un mail de confirmacion
-	 * @param reserva
-	 * @param email
+	 * @param Reserva reserva
+	 * @param String email
+	 * @param int totalNoches
 	 */
-	@RequestMapping(value = "/crearReserva/{email}/{reserva}", method = RequestMethod.GET)
+	@RequestMapping(value = "/crearReserva/{email}/{reserva}/{totalNoches}", method = RequestMethod.GET)
 	public void crearReserva(@PathVariable String email, ReservaDto reservaDto, int totalNoches){	
 		
 		try {	
