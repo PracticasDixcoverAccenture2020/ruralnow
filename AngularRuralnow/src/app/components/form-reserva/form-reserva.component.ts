@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Persona } from 'src/app/clases/persona/persona';
 import { Location } from '@angular/common';
 import { Casa } from 'src/app/clases/casa/Casa';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'oevents-form-reserva',
@@ -11,6 +12,8 @@ import { Casa } from 'src/app/clases/casa/Casa';
   styleUrls: ['./form-reserva.component.scss']
 })
 export class FormReservaComponent implements OnInit {
+
+  public form: FormGroup;
 
   //variables
   idCasa: number;
@@ -20,6 +23,8 @@ export class FormReservaComponent implements OnInit {
   fechaSalida: Date;
   fechaSalidaStr: string;
   precioTotal: number;
+
+  intento: boolean = false;
 
   //datos reserva
   cliente: Persona = new Persona();
@@ -35,7 +40,17 @@ export class FormReservaComponent implements OnInit {
     private httpClient: HttpClient,
     private router: Router,
     private route: ActivatedRoute,
-    private _location: Location) { }
+    private _location: Location,
+    private formBuilder: FormBuilder) {
+    this.form = this.formBuilder.group({
+      nombre: ['', Validators.required],
+      apellidos: ['', Validators.required],
+      email: ['',  Validators.compose([Validators.required, Validators.email])],
+      telefono: ['', Validators.required],
+      fechaNac: ['', Validators.required],
+      terminos: [false, Validators.required]
+    })
+  }
 
   ngOnInit(): void {
     this.idCasa = Number.parseInt(this.route.snapshot.paramMap.get('idCasa'));
@@ -52,8 +67,15 @@ export class FormReservaComponent implements OnInit {
   }
 
   confirmarReserva() {
+    this.intento = true;
+
     alert("confirmado: " + this.fechaEntrada + " - " + this.fechaSalida + " / Total: " + this.precioTotal);
-    console.log(this.cliente);
+    
+    console.log(this.form.status);
+
+    if (this.form.valid) {
+      console.log(this.form.value);
+    }
   }
 
   routeListado(event: any) {
