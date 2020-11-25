@@ -36,7 +36,7 @@ export class DetallesCasasComponent implements OnInit {
     this.getCasa();
 
     //Obtener fechas reservadas de la casa
-    //this.getFechasOcupadas();
+    this.getFechasOcupadas();
   }
 
   /**
@@ -50,9 +50,10 @@ export class DetallesCasasComponent implements OnInit {
    * Obtener fechas ocupadas de la casa
    */
   private getFechasOcupadas(){
-    this.httpClient.get("http://localhost:8080/Casa/byId/" + this.idCasa).subscribe(data => {
+    this.httpClient.get("http://localhost:8080/Reserva/casa/" + this.idCasa).subscribe(data => {
+      //Pasa las fechas a un array de string
       for (let key of Object.keys(data)){
-        this.fechasOcupadas.push(data[key].fecha)
+        this.fechasOcupadas.push(this.formatDate(data[key]))
       }
     })
   }
@@ -90,6 +91,20 @@ export class DetallesCasasComponent implements OnInit {
     }
   }
   
+  // Formateo de fechas
+  private formatDate(date) {
+    var d = new Date(date),
+      month = '' + (d.getMonth() + 1),
+      day = '' + d.getDate(),
+      year = d.getFullYear();
+
+    if (month.length < 2)
+      month = '0' + month;
+    if (day.length < 2)
+      day = '0' + day;
+
+    return [year, month, day].join('-');
+  }
 
   /**
    * Procesador fecha salida
