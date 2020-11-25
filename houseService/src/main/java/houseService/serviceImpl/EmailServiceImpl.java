@@ -52,8 +52,10 @@ public class EmailServiceImpl implements EmailService{
 	}
 
 
+
 	@Override
-	public void sendMailWithInlineResources(String to, String subject, String mensaje) {
+	public void sendMailWithInlineResources(String to, String subject, String nombreCasa,
+											int precioNoche, int totalPrecio, int totalNoches) {
 
 		MimeMessagePreparator preparator = new MimeMessagePreparator() 
 		{
@@ -61,8 +63,13 @@ public class EmailServiceImpl implements EmailService{
 			{
 				
 				MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true, "utf-8");
-				String htmlMsg = new String(Files.readAllBytes(Paths.get("./assets/Template.html")), StandardCharsets.UTF_8)
-					.replace("{{first_name}}", mensaje);
+				String htmlMsg = new String(Files.readAllBytes(Paths.get("./assets/Template.html")),
+											StandardCharsets.UTF_8)
+											.replace("{{first_name}}", to)
+											.replace("{{nombre_casa}}", nombreCasa)
+											.replace("{{precio_noche}}", precioNoche + "")
+											.replace("{{precio_total}}", totalPrecio + "")
+											.replace("{{total_noches}}", totalNoches + "");
 				
 				helper.setText(htmlMsg, true);;
 				helper.setTo(to);

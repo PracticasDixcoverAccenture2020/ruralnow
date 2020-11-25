@@ -106,31 +106,22 @@ public class ReservaController {
 	 * @param reserva
 	 * @param email
 	 */
-	/**@RequestMapping(value = "/crearReserva/{reserva}/{email}", method = RequestMethod.GET)
-	public void crearReserva(@PathVariable Reserva reserva, String email){	
+	@RequestMapping(value = "/crearReserva/{email}/{reserva}", method = RequestMethod.GET)
+	public void crearReserva(@PathVariable String email, ReservaDto reservaDto, int totalNoches){	
 		
-		try {			
-
-		  reservaService.crearReserva(reserva);
-		  emailService.sendMail(email, 
-				  				"Nueva reserva Confirmada", 
-				  				reserva.getCasa().getNombre() + " " 
-				  				+ reserva.getFecha_inicio().toString() + " "
-				  				+ reserva.getFecha_fin() + " "
-				  				+ reserva.getImporte());
-		  
-
-		} catch (Exception e) { System.out.println(e); }
-	}**/
-	
-	@RequestMapping(value = "/crearReserva/{email}", method = RequestMethod.GET)
-	public void crearReserva(@PathVariable String email){	
-		
-		try {			
-
-	
-		  emailService.sendMailWithInlineResources(email, "Reserva Confirmada", email);
-		  
+		try {	
+			
+			if(reservaDto != null) {
+				
+				Reserva reserva = new Reserva();
+				reserva = (Reserva) mapper.map(reservaDto, Reserva.class);				
+				
+				emailService.sendMailWithInlineResources(email, "Reserva Confirmada",
+														reserva.getCasa().getNombre(), 
+														reserva.getCasa().getPrecio_noche(),
+														reserva.getImporte(),
+														totalNoches);				
+			}		  
 
 		} catch (Exception e) { System.out.println(e); }
 	}

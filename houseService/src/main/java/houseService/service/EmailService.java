@@ -6,6 +6,7 @@ public interface EmailService{
 
 	public void sendPreConfiguredMail(String message);
 	
-	public void sendMailWithInlineResources(String to, String subject, String fileToAttach);
+	void sendMailWithInlineResources(String to, String subject, String NombreCasa,
+									int precioNoche, int totalPrecio, int totalNoches);
 
 }
