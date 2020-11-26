@@ -1,5 +1,6 @@
 package houseService.controller;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -12,8 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import houseService.dto.CasaDto;
 import houseService.dto.ReservaDto;
+import houseService.entity.Casa;
 import houseService.entity.Reserva;
+import houseService.service.CasaService;
 import houseService.service.EmailService;
 import houseService.service.ReservaService;
 
@@ -24,6 +28,11 @@ public class ReservaController {
 
 	@Autowired
 	private ReservaService reservaService;
+	
+
+	@Autowired
+	private CasaService casaService;
+
 
 	@Autowired
 	private EmailService emailService;
@@ -107,12 +116,15 @@ public class ReservaController {
 	 * @param String email
 	 * @param int totalNoches
 	 */
-	@RequestMapping(value = "/crearReserva/{email}/{reserva}/{totalNoches}", method = RequestMethod.GET)
-	public void crearReserva(@PathVariable String email, ReservaDto reservaDto, int totalNoches){	
+	@RequestMapping(value = "/crearReserva/{email}/{totalNoches}/{reserva}", method = RequestMethod.GET)
+	public void crearReserva(@PathVariable String email, 
+							@PathVariable("totalNoches") int totalNoches,  
+							@PathVariable("reserva") ReservaDto reservaDto){	
 		
 		try {	
 			
-			if(reservaDto != null) {
+			if(reservaDto != null) {		
+				
 				
 				Reserva reserva = new Reserva();
 				reserva = (Reserva) mapper.map(reservaDto, Reserva.class);				
