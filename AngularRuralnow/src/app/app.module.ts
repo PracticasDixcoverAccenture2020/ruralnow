@@ -15,13 +15,18 @@ import { ContactUsComponent } from './components/contact-us/contact-us.component
 import { DatalistComponent } from './components/datalist/datalist.component';
 import { NuestrosServiciosComponent } from './components/nuestros-servicios/nuestros-servicios.component';
 import { DetallesCasasComponent } from './components/detalles-casas/detalles-casas.component';
-
+import { FormReservaComponent } from './components/form-reserva/form-reserva.component';
 
 //Modules
 import { SharedModule } from "./modules/shared/shared.module";
 import { AppRoutingModule } from "./app-routing.module";
 import { HttpClientModule } from '@angular/common/http';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { FormsModule } from '@angular/forms';
+
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+
 
 
 @NgModule({
@@ -37,7 +42,8 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     ContactUsComponent,
     DatalistComponent,
     NuestrosServiciosComponent,
-    DetallesCasasComponent
+    DetallesCasasComponent,
+    FormReservaComponent
   ],
   imports: [
     CommonModule,
@@ -45,7 +51,10 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatInputModule,
+    MatButtonModule,
+    FormsModule
   ],
   exports: [
     MatAutocompleteModule
