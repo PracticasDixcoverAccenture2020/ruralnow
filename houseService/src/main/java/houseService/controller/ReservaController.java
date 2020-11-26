@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import houseService.dto.CasaDto;
 import houseService.dto.ReservaDto;
 import houseService.entity.Reserva;
 import houseService.service.CasaService;
@@ -27,6 +30,7 @@ public class ReservaController {
 
 	@Autowired
 	private ReservaService reservaService;
+
 
 	@Autowired
 	private CasaService casaService;
@@ -114,22 +118,28 @@ public class ReservaController {
 	public void crearReserva(@RequestBody String reservaJSON) {
 
 		try {
-
 			ReservaDto reservaDto = new ObjectMapper().readValue(reservaJSON, ReservaDto.class);
+			
 			if (reservaDto != null) {
-
+				
 				Reserva reserva = new Reserva();
 				reserva = (Reserva) mapper.map(reservaDto, Reserva.class);
-				
+
 				int totalNoches = reservaDto.getImporte() / reservaDto.getCasa().getPrecio_noche();
 
-				emailService.sendMailWithInlineResources(reservaDto.getUsuario().getEmail(), "Reserva Confirmada", reserva.getCasa().getNombre(),
-						reserva.getCasa().getPrecio_noche(), reserva.getImporte(), totalNoches);
+				emailService.sendMailWithInlineResources(reservaDto.getUsuario().getEmail(),
+														"Reserva Confirmada",
+														reserva.getCasa().getNombre(),
+														reserva.getCasa().getPrecio_noche(),
+														reserva.getImporte(), totalNoches);
 			}
+
+
 
 		} catch (Exception e) {
 			System.out.println(e);
 		}
 	}
+
 
 }
