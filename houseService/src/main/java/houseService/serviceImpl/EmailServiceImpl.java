@@ -5,9 +5,6 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-import javax.mail.Message;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
@@ -55,33 +52,29 @@ public class EmailServiceImpl implements EmailService{
 
 	@Override
 	public void sendMailWithInlineResources(String to, String subject, String nombreCasa,
-											int precioNoche, int totalPrecio, int totalNoches) {
+			int precioNoche, int totalPrecio, int totalNoches) {
 
-		MimeMessagePreparator preparator = new MimeMessagePreparator() 
-		{
-			public void prepare(MimeMessage mimeMessage) throws Exception 
-			{
-				
+		MimeMessagePreparator preparator = new MimeMessagePreparator() {
+			public void prepare(MimeMessage mimeMessage) throws Exception {		
+
 				MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true, "utf-8");
 				String htmlMsg = new String(Files.readAllBytes(Paths.get("./assets/Template.html")),
-											StandardCharsets.UTF_8)
-											.replace("{{first_name}}", to)
-											.replace("{{nombre_casa}}", nombreCasa)
-											.replace("{{precio_noche}}", precioNoche + "")
-											.replace("{{precio_total}}", totalPrecio + "")
-											.replace("{{total_noches}}", totalNoches + "");
-				
+						StandardCharsets.UTF_8)
+						.replace("{{first_name}}", to)
+						.replace("{{nombre_casa}}", nombreCasa)
+						.replace("{{precio_noche}}", precioNoche + "")
+						.replace("{{precio_total}}", totalPrecio + "")
+						.replace("{{total_noches}}", totalNoches + "");
+
+
 				helper.setText(htmlMsg, true);;
 				helper.setTo(to);
 				helper.setSubject(subject);
 				helper.setFrom("ruralnowcompany@gmail.com");
 				FileSystemResource res = new FileSystemResource(new File("./assets/ruralnowlodomail.png"));
-	            helper.addInline("ruralnowlogo", res);
-	            
+				helper.addInline("ruralnowlogo", res);
 				mailSender.send(mimeMessage);
 			}
-
-
 		};
 
 		try {

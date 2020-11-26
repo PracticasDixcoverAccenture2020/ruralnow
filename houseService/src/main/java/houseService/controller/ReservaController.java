@@ -132,6 +132,8 @@ public class ReservaController {
 														reserva.getCasa().getNombre(),
 														reserva.getCasa().getPrecio_noche(),
 														reserva.getImporte(), totalNoches);
+				
+				reservaService.crearReserva(reserva);
 			}
 
 
