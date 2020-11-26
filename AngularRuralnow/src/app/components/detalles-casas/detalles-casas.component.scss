@@ -1,87 +1,104 @@
-.content{
-    display:flex;
-    background-color:whitesmoke;
+.content {
+  background-color: whitesmoke;
+  flex-wrap: wrap;
 }
 
 .breadcrums p {
-    color: #31897d;
-    padding-left: 20px;
-    margin: 0;
-    margin-top: 5px;
-    font-size: 1vw;
-    font-family:  Helvetica, sans-serif, monospace;
+  color: #31897d;
+  padding-left: 20px;
+  margin: 0;
+  font-size: 1vw;
+  font-family: Helvetica, sans-serif, monospace;
 }
 
 .breadcrums p a {
-    color: #31897d;
-    text-decoration: none;
+  color: #31897d;
+  text-decoration: none;
 }
 
 .busqueda {
-    color: #31897d;
-    outline:none;
-    border:none;
-    background-color:transparent;
+  color: #31897d;
+  outline: none;
+  border: none;
+  background-color: transparent;
 }
 
-.img1{
+.img1 {
+  width: 100%;
+  max-height: 40vw;
+}
+
+.carac {
+  display: flex;
+  align-items: center;
+}
+
+.subtitulo {
+  display: flex;
+  align-items: center;
+}
+
+.card {
+  border: none;
+  box-shadow: none;
+  background-color: whitesmoke;
+}
+
+.img2 {
+  background-size: cover;
+}
+
+.details {
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+}
+
+.details+p {
+  text-align: justify;
+  font-style: italic;
+}
+
+.details+p::before,
+.details+p::after {
+  content: '"';
+}
+
+.servicios {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+
+  flex-wrap: wrap;
+}
+
+.fecha {
+  display: flex;
+  justify-content: center;
+
+  background-color: #4ed1c0;
+}
+
+.fecha mat-card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     width: 100%;
-    max-height: 40vw;
 }
 
-.carac{
-    display:flex;
-    align-items: center;
-}
-.subtitulo{
-    display:flex;
-    align-items: center;
-}
-.card{
-    border:none;
-    box-shadow: none;
-    width:60%;
-    background-color:whitesmoke;
-
+.reserva {
+  float: right;
+  background-color: #002D27;
+  color: #DEFCF8;
 }
 
-/*mat-card-content > p{
-    color:rgb(227,255,249);
-}*/
-.img2{
-    //background-image: url('https://cf.bstatic.com/images/hotel/max1024x768/109/109704407.jpg');
-    background-size:cover;
-}
+@media (max-width: 768PX) {
+  .breadcrums p {
+    font-size: 3vw;
+  }
 
-.details{
-    display:flex;
-    justify-content:space-around;
-    list-style-type:none;
-}
-
-.servicios{
-    margin:0 auto;
-    display:flex;
-    justify-content:space-around;
-    list-style-type:none;
-}
-
-.fecha{
-    display:flex;
-    justify-content:center;
-    padding-top:2vw;
-    //color:rgb(227,255,249);
-    background-color: #DEFCF8;
-}
-
-.datos{
-    height:90%;
-    background-color: #4ed1c0;
-    padding-bottom: 30px;
-}
-
-.reserva{
-    float:right;
-    background-color: #002D27;
-    color: #DEFCF8;
+  .carac span:first-child+span, .carac mat-icon + span {
+    display: none;
+  }
 }
