@@ -5,6 +5,7 @@ import { Persona } from 'src/app/clases/persona/persona';
 import { Location } from '@angular/common';
 import { Casa } from 'src/app/clases/casa/Casa';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Reserva } from 'src/app/clases/reserva/reserva';
 
 @Component({
   selector: 'oevents-form-reserva',
@@ -45,7 +46,7 @@ export class FormReservaComponent implements OnInit {
     this.form = this.formBuilder.group({
       nombre: ['', Validators.required],
       apellidos: ['', Validators.required],
-      email: ['',  Validators.compose([Validators.required, Validators.email])],
+      email: ['', Validators.compose([Validators.required, Validators.email])],
       telefono: ['', Validators.required],
       fechaNac: ['', Validators.required],
       terminos: [false, Validators.required]
@@ -69,12 +70,27 @@ export class FormReservaComponent implements OnInit {
   confirmarReserva() {
     this.intento = true;
 
-    alert("confirmado: " + this.fechaEntrada + " - " + this.fechaSalida + " / Total: " + this.precioTotal);
-    
+    //alert("confirmado: " + this.fechaEntrada + " - " + this.fechaSalida + " / Total: " + this.precioTotal);
+
     console.log(this.form.status);
 
     if (this.form.valid) {
       console.log(this.form.value);
+
+      let email: string = this.form.value.email;
+      let noches: number = this.precioTotal / this.casa.precio_noche;
+
+      let reserva: Reserva = new Reserva();
+      reserva.casa = this.casa;
+      reserva.usuario = new Persona();
+      reserva.usuario.email = email;
+      reserva.fecha_inicio = this.fechaEntrada;
+      reserva.fecha_fin = this.fechaSalida;
+      reserva.importe = this.precioTotal;
+
+      let reservaJSON = JSON.stringify(reserva);
+
+      this.httpClient.post("http://localhost:8080/Reserva/crearReserva", reservaJSON).subscribe();
     }
   }
 

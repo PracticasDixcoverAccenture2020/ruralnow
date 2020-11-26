@@ -9,9 +9,12 @@ import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import houseService.dto.CasaDto;
 import houseService.dto.ReservaDto;
@@ -28,18 +31,14 @@ public class ReservaController {
 
 	@Autowired
 	private ReservaService reservaService;
-	
 
 	@Autowired
 	private CasaService casaService;
-
 
 	@Autowired
 	private EmailService emailService;
 
 	DozerBeanMapper mapper = new DozerBeanMapper();
-
-
 
 	/**
 	 * Devuelve todas las reservas
@@ -52,7 +51,7 @@ public class ReservaController {
 		List<Reserva> reservas = reservaService.findAll();
 		List<ReservaDto> reservasDto = new ArrayList<ReservaDto>();
 
-		if (reservas != null) {		
+		if (reservas != null) {
 
 			for (Reserva reserva : reservas) {
 				ReservaDto reservaDto = (ReservaDto) mapper.map(reserva, ReservaDto.class);
@@ -62,9 +61,9 @@ public class ReservaController {
 		return reservasDto;
 	}
 
-
 	/**
 	 * Devuelve la reserva del id correspondiente
+	 * 
 	 * @param id
 	 * @return reservaDto
 	 */
@@ -87,19 +86,18 @@ public class ReservaController {
 		}
 	}
 
-
-
 	/**
 	 * Esta funcion devuelve los dias que en una casa ya estan reservados
+	 * 
 	 * @param idCasa
 	 * @return diasOcupados
 	 */
 	@RequestMapping(value = "/casa/{idCasa}", method = RequestMethod.GET)
-	public List<Date> getFechasOcupadas(@PathVariable Integer idCasa){	
+	public List<Date> getFechasOcupadas(@PathVariable Integer idCasa) {
 
 		try {
 
-			List<Date> diasOcupados = reservaService.diasReservados(idCasa);		
+			List<Date> diasOcupados = reservaService.diasReservados(idCasa);
 
 			return diasOcupados;
 
@@ -109,34 +107,33 @@ public class ReservaController {
 		}
 	}
 
-
 	/**
 	 * Guarda una reserva nueva y envia un mail de confirmacion
+	 * 
 	 * @param Reserva reserva
-	 * @param String email
-	 * @param int totalNoches
+	 * @param String  email
+	 * @param int     totalNoches
 	 */
-	@RequestMapping(value = "/crearReserva/{email}/{totalNoches}/{reserva}", method = RequestMethod.GET)
-	public void crearReserva(@PathVariable String email, 
-							@PathVariable("totalNoches") int totalNoches,  
-							@PathVariable("reserva") ReservaDto reservaDto){	
-		
-		try {	
-			
-			if(reservaDto != null) {		
-				
-				
-				Reserva reserva = new Reserva();
-				reserva = (Reserva) mapper.map(reservaDto, Reserva.class);				
-				
-				emailService.sendMailWithInlineResources(email, "Reserva Confirmada",
-														reserva.getCasa().getNombre(), 
-														reserva.getCasa().getPrecio_noche(),
-														reserva.getImporte(),
-														totalNoches);				
-			}		  
+	@RequestMapping(value = "/crearReserva", method = RequestMethod.POST)
+	public void crearReserva(@RequestBody String reservaJSON) {
 
-		} catch (Exception e) { System.out.println(e); }
+		try {
+
+			ReservaDto reservaDto = new ObjectMapper().readValue(reservaJSON, ReservaDto.class);
+			if (reservaDto != null) {
+
+				Reserva reserva = new Reserva();
+				reserva = (Reserva) mapper.map(reservaDto, Reserva.class);
+				
+				int totalNoches = reservaDto.getImporte() / reservaDto.getCasa().getPrecio_noche();
+
+				emailService.sendMailWithInlineResources(reservaDto.getUsuario().getEmail(), "Reserva Confirmada", reserva.getCasa().getNombre(),
+						reserva.getCasa().getPrecio_noche(), reserva.getImporte(), totalNoches);
+			}
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 	}
 
 }
