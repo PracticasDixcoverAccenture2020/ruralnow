@@ -30,7 +30,7 @@
                     <div class="entradaSalida">
                         <oevents-select-fecha-entrada [fechaOcupada]="fechasOcupadas" (comunicadorFechaEntrada)="procesaFechaEntrada($event)">
                         </oevents-select-fecha-entrada>
-                        <oevents-select-fecha-salida (comunicadorFechaSalida)="procesaFechaSalida($event)">
+                        <oevents-select-fecha-salida [fechaOcupada]="fechasOcupadas" (comunicadorFechaSalida)="procesaFechaSalida($event)">
                         </oevents-select-fecha-salida> 
                     </div>  
                     <h6>{{noches}} Noches</h6>

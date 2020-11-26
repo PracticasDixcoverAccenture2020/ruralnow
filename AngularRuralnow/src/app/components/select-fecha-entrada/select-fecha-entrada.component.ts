@@ -18,8 +18,10 @@ export class SelectFechaEntradaComponent {
   maxDate: Date;
   opcionSeleccionada: Date;
 
+  //Parámetro de componente padre con fechas reservadas
   @Input() fechaOcupada: string[] = [];
 
+  //filtro para inhabilitar las fechas reservadas en matdatepicker
   myFilter = (d: Date): boolean => {
 
     let date: any;

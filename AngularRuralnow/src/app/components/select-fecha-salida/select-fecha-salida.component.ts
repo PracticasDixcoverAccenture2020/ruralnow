@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
 import { MinFechaSalidaService } from 'src/app/services/min-fecha-salida.service';
 import { ActivatedRoute } from '@angular/router';
 
@@ -13,12 +13,38 @@ export class SelectFechaSalidaComponent implements OnInit {
   @Output()
   comunicadorFechaSalida = new EventEmitter<Date>();
 
-  minDate: Date;
-  maxDate: Date;
+    //Parámetro de componente padre con fechas reservadas
+    @Input() fechaOcupada: string[] = [];
 
-  fechaEntrada: Date;
+    minDate: Date;
+    maxDate: Date;
+  
+    fechaEntrada: Date;
+  
+    opcionSeleccionada: Date;
 
-  opcionSeleccionada: Date;
+    //filtro para inhabilitar las fechas reservadas en matdatepicker
+    myFilter = (d: Date): boolean => {
+  
+      let date: any;
+      let month: any;
+  
+      if (d.getDate().toString().length < 2) {
+          date = '0' + d.getDate().toString()
+      } else {
+          date = d.getDate().toString()
+      }
+  
+      if ((d.getMonth() + 1).toString().length < 2) {
+          month = '0' + (d.getMonth() + 1).toString()
+      } else {
+          month = (d.getMonth() + 1).toString()
+      }
+  
+      const day = d.getFullYear().toString() + "-" + month + "-" + date;
+      
+      return !this.fechaOcupada.includes(day);
+  }
 
   constructor(private minFechaSalidaService: MinFechaSalidaService, private route: ActivatedRoute) {
     const currentYear = new Date().getFullYear();
