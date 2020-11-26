@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Persona } from 'src/app/clases/persona/persona';
 import { Location } from '@angular/common';
 import { Casa } from 'src/app/clases/casa/Casa';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Reserva } from 'src/app/clases/reserva/reserva';
 
 @Component({
@@ -47,8 +47,8 @@ export class FormReservaComponent implements OnInit {
       nombre: ['', Validators.required],
       apellidos: ['', Validators.required],
       email: ['', Validators.compose([Validators.required, Validators.email])],
-      telefono: ['', Validators.required],
-      fechaNac: ['', Validators.required],
+      telefono: ['', Validators.compose([Validators.required, Validators.minLength(9), Validators.maxLength(9)])],
+      fechaNac: ['', Validators.compose([Validators.required, this.mayorEdadValidatorFactory()])],
       terminos: [false, Validators.required]
     })
   }
@@ -78,7 +78,7 @@ export class FormReservaComponent implements OnInit {
       console.log(this.form.value);
 
       let email: string = this.form.value.email;
-      let noches: number = this.precioTotal / this.casa.precio_noche;
+      //let noches: number = this.precioTotal / this.casa.precio_noche;
 
       let reserva: Reserva = new Reserva();
       reserva.casa = this.casa;
@@ -91,6 +91,7 @@ export class FormReservaComponent implements OnInit {
       let reservaJSON = JSON.stringify(reserva);
 
       this.httpClient.post("http://localhost:8080/Reserva/crearReserva", reservaJSON).subscribe();
+      alert("¡Reserva confirmada con éxito! En breve recibirá un E-mail.");
     }
   }
 
@@ -112,7 +113,7 @@ export class FormReservaComponent implements OnInit {
   }
 
   // Formateo de fechas
-  private formatDate(date) {
+  private formatDate(date: Date): string {
     var d = new Date(date),
       month = '' + (d.getMonth() + 1),
       day = '' + d.getDate(),
@@ -125,4 +126,38 @@ export class FormReservaComponent implements OnInit {
 
     return [year, month, day].join('-');
   }
+
+  //Validar mayoría de edad ------------------------------------------
+  private mayorEdadValidatorFactory() {
+    return function (control: FormControl) {
+      let edad: number = FormReservaComponent.calcularEdad(new Date(control.value));
+      //console.log(edad);
+      if (edad < 18) {
+        return {
+          mayorEdad: {
+            valid: false,
+            edad: edad
+          }
+        }
+      }
+
+      return null;
+    }
+  }
+
+  static calcularEdad(fecha: Date): number {
+    var hoy = new Date();
+    var cumpleanos = new Date(fecha);
+    var edad = hoy.getFullYear() - cumpleanos.getFullYear();
+    var m = hoy.getMonth() - cumpleanos.getMonth();
+
+    if (m < 0 || (m === 0 && hoy.getDate() < cumpleanos.getDate())) {
+      edad--;
+    }
+
+    return edad;
+  }
+
+  //---------------------------------------------------------------------
+
 }
