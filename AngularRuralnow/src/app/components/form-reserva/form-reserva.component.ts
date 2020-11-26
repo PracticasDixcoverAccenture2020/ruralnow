@@ -92,6 +92,8 @@ export class FormReservaComponent implements OnInit {
 
       this.httpClient.post("http://localhost:8080/Reserva/crearReserva", reservaJSON).subscribe();
       alert("¡Reserva confirmada con éxito! En breve recibirá un E-mail.");
+
+      this._location.back();
     }
   }
 

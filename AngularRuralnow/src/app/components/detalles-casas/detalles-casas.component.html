@@ -1,44 +1,54 @@
 <div class="cont-details">
     <div class="breadcrums">
-        <p><a href="#">INICIO</a> / <button class="busqueda" (click)="back()">Resultado búsqueda</button> / Detalles casa</p>
+        <p><a href="#">INICIO</a> / <button class="busqueda" (click)="back()">Resultado búsqueda</button> / Detalles
+            casa</p>
     </div>
     <img class="img1" src="../../../assets/img/casas/{{casa.imagen}}" alt="">
-    <div class="content">
-        <mat-card class="card">
+    <div class="content d-flex p-4">
+        <mat-card class="card col-12 col-sm-8 m-0">
             <mat-card-header>
-                <div mat-card-avatar [style.background-image]="'url(../../../assets/img/casas/'+casa.imagen+')'" class="img2"></div>
+                <div mat-card-avatar [style.background-image]="'url(../../../assets/img/casas/'+casa.imagen+')'"
+                    class="img2"></div>
                 <mat-card-title>{{casa.nombre}}</mat-card-title>
-                <mat-card-subtitle class="subtitulo"><span class="material-icons">room</span>{{casa.poblacion.poblacion}}, {{casa.poblacion.provincia.provincia}}</mat-card-subtitle>
+                <mat-card-subtitle class="subtitulo"><span
+                        class="material-icons">room</span>{{casa.poblacion.poblacion}},
+                    {{casa.poblacion.provincia.provincia}}</mat-card-subtitle>
             </mat-card-header>
             <mat-card-content>
                 <ul class="details">
-                    <li class="carac"><span class="material-icons">groups</span> Huéspedes, máximo {{casa.personas}}</li>
-                    <li class="carac"><span class="material-icons">drafts</span> Habitaciones {{casa.habitaciones}}<p></li>
-                    <li class="carac"><span class="material-icons">single_bed</span> Camas {{casa.camas}}</li>
-                    <li class="carac"><span class="material-icons">bathtub</span> Cuartos de baño {{casa.aseos}}</li>
+                    <li class="carac"><span class="material-icons">groups</span><span> Max. huéspedes:
+                        </span>{{casa.personas}}</li>
+                    <li class="carac"><span class="material-icons">drafts</span><span> Habitaciones:
+                        </span>{{casa.habitaciones}}</li>
+                    <li class="carac"><span class="material-icons">single_bed</span><span> Camas: </span>{{casa.camas}}
+                    </li>
+                    <li class="carac"><span class="material-icons">bathtub</span><span> Cuartos de baño:
+                        </span>{{casa.aseos}}</li>
                 </ul>
                 <p>{{casa.descripcion}}</p>
-                
-                <ul class="servicios">
-                    <li class="carac" *ngFor="let servicio of casa.servicios"><mat-icon>{{servicio.icono}}</mat-icon>{{servicio.nombre}}</li>
+                <p>Servicios disponibles:</p>
+                <ul class="servicios d-flex flex-wrap justify-content-around p-0">
+                    <li class="carac col-2 flex-1" *ngFor="let servicio of casa.servicios">
+                        <mat-icon>{{servicio.icono}}</mat-icon><span>{{servicio.nombre}}</span>
+                    </li>
                 </ul>
             </mat-card-content>
         </mat-card>
-        <div class="fecha">
-            <mat-card class="datos">
-                <mat-card-content>  
-                    <div class="entradaSalida">
-                        <oevents-select-fecha-entrada [fechaOcupada]="fechasOcupadas" (comunicadorFechaEntrada)="procesaFechaEntrada($event)">
-                        </oevents-select-fecha-entrada>
-                        <oevents-select-fecha-salida [fechaOcupada]="fechasOcupadas" (comunicadorFechaSalida)="procesaFechaSalida($event)">
-                        </oevents-select-fecha-salida> 
-                    </div>  
-                    <h6>{{noches}} Noches</h6>
-                    <h3>{{precio}} €</h3>
-                    <button (click)="routeReserva()" class="reserva" mat-raised-button>Reservar</button>
-                </mat-card-content>
-            </mat-card>
-        </div>
-        
+        <mat-card class="fecha col-12 col-sm-4 m-0">
+            <mat-card-content>
+                <div class="entradaSalida">
+                    <oevents-select-fecha-entrada [fechaOcupada]="fechasOcupadas"
+                        (comunicadorFechaEntrada)="procesaFechaEntrada($event)">
+                    </oevents-select-fecha-entrada>
+                    <oevents-select-fecha-salida [fechaOcupada]="fechasOcupadas"
+                        (comunicadorFechaSalida)="procesaFechaSalida($event)">
+                    </oevents-select-fecha-salida>
+                </div>
+                <h6>{{noches}} Noches</h6>
+                <h3>{{precio}} €</h3>
+                <button (click)="routeReserva()" class="reserva" mat-raised-button>Reservar</button>
+            </mat-card-content>
+        </mat-card>
+
     </div>
 </div>
