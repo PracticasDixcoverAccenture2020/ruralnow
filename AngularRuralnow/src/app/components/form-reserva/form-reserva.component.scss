@@ -22,8 +22,8 @@
 }
 
 .card-casa {
-  border: 2px solid black;
   align-self: flex-start;
+  background-color: #b8faf1;
 }
 
 .card-casa img {
@@ -62,6 +62,15 @@ ul.detalles {
   font-weight: bold;
   width: 100%;
   font-family: Helvetica, sans-serif, monospace;
+}
+
+.col-8{
+  color:#b8faf1;
+  font-family: Helvetica;  
+}
+
+.col-8:hover{
+  background-color:#002d27;
 }
 
 .text-danger {
