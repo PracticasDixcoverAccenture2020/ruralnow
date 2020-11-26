@@ -5,7 +5,14 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+import javax.mail.Message;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.font.PDType1Font;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.MailException;
@@ -81,7 +88,6 @@ public class EmailServiceImpl implements EmailService{
 			mailSender.send(preparator);
 		}
 		catch (MailException ex) {
-			// simply log it and go on...
 			System.err.println(ex.getMessage());
 		}
 
