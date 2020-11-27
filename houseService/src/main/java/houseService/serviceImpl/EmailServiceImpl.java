@@ -77,7 +77,7 @@ public class EmailServiceImpl implements EmailService{
 				helper.setText(htmlMsg, true);;
 				helper.setTo(to);
 				helper.setSubject(subject);
-				helper.setFrom("ruralnowcompany@gmail.com");
+				helper.setFrom("RuralNow");
 				FileSystemResource res = new FileSystemResource(new File("./assets/ruralnowlodomail.png"));
 				helper.addInline("ruralnowlogo", res);
 				mailSender.send(mimeMessage);
