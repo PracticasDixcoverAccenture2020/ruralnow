@@ -29,7 +29,7 @@
                 <p>Servicios disponibles:</p>
                 <ul class="servicios d-flex flex-wrap justify-content-around p-0">
                     <li class="carac col-2 flex-1" *ngFor="let servicio of casa.servicios">
-                        <mat-icon>{{servicio.icono}}</mat-icon><span>{{servicio.nombre}}</span>
+                        <mat-icon>{{servicio.icono}}</mat-icon><span class="texto-serv">{{servicio.nombre}}</span>
                     </li>
                 </ul>
             </mat-card-content>

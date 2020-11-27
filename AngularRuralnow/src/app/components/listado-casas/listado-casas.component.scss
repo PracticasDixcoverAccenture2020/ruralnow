@@ -124,7 +124,6 @@ mat-card-content > p {
 
 .mat-card-actions>button {
   width: 100%;
-  background-color: #31897d;
   color: #DEFCF8
 }
 
@@ -160,6 +159,17 @@ div.cont-detalles {
 .contenido-card p {
   font-size: 1vw;
 }
+
+.boton-reservar{
+  background-color: #31897d;
+  color: #b8faf1;
+  font-family: Helvetica;  
+}
+
+.boton-reservar:hover{
+  background-color: #002d27;
+}
+
 
 ul.detalles li {
   font-size: 1.2vw;
@@ -221,6 +231,10 @@ ul.detalles span {
   color: #002d27;
 }
 
+.texto-serv{
+  font-variant: small-caps;
+}
+
 .nueva-busqueda {
   border: 1px solid #31897d;
   background-color: #DEFCF8;
@@ -229,6 +243,11 @@ ul.detalles span {
 button {
   background-color: #002D27;
   color: #DEFCF8;
+  font-family: Helvetica;  
+}
+
+button:hover {
+  background-color: #000000;
 }
 
 .div-huespedes > * {
