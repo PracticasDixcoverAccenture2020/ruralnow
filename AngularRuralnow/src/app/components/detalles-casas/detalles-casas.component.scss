@@ -69,15 +69,17 @@
   display: flex;
   justify-content: space-around;
   list-style-type: none;
-
   flex-wrap: wrap;
 }
 
 .fecha {
   display: flex;
   justify-content: center;
+  background-color: #b8faf1;
+}
 
-  background-color: #4ed1c0;
+.texto-serv{
+  text-transform:capitalize;
 }
 
 .fecha mat-card-content {
@@ -89,9 +91,17 @@
 
 .reserva {
   float: right;
-  background-color: #002D27;
-  color: #DEFCF8;
+  background-color: #31897d;
+  color: #b8faf1;
+  font-family: Helvetica;  
 }
+
+.reserva:hover {
+  float: right;
+  background-color: #002d27;
+  font-family: Helvetica;  
+}
+
 
 @media (max-width: 768PX) {
   .breadcrums p {

@@ -71,7 +71,7 @@
           <div class="desc">{{casa.descripcion}}</div>
           <div class="cont-detalles">
             <ul class="detalles">
-              <li><span class="material-icons">groups</span>{{casa.personas}}</li>
+              <li ><span class="material-icons">groups</span>{{casa.personas}}</li>
               <li><span class="material-icons">drafts</span>{{casa.habitaciones}}</li>
               <li><span class="material-icons">single_bed</span>{{casa.camas}}</li>
               <li><span class="material-icons">bathtub</span>{{casa.aseos}}</li>
@@ -81,7 +81,7 @@
         </mat-card-content>
 
         <mat-card-actions>
-          <button mat-button (click)="routeDetails(casa.idcasa)">RESERVAR</button>
+          <button mat-button (click)="routeDetails(casa.idcasa)" class="boton-reservar">RESERVAR</button>
         </mat-card-actions>
       </div>
 
