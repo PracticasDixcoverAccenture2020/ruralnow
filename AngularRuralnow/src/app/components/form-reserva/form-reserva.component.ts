@@ -30,12 +30,6 @@ export class FormReservaComponent implements OnInit {
   //datos reserva
   cliente: Persona = new Persona();
 
-  /*nombre: string;
-  apellidos: string;
-  email: string;
-  telefono: string;
-  fechaNac: Date;*/
-
 
   constructor(
     private httpClient: HttpClient,
@@ -70,15 +64,10 @@ export class FormReservaComponent implements OnInit {
   confirmarReserva() {
     this.intento = true;
 
-    //alert("confirmado: " + this.fechaEntrada + " - " + this.fechaSalida + " / Total: " + this.precioTotal);
-
-    console.log(this.form.status);
 
     if (this.form.valid) {
-      console.log(this.form.value);
 
       let email: string = this.form.value.email;
-      //let noches: number = this.precioTotal / this.casa.precio_noche;
 
       let reserva: Reserva = new Reserva();
       reserva.casa = this.casa;
@@ -92,8 +81,7 @@ export class FormReservaComponent implements OnInit {
 
       this.httpClient.post("http://localhost:8080/Reserva/crearReserva", reservaJSON).subscribe();
       alert("¡Reserva confirmada con éxito! En breve recibirá un E-mail.");
-
-      this._location.back();
+      this.router.navigate(['/home']);
     }
   }
 
