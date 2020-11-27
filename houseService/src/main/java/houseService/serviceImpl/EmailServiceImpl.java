@@ -9,6 +9,10 @@ import javax.mail.Message;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.font.PDType1Font;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.MailException;
@@ -55,40 +59,35 @@ public class EmailServiceImpl implements EmailService{
 
 	@Override
 	public void sendMailWithInlineResources(String to, String subject, String nombreCasa,
-											int precioNoche, int totalPrecio, int totalNoches) {
+			int precioNoche, int totalPrecio, int totalNoches) {
 
-		MimeMessagePreparator preparator = new MimeMessagePreparator() 
-		{
-			public void prepare(MimeMessage mimeMessage) throws Exception 
-			{
-				
+		MimeMessagePreparator preparator = new MimeMessagePreparator() {
+			public void prepare(MimeMessage mimeMessage) throws Exception {		
+
 				MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true, "utf-8");
 				String htmlMsg = new String(Files.readAllBytes(Paths.get("./assets/Template.html")),
-											StandardCharsets.UTF_8)
-											.replace("{{first_name}}", to)
-											.replace("{{nombre_casa}}", nombreCasa)
-											.replace("{{precio_noche}}", precioNoche + "")
-											.replace("{{precio_total}}", totalPrecio + "")
-											.replace("{{total_noches}}", totalNoches + "");
-				
+						StandardCharsets.UTF_8)
+						.replace("{{first_name}}", to)
+						.replace("{{nombre_casa}}", nombreCasa)
+						.replace("{{precio_noche}}", precioNoche + "")
+						.replace("{{precio_total}}", totalPrecio + "")
+						.replace("{{total_noches}}", totalNoches + "");
+
+
 				helper.setText(htmlMsg, true);;
 				helper.setTo(to);
 				helper.setSubject(subject);
 				helper.setFrom("ruralnowcompany@gmail.com");
 				FileSystemResource res = new FileSystemResource(new File("./assets/ruralnowlodomail.png"));
-	            helper.addInline("ruralnowlogo", res);
-	            
+				helper.addInline("ruralnowlogo", res);
 				mailSender.send(mimeMessage);
 			}
-
-
 		};
 
 		try {
 			mailSender.send(preparator);
 		}
 		catch (MailException ex) {
-			// simply log it and go on...
 			System.err.println(ex.getMessage());
 		}
 

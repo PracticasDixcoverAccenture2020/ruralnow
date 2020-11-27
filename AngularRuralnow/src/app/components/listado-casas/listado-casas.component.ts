@@ -93,7 +93,6 @@ export class ListadoCasasComponent implements OnInit {
 
     if (this.localizacion === "undefined" || this.localizacion === "Cualquiera" || this.localizacion === "") {
       this.httpClient.get("http://localhost:8080/Casa/getAll").subscribe(data => {
-        //console.log(data);
         this.rellenarLista(data);
       })
 
@@ -101,14 +100,12 @@ export class ListadoCasasComponent implements OnInit {
 
     } else {
       this.httpClient.get("http://localhost:8080/Casa/byProvincia/" + this.localizacion).subscribe(data => {
-        //console.log(data);
 
         if (Object.keys(data).length > 0) {
           this.rellenarLista(data);
         } else {
 
           this.httpClient.get("http://localhost:8080/Casa/byPoblacion/" + this.localizacion).subscribe(data => {
-            //console.log(data);
             this.rellenarLista(data);
           })
 
@@ -144,7 +141,6 @@ export class ListadoCasasComponent implements OnInit {
   //Rellena la lista de casas con las condiciones basicas
   private rellenarLista(data: Object): void {
     if (Object.keys(data).length > 0) {
-      //console.log('filling list')
 
       for (let key of Object.keys(data)) {
         let casa: Casa = data[key];
@@ -197,18 +193,6 @@ export class ListadoCasasComponent implements OnInit {
       }]);
     }
 
-  /*public filtrar() {
-
-    if (this.precioSelec >= 0) {
-
-      if (this.fechaEntrada === null || this.fechaSalida === null || this.huespedes === null)
-        alert("Por favor, rellena todos los campos")
-      else
-        this.buscar();
-
-    }
-  }*/
-
   buscar() {
     // Update route without navigate
     this.router.navigate(['/houses', {
@@ -228,12 +212,10 @@ export class ListadoCasasComponent implements OnInit {
 
   //Procesadores
   procesaFechaSalida(fechaSalida: Date) {
-    //console.log(fechaSalida);
     this.fechaSalida = fechaSalida;
   }
 
   procesaFechaEntrada(fechaEntrada: Date) {
-    //console.log(fechaEntrada);
     this.fechaEntrada = fechaEntrada;
   }
 
@@ -243,7 +225,6 @@ export class ListadoCasasComponent implements OnInit {
       for (let key of Object.keys(data)) {
         let servicio: Servicio = data[key];
         this.listaServicios.push(servicio);
-        //console.log(servicio.nombre);
 
         //para procesar los servicios seleccionados
         this.serviciosCheck[servicio.idservicio] = false;
