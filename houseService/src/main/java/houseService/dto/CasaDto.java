@@ -64,7 +64,7 @@ public class CasaDto {
 	/*
 	 * Propietario de la casa
 	 */
-	private UsuarioDto usuario;
+	private int usuarioId;
 	
 	/*
 	 * Imagen

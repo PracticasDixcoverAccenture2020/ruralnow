@@ -40,7 +40,7 @@ public class CasaController {
 
 		if (casas != null) {
 			for (Casa casa : casas) {
-				CasaDto casaDto = (CasaDto) mapper.map(casa, CasaDto.class);
+				CasaDto casaDto = mapping(casa);
 				casasDto.add(casaDto);
 			}
 
@@ -59,7 +59,7 @@ public class CasaController {
 			CasaDto casaDto = new CasaDto();
 
 			if (casa.getIdcasa() != 0) {
-				casaDto = (CasaDto) mapper.map(casa, CasaDto.class);
+				casaDto = mapping(casa);
 			}
 			
 			return casaDto;
@@ -81,7 +81,7 @@ public class CasaController {
 
 		if (casas != null) {
 			for (Casa casa : casas) {
-				CasaDto casaDto = (CasaDto) mapper.map(casa, CasaDto.class);
+				CasaDto casaDto = mapping(casa);
 				casasDto.add(casaDto);
 			}
 		}
@@ -100,7 +100,7 @@ public class CasaController {
 
 		if (casas != null) {
 			for (Casa casa : casas) {
-				CasaDto casaDto = (CasaDto) mapper.map(casa, CasaDto.class);
+				CasaDto casaDto = mapping(casa);
 				casasDto.add(casaDto);
 			}
 		}
@@ -126,11 +126,20 @@ public class CasaController {
 
 		if (casas != null) {
 			for (Casa casa : casas) {
-				CasaDto casaDto = (CasaDto) mapper.map(casa, CasaDto.class);
+				CasaDto casaDto = mapping(casa);
 				casasDto.add(casaDto);
 			}
 		}
 
 		return casasDto;
+	}
+	
+	private CasaDto mapping(Casa casa) {
+		
+		 CasaDto casaDto = (CasaDto) mapper.map(casa, CasaDto.class);	
+		 
+		 casaDto.setUsuarioId(casa.getUsuario().getIdusuario());
+		 
+		 return casaDto;
 	}
 }

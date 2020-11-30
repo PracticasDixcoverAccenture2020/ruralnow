@@ -12,7 +12,7 @@
   padding-left: 20px;
   margin: 0;
   font-size: 1.7vw;
-  font-family:  Helvetica, sans-serif, monospace;
+  font-family: Helvetica, sans-serif, monospace;
 }
 
 .titulo-resultado p {
@@ -58,7 +58,8 @@
 .example-card {
   max-width: 49%;
   margin-top: 15px;
-  border: 2px solid black;
+  border: 0.5px solid #002d27;
+  box-shadow: none;
   display: flex;
   background-color: white;
   align-self: flex-start;
