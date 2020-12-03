@@ -72,6 +72,9 @@ export class LandingPageComponent implements OnInit {
   //Emisores
 
   compareDateAndGo() {
+
+
+    
     if (this.huespedes === undefined)
       this.huespedes = 1;
 
@@ -79,6 +82,8 @@ export class LandingPageComponent implements OnInit {
       alert("Por favor, rellena todos los campos")
     } else {
 
+
+      
       if(this.localizacion == undefined){
 
         this.router.navigate(['/houses', {

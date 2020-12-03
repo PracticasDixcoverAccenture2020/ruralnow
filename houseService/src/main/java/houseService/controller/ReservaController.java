@@ -125,7 +125,7 @@ public class ReservaController {
 			
 			if (reservaDto != null) {
 				
-				Reserva reserva = new Reserva();
+				Reserva reserva;
 				reserva = (Reserva) mapper.map(reservaDto, Reserva.class);
 
 				int totalNoches = reservaDto.getImporte() / reservaDto.getCasa().getPrecio_noche();
@@ -136,7 +136,6 @@ public class ReservaController {
 														reserva.getCasa().getPrecio_noche(),
 														reserva.getImporte(), totalNoches);
 				
-				//reservaService.crearReserva(reserva);
 			}
 
 

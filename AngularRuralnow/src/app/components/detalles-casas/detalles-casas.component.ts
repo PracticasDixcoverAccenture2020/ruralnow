@@ -19,7 +19,6 @@ export class DetallesCasasComponent implements OnInit {
   noches: number;
   precio: number;
   idCasa: number;
-  //FechasOcupadas
   fechasOcupadas: string[]=[];
 
   constructor(
