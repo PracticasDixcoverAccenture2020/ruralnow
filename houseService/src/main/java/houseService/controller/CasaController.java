@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.dozer.DozerBeanMapper;
@@ -68,7 +69,7 @@ public class CasaController {
 			return casaDto;
 
 		} catch (Exception e) {
-			LOGGER.log(null, e.getMessage());
+			LOGGER.log(Level.SEVERE, e.getMessage());
 			return new CasaDto();
 		}
 	}

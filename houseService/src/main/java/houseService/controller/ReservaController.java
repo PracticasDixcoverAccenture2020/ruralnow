@@ -3,8 +3,10 @@ package houseService.controller;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.logging.LogRecord;
 import java.util.logging.Logger;
+import java.util.logging.Level;
+
+
 
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import ch.qos.logback.classic.Level;
 import houseService.dto.ReservaDto;
 import houseService.entity.Reserva;
 import houseService.service.EmailService;
@@ -81,7 +82,7 @@ public class ReservaController {
 			return reservaDto;
 
 		} catch (Exception e) {
-			LOGGER.log(null, e.getMessage());
+			LOGGER.log(Level.SEVERE, e.getMessage());
 			return new ReservaDto();
 		}
 	}
@@ -96,17 +97,16 @@ public class ReservaController {
 	public List<Date> getFechasOcupadas(@PathVariable Integer idCasa) {
 
 		List<Date> diasOcupados = new ArrayList<Date>();
-		
 		try {
-			
+
 			diasOcupados = reservaService.diasReservados(idCasa);
 
-		} catch (Exception e) {
-			LogRecord l = null;
-			LOGGER.log(l.getLevel(), e.getMessage());
-			diasOcupados.clear();
 
-		}		
+		} catch (Exception e) {
+			LOGGER.log(Level.SEVERE, e.getMessage());
+
+		}
+		
 		return diasOcupados;
 	}
 
@@ -125,24 +125,24 @@ public class ReservaController {
 			
 			if (reservaDto != null) {
 				
-				Reserva reserva;
+				Reserva reserva = new Reserva();
 				reserva = (Reserva) mapper.map(reservaDto, Reserva.class);
 
 				int totalNoches = reservaDto.getImporte() / reservaDto.getCasa().getPrecio_noche();
 
-				emailService.sendMailWithInlineResources(reserva.getUsuario().getEmail(),
+				emailService.sendMailWithInlineResources(reservaDto.getUsuario().getEmail(),
 														"Reserva Confirmada",
 														reserva.getCasa().getNombre(),
 														reserva.getCasa().getPrecio_noche(),
 														reserva.getImporte(), totalNoches);
 				
-				reservaService.crearReserva(reserva);
+				//reservaService.crearReserva(reserva);
 			}
 
 
 
 		} catch (Exception e) {
-			LOGGER.log(null, e.getMessage());
+			LOGGER.log(Level.SEVERE, e.getMessage());
 		}
 	}
 

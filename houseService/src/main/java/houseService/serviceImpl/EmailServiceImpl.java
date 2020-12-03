@@ -4,6 +4,7 @@ import java.io.File;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.mail.internet.MimeMessage;
@@ -87,7 +88,7 @@ public class EmailServiceImpl implements EmailService{
 			mailSender.send(preparator);
 		}
 		catch (MailException ex) {
-			LOGGER.log(null, ex.getMessage());
+			LOGGER.log(Level.SEVERE, ex.getMessage());
 		}
 
 	}

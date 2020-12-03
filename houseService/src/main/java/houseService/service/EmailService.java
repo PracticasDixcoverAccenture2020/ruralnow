@@ -9,4 +9,5 @@ public interface EmailService{
 	void sendMailWithInlineResources(String to, String subject, String NombreCasa,
 									int precioNoche, int totalPrecio, int totalNoches);
 
+
 }
