@@ -3,6 +3,7 @@ package houseService.controller;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.LogRecord;
 import java.util.logging.Logger;
 
 import org.dozer.DozerBeanMapper;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import ch.qos.logback.classic.Level;
 import houseService.dto.ReservaDto;
 import houseService.entity.Reserva;
 import houseService.service.EmailService;
@@ -100,7 +102,8 @@ public class ReservaController {
 			diasOcupados = reservaService.diasReservados(idCasa);
 
 		} catch (Exception e) {
-			LOGGER.log(null, e.getMessage());
+			LogRecord l = null;
+			LOGGER.log(l.getLevel(), e.getMessage());
 			diasOcupados.clear();
 
 		}		
@@ -127,7 +130,7 @@ public class ReservaController {
 
 				int totalNoches = reservaDto.getImporte() / reservaDto.getCasa().getPrecio_noche();
 
-				emailService.sendMailWithInlineResources(reservaDto.getUsuario().getEmail(),
+				emailService.sendMailWithInlineResources(reserva.getUsuario().getEmail(),
 														"Reserva Confirmada",
 														reserva.getCasa().getNombre(),
 														reserva.getCasa().getPrecio_noche(),
