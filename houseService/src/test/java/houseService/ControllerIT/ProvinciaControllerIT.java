@@ -1,4 +1,4 @@
-package ruralnow.houseService.ControllerIT;
+package houseService.ControllerIT;
 
 import static org.junit.Assert.assertEquals;
 

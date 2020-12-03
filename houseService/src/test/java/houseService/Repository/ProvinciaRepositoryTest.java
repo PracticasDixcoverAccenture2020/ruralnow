@@ -1,4 +1,4 @@
-package ruralnow.houseService.Repository;
+package houseService.Repository;
 
 import java.util.List;
 
@@ -23,6 +23,6 @@ public class ProvinciaRepositoryTest {
 	public void findAll() {
 		List<Provincia> provincias = provinciaRepo.findAll();
 		//
-		assertEquals(provincias.size(),8);
+		assertEquals(8, provincias.size());
 	}
 }

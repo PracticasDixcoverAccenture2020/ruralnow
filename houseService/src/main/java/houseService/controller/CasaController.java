@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Logger;
 
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,9 @@ import houseService.service.CasaService;
 @RestController
 @RequestMapping({ "/Casa" })
 public class CasaController {
+	
+	private static final Logger LOGGER = Logger.getLogger( CasaController.class.getName() );
+
 
 	@Autowired
 	private CasaService casaService;
@@ -64,7 +68,7 @@ public class CasaController {
 			return casaDto;
 
 		} catch (Exception e) {
-			System.out.println(e);
+			LOGGER.log(null, e.getMessage());
 			return new CasaDto();
 		}
 	}

@@ -4,6 +4,7 @@ import java.io.File;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.logging.Logger;
 
 import javax.mail.internet.MimeMessage;
 
@@ -16,11 +17,15 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.stereotype.Service;
 
+import houseService.controller.ReservaController;
 import houseService.service.EmailService;
 
 
 @Service
 public class EmailServiceImpl implements EmailService{
+	
+	private static final Logger LOGGER = Logger.getLogger( EmailServiceImpl.class.getName() );
+
 
 	@Autowired
 	private JavaMailSender mailSender;
@@ -82,7 +87,7 @@ public class EmailServiceImpl implements EmailService{
 			mailSender.send(preparator);
 		}
 		catch (MailException ex) {
-			System.err.println(ex.getMessage());
+			LOGGER.log(null, ex.getMessage());
 		}
 
 	}
