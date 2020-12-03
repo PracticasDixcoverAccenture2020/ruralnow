@@ -14,7 +14,7 @@ export class Casa {
     camas: number;
     aseos: number;
     precio_noche: number;
-    usuario: Persona;
+    usuario: string;
 
     imagen: string;
     servicios: Servicio [];
