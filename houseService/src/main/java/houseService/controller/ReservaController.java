@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Logger;
+import java.util.logging.Level;
+
+
 
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -79,7 +82,7 @@ public class ReservaController {
 			return reservaDto;
 
 		} catch (Exception e) {
-			LOGGER.log(null, e.getMessage());
+			LOGGER.log(Level.SEVERE, e.getMessage());
 			return new ReservaDto();
 		}
 	}
@@ -94,16 +97,16 @@ public class ReservaController {
 	public List<Date> getFechasOcupadas(@PathVariable Integer idCasa) {
 
 		List<Date> diasOcupados = new ArrayList<Date>();
-		
 		try {
-			
+
 			diasOcupados = reservaService.diasReservados(idCasa);
 
-		} catch (Exception e) {
-			LOGGER.log(null, e.getMessage());
-			diasOcupados.clear();
 
-		}		
+		} catch (Exception e) {
+			LOGGER.log(Level.SEVERE, e.getMessage());
+
+		}
+		
 		return diasOcupados;
 	}
 
@@ -122,7 +125,7 @@ public class ReservaController {
 			
 			if (reservaDto != null) {
 				
-				Reserva reserva;
+				Reserva reserva = new Reserva();
 				reserva = (Reserva) mapper.map(reservaDto, Reserva.class);
 
 				int totalNoches = reservaDto.getImporte() / reservaDto.getCasa().getPrecio_noche();
@@ -133,13 +136,13 @@ public class ReservaController {
 														reserva.getCasa().getPrecio_noche(),
 														reserva.getImporte(), totalNoches);
 				
-				reservaService.crearReserva(reserva);
+				//reservaService.crearReserva(reserva);
 			}
 
 
 
 		} catch (Exception e) {
-			LOGGER.log(null, e.getMessage());
+			LOGGER.log(Level.SEVERE, e.getMessage());
 		}
 	}
 
