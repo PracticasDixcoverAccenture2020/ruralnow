@@ -12,9 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import houseService.dto.PoblacionDto;
-import houseService.dto.ProvinciaDto;
 import houseService.entity.Poblacion;
-import houseService.entity.Provincia;
 import houseService.service.PoblacionService;
 
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)

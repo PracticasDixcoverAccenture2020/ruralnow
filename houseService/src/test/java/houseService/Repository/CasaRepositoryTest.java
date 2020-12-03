@@ -1,4 +1,4 @@
-package ruralnow.houseService.Repository;
+package houseService.Repository;
 
 import java.util.List;
 
@@ -24,7 +24,7 @@ public class CasaRepositoryTest {
 	public void findAll()  {
 		List<Casa> casas = repoCasa.findAll();
 		
-		assertEquals(casas.size(),9);
+		assertEquals(9, casas.size());
 	}
 	
 	@Test
@@ -40,7 +40,7 @@ public class CasaRepositoryTest {
 	public void findByProvincia() {
 		List<Casa> casas = repoCasa.findByProvincia("Málaga");
 		
-		assertEquals(casas.size(),8);
+		assertEquals(8, casas.size());
 	}
 	
 	@Test
@@ -48,6 +48,6 @@ public class CasaRepositoryTest {
 	public void findByPoblacion_poblacion() {
 		List<Casa> casas = repoCasa.findByPoblacion("Antequera");
 		
-		assertEquals(casas.size(),2);
+		assertEquals(2, casas.size());
 	}
 }

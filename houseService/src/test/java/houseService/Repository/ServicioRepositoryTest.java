@@ -1,4 +1,4 @@
-package ruralnow.houseService.Repository;
+package houseService.Repository;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -24,6 +24,6 @@ public class ServicioRepositoryTest {
 	public void findAll()  {
 		List<Servicio> servicios = repoServicio.findAll();
 		
-		assertEquals(servicios.size(),7);
+		assertEquals(7, servicios.size());
 	}
 }

@@ -1,9 +1,9 @@
 package houseService.controller;
 
-import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Logger;
 
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,10 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import houseService.dto.CasaDto;
 import houseService.dto.ReservaDto;
 import houseService.entity.Reserva;
-import houseService.service.CasaService;
 import houseService.service.EmailService;
 import houseService.service.ReservaService;
 
@@ -27,13 +25,13 @@ import houseService.service.ReservaService;
 @RestController
 @RequestMapping({ "/Reserva" })
 public class ReservaController {
+	
+	private static final Logger LOGGER = Logger.getLogger( ReservaController.class.getName() );
+
 
 	@Autowired
 	private ReservaService reservaService;
 
-
-	@Autowired
-	private CasaService casaService;
 
 	@Autowired
 	private EmailService emailService;
@@ -81,7 +79,7 @@ public class ReservaController {
 			return reservaDto;
 
 		} catch (Exception e) {
-			System.out.println(e);
+			LOGGER.log(null, e.getMessage());
 			return new ReservaDto();
 		}
 	}
@@ -95,16 +93,18 @@ public class ReservaController {
 	@RequestMapping(value = "/casa/{idCasa}", method = RequestMethod.GET)
 	public List<Date> getFechasOcupadas(@PathVariable Integer idCasa) {
 
+		List<Date> diasOcupados = new ArrayList<Date>();
+		
 		try {
-
-			List<Date> diasOcupados = reservaService.diasReservados(idCasa);
-
-			return diasOcupados;
+			
+			diasOcupados = reservaService.diasReservados(idCasa);
 
 		} catch (Exception e) {
-			System.out.println(e);
-			return null;
-		}
+			LOGGER.log(null, e.getMessage());
+			diasOcupados.clear();
+
+		}		
+		return diasOcupados;
 	}
 
 	/**
@@ -122,7 +122,7 @@ public class ReservaController {
 			
 			if (reservaDto != null) {
 				
-				Reserva reserva = new Reserva();
+				Reserva reserva;
 				reserva = (Reserva) mapper.map(reservaDto, Reserva.class);
 
 				int totalNoches = reservaDto.getImporte() / reservaDto.getCasa().getPrecio_noche();
@@ -139,7 +139,7 @@ public class ReservaController {
 
 
 		} catch (Exception e) {
-			System.out.println(e);
+			LOGGER.log(null, e.getMessage());
 		}
 	}
 
