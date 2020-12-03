@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import houseService.entity.Poblacion;
-import houseService.entity.Provincia;
 import houseService.repository.PoblacionRepository;
 import houseService.service.PoblacionService;
 

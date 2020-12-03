@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import houseService.dto.CasaDto;
-import houseService.dto.PoblacionDto;
 import houseService.entity.Casa;
 import houseService.service.CasaService;
 

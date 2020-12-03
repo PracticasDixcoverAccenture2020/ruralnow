@@ -1,6 +1,5 @@
 package houseService.controller;
 
-import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -16,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import houseService.dto.CasaDto;
 import houseService.dto.ReservaDto;
 import houseService.entity.Reserva;
 import houseService.service.CasaService;
@@ -31,9 +29,6 @@ public class ReservaController {
 	@Autowired
 	private ReservaService reservaService;
 
-
-	@Autowired
-	private CasaService casaService;
 
 	@Autowired
 	private EmailService emailService;

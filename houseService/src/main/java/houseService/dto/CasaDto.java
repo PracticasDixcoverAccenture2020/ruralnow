@@ -2,11 +2,6 @@ package houseService.dto;
 
 import java.util.List;
 
-import javax.persistence.Id;
-
-import houseService.entity.Poblacion;
-import houseService.entity.Servicio;
-import houseService.entity.Usuario;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

@@ -1,7 +1,6 @@
 package houseService.serviceImpl;
 
-import java.time.LocalDate;
-import java.time.ZoneId;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -11,9 +10,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import houseService.entity.Casa;
 import houseService.entity.Reserva;
-import houseService.repository.CasaRepository;
 import houseService.repository.ReservaRepository;
 import houseService.service.ReservaService;
 
