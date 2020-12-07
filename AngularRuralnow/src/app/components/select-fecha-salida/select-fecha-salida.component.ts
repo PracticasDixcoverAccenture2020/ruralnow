@@ -63,8 +63,10 @@ export class SelectFechaSalidaComponent implements OnInit {
   }
 
   comunicarFechaSalida(fechaSalidaSelect: Date) {
+
     this.comunicadorFechaSalida.emit(fechaSalidaSelect);
     console.log(fechaSalidaSelect);
+    
   }
 
 }

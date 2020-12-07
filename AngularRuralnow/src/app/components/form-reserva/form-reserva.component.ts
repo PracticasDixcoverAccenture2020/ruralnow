@@ -25,6 +25,10 @@ export class FormReservaComponent implements OnInit {
   fechaSalidaStr: string;
   precioTotal: number;
 
+  minDate: Date;
+  maxDate: Date;
+
+
   intento: boolean = false;
 
   //datos reserva
@@ -45,6 +49,10 @@ export class FormReservaComponent implements OnInit {
       fechaNac: ['', Validators.compose([Validators.required, this.mayorEdadValidatorFactory()])],
       terminos: [false, Validators.required]
     })
+
+    const currentYear = new Date().getFullYear();
+    this.minDate = new Date(currentYear - 100, 11, 31);
+    this.maxDate = new Date(currentYear - 17, 0, 0);
   }
 
   ngOnInit(): void {

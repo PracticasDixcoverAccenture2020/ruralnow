@@ -72,19 +72,17 @@ export class LandingPageComponent implements OnInit {
   //Emisores
 
   compareDateAndGo() {
-
-
     
     if (this.huespedes === undefined)
+
       this.huespedes = 1;
 
     if (this.fechaEntrada === undefined || this.fechaSalida === undefined || this.huespedes === null) {
-      alert("Por favor, rellena todos los campos")
-    } else {
+      this.myControl.setErrors({"errorObject":true});
 
+    }else{
 
-      
-      if(this.localizacion == undefined){
+      if(this.localizacion == null){
 
         this.router.navigate(['/houses', {
           localizacion: "Cualquiera",
@@ -95,12 +93,18 @@ export class LandingPageComponent implements OnInit {
 
       }else{
 
-        this.router.navigate(['/houses', {
-          localizacion: this.localizacion.poblacion,
-          huespedes: this.huespedes,
-          fechaEntrada: this.fechaEntrada,
-          fechaSalida: this.fechaSalida
-        }]);
+        if(this.municipios.includes(this.localizacion)){
+
+          this.router.navigate(['/houses', {
+            localizacion: this.localizacion.poblacion,
+            huespedes: this.huespedes,
+            fechaEntrada: this.fechaEntrada,
+            fechaSalida: this.fechaSalida
+          }]);
+
+        }else{
+          this.myControl.setErrors({"errorObject":true});
+        }     
 
       }
     

@@ -23,7 +23,8 @@
 
 .card-casa {
   align-self: flex-start;
-  background-color: #b8faf1;
+  background-color: #d8fdf8;
+  box-shadow: none;
 }
 
 .card-casa img {
@@ -62,6 +63,13 @@ ul.detalles {
   font-weight: bold;
   width: 100%;
   font-family: Helvetica, sans-serif, monospace;
+}
+
+.BotonVolver{
+  background: transparent;
+  color:darkred;
+  box-shadow: none;
+  border: none;
 }
 
 .col-8{
